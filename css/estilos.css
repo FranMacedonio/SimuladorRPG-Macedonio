@@ -121,6 +121,46 @@ a {
   background-size: 120%;
 }
 
+#contenedor #pantalla.creacion #guerrero .content {
+  position: relative;
+  -webkit-transform: translateY(165px);
+          transform: translateY(165px);
+  z-index: 1;
+}
+
+#contenedor #pantalla.creacion #guerrero .content h1 {
+  font-weight: 300;
+  color: transparent;
+  -webkit-transition: 150ms color ease-out 350ms;
+  transition: 150ms color ease-out 350ms;
+}
+
+#contenedor #pantalla.creacion #guerrero .content::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 40px;
+  bottom: 23px;
+  right: 0;
+  z-index: -1;
+  background: #9e1414;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: 350ms -webkit-transform ease-in-out;
+  transition: 350ms -webkit-transform ease-in-out;
+  transition: 350ms transform ease-in-out;
+  transition: 350ms transform ease-in-out, 350ms -webkit-transform ease-in-out;
+}
+
+#contenedor #pantalla.creacion #guerrero:hover .content::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+#contenedor #pantalla.creacion #guerrero:hover .content h1 {
+  color: #d4d4d4;
+}
+
 #contenedor #pantalla.creacion #arquero {
   background-image: url(../media/arquero/arco.png);
   background-position: center;
