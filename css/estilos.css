@@ -104,7 +104,7 @@ a {
           backdrop-filter: blur(5px);
 }
 
-#contenedor #pantalla.creacion .glass-card .content {
+#contenedor #pantalla.creacion .glass-card .content__clase {
   position: relative;
   -webkit-transform: translateY(165px);
           transform: translateY(165px);
@@ -113,14 +113,14 @@ a {
   text-align: center;
 }
 
-#contenedor #pantalla.creacion .glass-card .content h1 {
+#contenedor #pantalla.creacion .glass-card .content__clase h1 {
   font-weight: 300;
   color: transparent;
   -webkit-transition: 150ms color ease-out;
   transition: 150ms color ease-out;
 }
 
-#contenedor #pantalla.creacion .glass-card .content::after {
+#contenedor #pantalla.creacion .glass-card .content__clase::after {
   position: absolute;
   content: '';
   width: 100%;
@@ -136,15 +136,88 @@ a {
   transition: 350ms transform ease-in-out, 350ms -webkit-transform ease-in-out;
 }
 
-#contenedor #pantalla.creacion .glass-card:hover .content::after {
+#contenedor #pantalla.creacion .glass-card:hover .content__clase::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
 
-#contenedor #pantalla.creacion .glass-card:hover .content h1 {
+#contenedor #pantalla.creacion .glass-card:hover .content__clase h1 {
   color: #d4d4d4;
   -webkit-transition-delay: 350ms;
           transition-delay: 350ms;
+}
+
+#contenedor #pantalla.creacion .glass-card.seleccion--raza img {
+  position: absolute;
+  width: 130%;
+  bottom: 0;
+  left: -35px;
+  opacity: 1;
+  z-index: 10;
+  -webkit-transition: opacity 250ms ease-in;
+  transition: opacity 250ms ease-in;
+}
+
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  opacity: 0;
+  -webkit-transition: opacity 250ms ease-in;
+  transition: opacity 250ms ease-in;
+}
+
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza h2 {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza h2::after {
+  content: '';
+  width: calc( 100% + 20px);
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 250ms ease-in 250ms;
+  transition: -webkit-transform 250ms ease-in 250ms;
+  transition: transform 250ms ease-in 250ms;
+  transition: transform 250ms ease-in 250ms, -webkit-transform 250ms ease-in 250ms;
+}
+
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza.guerrero--after h2::after {
+  background: #9e1414;
+}
+
+#contenedor #pantalla.creacion .glass-card.seleccion--raza:hover img {
+  opacity: 0;
+}
+
+#contenedor #pantalla.creacion .glass-card.seleccion--raza:hover .content__raza {
+  opacity: 1;
+  -webkit-transition-delay: 250ms;
+          transition-delay: 250ms;
+}
+
+#contenedor #pantalla.creacion .glass-card.seleccion--raza:hover .content__raza h2::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 #contenedor #pantalla.creacion .intro {
@@ -165,7 +238,7 @@ a {
   background-position: 50% 0%;
 }
 
-#contenedor #pantalla.creacion #guerrero .content::after {
+#contenedor #pantalla.creacion #guerrero .content__clase::after {
   background: #9e1414;
 }
 
@@ -179,10 +252,10 @@ a {
 }
 
 #contenedor #pantalla.creacion #arquero:hover {
-  background-position: 50% 30%;
+  background-position: 50% 10%;
 }
 
-#contenedor #pantalla.creacion #arquero .content::after {
+#contenedor #pantalla.creacion #arquero .content__clase::after {
   background: #1b860d;
 }
 
@@ -196,10 +269,10 @@ a {
 }
 
 #contenedor #pantalla.creacion #mago:hover {
-  background-position: 50% -90%;
+  background-position: 50% -100%;
 }
 
-#contenedor #pantalla.creacion #mago .content::after {
+#contenedor #pantalla.creacion #mago .content__clase::after {
   background: #14679e;
 }
 /*# sourceMappingURL=estilos.css.map */

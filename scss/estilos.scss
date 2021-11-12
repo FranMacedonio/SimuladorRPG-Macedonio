@@ -85,7 +85,10 @@ a{
                 border-left: 1px solid rgba(255, 255, 255, 0.5);
                 backdrop-filter: blur(5px);
 
-                .content{
+
+
+                // CONTENIDO DE LA PRIMER SELECCION ***************************
+                .content__clase{
                     position: relative;
                     transform: translateY(165px);
                     z-index: 1;
@@ -113,14 +116,86 @@ a{
                 }
 
                 &:hover{
-                    .content::after{
+                    .content__clase::after{
                         transform: scaleX(1);
                     }
-                    .content h1{
+                    .content__clase h1{
                         color: rgb(212, 212, 212);
                         transition-delay: 350ms;
                     }
                 }
+                // ***************************************************************
+
+                // CONTENIDO DE LA SEGUNDA SELECCION *****************************
+
+                &.seleccion--raza{
+                    img{
+                        position: absolute;
+                        width: 130%;
+                        bottom: 0;
+                        left: -35px;
+                        opacity: 1;
+                        z-index: 10;
+
+                        transition: opacity 250ms ease-in;
+                    }
+                    
+                    .content__raza{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: start;
+                        align-items: center;
+
+                        height: 100%;
+                        text-align: center;
+                        padding: 20px;
+                        margin-top: auto;
+
+                        opacity: 0;
+
+                        transition: opacity 250ms ease-in;
+
+                        h2{
+                            position: relative;
+                            margin-bottom: 10px;
+
+                            &::after{
+                                content: '';
+                                width: calc( 100% + 20px );
+                                height: 3px;
+                                position: absolute;
+                                bottom: 0;
+                                left: -10px;
+
+                                transform: scaleX(0);
+
+                                transition: transform 250ms ease-in 250ms;
+
+                            }
+                        }
+                        &.guerrero--after{
+                            h2::after{
+                                background: rgb(158, 20, 20);
+                            }
+                        }
+                    }
+
+                    &:hover{
+                        img{
+                            opacity: 0;
+                        }
+
+                        .content__raza{
+                            opacity: 1;
+                            transition-delay: 250ms;
+                        }
+
+                        .content__raza h2::after{
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+
             }
 
             .intro{
@@ -142,7 +217,7 @@ a{
                     background-position: 50% 0%;
                 }
 
-                .content::after{
+                .content__clase::after{
                     background: rgb(158, 20, 20);
                 }
             }
@@ -156,10 +231,10 @@ a{
                 transition: 250ms ease-in;
 
                 &:hover{
-                    background-position: 50% 30%;
+                    background-position: 50% 10%;
                 }
 
-                .content::after{
+                .content__clase::after{
                     background: rgb(27, 134, 13);
                 }
             }
@@ -173,10 +248,10 @@ a{
                 transition: 250ms ease-in;
 
                 &:hover{
-                    background-position: 50% -90%;
+                    background-position: 50% -100%;
                 }
 
-                .content::after{
+                .content__clase::after{
                     background: rgb(20, 103, 158);
                 }
             }
