@@ -86,8 +86,40 @@ a{
                 backdrop-filter: blur(5px);
 
                 .content{
+                    position: relative;
+                    transform: translateY(165px);
+                    z-index: 1;
+
                     padding: 20px;
                     text-align: center;
+                    h1{
+                        font-weight: 300;
+                        color: transparent;
+                        transition: 150ms color ease-out;
+                    }
+
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        width: 100%;
+                        height: 40px;
+                        bottom: 23px;
+                        right: 0;
+                        z-index: -1;
+
+                        transform: scaleX(0);
+                        transition: 350ms transform ease-in-out;
+                    }
+                }
+
+                &:hover{
+                    .content::after{
+                        transform: scaleX(1);
+                    }
+                    .content h1{
+                        color: rgb(212, 212, 212);
+                        transition-delay: 350ms;
+                    }
                 }
             }
 
@@ -104,39 +136,14 @@ a{
                 background-repeat: no-repeat;
                 background-size: 120%;
 
-                .content{
-                    position: relative;
-                    transform: translateY(165px);
-                    z-index: 1;
-                    h1{
-                        font-weight: 300;
-                        color: transparent;
-                        transition: 150ms color ease-out 350ms;
-                    }
-
-                    &::after{
-                        position: absolute;
-                        content: '';
-                        width: 100%;
-                        height: 40px;
-                        bottom: 23px;
-                        right: 0;
-                        z-index: -1;
-
-                        background: rgb(158, 20, 20);
-
-                        transform: scaleX(0);
-                        transition: 350ms transform ease-in-out;
-                    }
-                }
+                transition: 250ms ease-in;
 
                 &:hover{
-                    .content::after{
-                        transform: scaleX(1);
-                    }
-                    .content h1{
-                        color: rgb(212, 212, 212);
-                    }
+                    background-position: 50% 0%;
+                }
+
+                .content::after{
+                    background: rgb(158, 20, 20);
                 }
             }
 
@@ -145,6 +152,16 @@ a{
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: 130%;
+
+                transition: 250ms ease-in;
+
+                &:hover{
+                    background-position: 50% 30%;
+                }
+
+                .content::after{
+                    background: rgb(27, 134, 13);
+                }
             }
 
             #mago{
@@ -152,6 +169,16 @@ a{
                 background-position: 50% -70%;
                 background-repeat: no-repeat;
                 background-size: 130%;
+
+                transition: 250ms ease-in;
+
+                &:hover{
+                    background-position: 50% -90%;
+                }
+
+                .content::after{
+                    background: rgb(20, 103, 158);
+                }
             }
         }
     }

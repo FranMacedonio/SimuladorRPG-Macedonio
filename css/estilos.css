@@ -105,8 +105,46 @@ a {
 }
 
 #contenedor #pantalla.creacion .glass-card .content {
+  position: relative;
+  -webkit-transform: translateY(165px);
+          transform: translateY(165px);
+  z-index: 1;
   padding: 20px;
   text-align: center;
+}
+
+#contenedor #pantalla.creacion .glass-card .content h1 {
+  font-weight: 300;
+  color: transparent;
+  -webkit-transition: 150ms color ease-out;
+  transition: 150ms color ease-out;
+}
+
+#contenedor #pantalla.creacion .glass-card .content::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 40px;
+  bottom: 23px;
+  right: 0;
+  z-index: -1;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: 350ms -webkit-transform ease-in-out;
+  transition: 350ms -webkit-transform ease-in-out;
+  transition: 350ms transform ease-in-out;
+  transition: 350ms transform ease-in-out, 350ms -webkit-transform ease-in-out;
+}
+
+#contenedor #pantalla.creacion .glass-card:hover .content::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+#contenedor #pantalla.creacion .glass-card:hover .content h1 {
+  color: #d4d4d4;
+  -webkit-transition-delay: 350ms;
+          transition-delay: 350ms;
 }
 
 #contenedor #pantalla.creacion .intro {
@@ -119,46 +157,16 @@ a {
   background-position: 50% 20%;
   background-repeat: no-repeat;
   background-size: 120%;
+  -webkit-transition: 250ms ease-in;
+  transition: 250ms ease-in;
 }
 
-#contenedor #pantalla.creacion #guerrero .content {
-  position: relative;
-  -webkit-transform: translateY(165px);
-          transform: translateY(165px);
-  z-index: 1;
-}
-
-#contenedor #pantalla.creacion #guerrero .content h1 {
-  font-weight: 300;
-  color: transparent;
-  -webkit-transition: 150ms color ease-out 350ms;
-  transition: 150ms color ease-out 350ms;
+#contenedor #pantalla.creacion #guerrero:hover {
+  background-position: 50% 0%;
 }
 
 #contenedor #pantalla.creacion #guerrero .content::after {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 40px;
-  bottom: 23px;
-  right: 0;
-  z-index: -1;
   background: #9e1414;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transition: 350ms -webkit-transform ease-in-out;
-  transition: 350ms -webkit-transform ease-in-out;
-  transition: 350ms transform ease-in-out;
-  transition: 350ms transform ease-in-out, 350ms -webkit-transform ease-in-out;
-}
-
-#contenedor #pantalla.creacion #guerrero:hover .content::after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-}
-
-#contenedor #pantalla.creacion #guerrero:hover .content h1 {
-  color: #d4d4d4;
 }
 
 #contenedor #pantalla.creacion #arquero {
@@ -166,6 +174,16 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 130%;
+  -webkit-transition: 250ms ease-in;
+  transition: 250ms ease-in;
+}
+
+#contenedor #pantalla.creacion #arquero:hover {
+  background-position: 50% 30%;
+}
+
+#contenedor #pantalla.creacion #arquero .content::after {
+  background: #1b860d;
 }
 
 #contenedor #pantalla.creacion #mago {
@@ -173,5 +191,15 @@ a {
   background-position: 50% -70%;
   background-repeat: no-repeat;
   background-size: 130%;
+  -webkit-transition: 250ms ease-in;
+  transition: 250ms ease-in;
+}
+
+#contenedor #pantalla.creacion #mago:hover {
+  background-position: 50% -90%;
+}
+
+#contenedor #pantalla.creacion #mago .content::after {
+  background: #14679e;
 }
 /*# sourceMappingURL=estilos.css.map */
