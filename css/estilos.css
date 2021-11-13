@@ -205,6 +205,14 @@ a {
   background: #9e1414;
 }
 
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza.arquero--after h2::after {
+  background: #1b860d;
+}
+
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza.mago--after h2::after {
+  background: #14679e;
+}
+
 #contenedor #pantalla.creacion .glass-card.seleccion--raza:hover img {
   opacity: 0;
 }

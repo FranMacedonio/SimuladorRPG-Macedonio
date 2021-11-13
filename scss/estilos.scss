@@ -178,6 +178,18 @@ a{
                                 background: rgb(158, 20, 20);
                             }
                         }
+
+                        &.arquero--after{
+                            h2::after{
+                                background: rgb(27, 134, 13);
+                            }
+                        }
+
+                        &.mago--after{
+                            h2::after{
+                                background: rgb(20, 103, 158)
+                            }
+                        }
                     }
 
                     &:hover{
