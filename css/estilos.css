@@ -253,6 +253,8 @@ a {
   position: absolute;
   width: 100%;
   left: -20px;
+  -webkit-transition: width 250ms ease-in-out;
+  transition: width 250ms ease-in-out;
 }
 
 #contenedor #pantalla.creacion .elemento h1 {
@@ -261,8 +263,13 @@ a {
   -webkit-writing-mode: vertical-lr;
       -ms-writing-mode: tb-lr;
           writing-mode: vertical-lr;
+  z-index: 10;
   top: 20px;
   right: 0;
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
 }
 
 #contenedor #pantalla.creacion .elemento .content {
@@ -276,22 +283,56 @@ a {
   width: 400px;
   height: 220px;
   z-index: -1;
+  -webkit-transition: -webkit-transform 350ms ease;
+  transition: -webkit-transform 350ms ease;
+  transition: transform 350ms ease;
+  transition: transform 350ms ease, -webkit-transform 350ms ease;
 }
 
-#contenedor #pantalla.creacion .fuego {
-  color: red;
+#contenedor #pantalla.creacion .elemento .content.fuego {
+  color: #751b1b;
 }
 
-#contenedor #pantalla.creacion .agua {
-  color: blue;
+#contenedor #pantalla.creacion .elemento .content.fuego::after {
+  background-image: url(../media/elementos/fuego.png);
 }
 
-#contenedor #pantalla.creacion .aire {
-  color: cornsilk;
+#contenedor #pantalla.creacion .elemento .content.agua {
+  color: #1b5c75;
 }
 
-#contenedor #pantalla.creacion .tierra {
-  color: darkgreen;
+#contenedor #pantalla.creacion .elemento .content.agua::after {
+  background-image: url(../media/elementos/agua.png);
+}
+
+#contenedor #pantalla.creacion .elemento .content.aire {
+  color: #858a8b;
+}
+
+#contenedor #pantalla.creacion .elemento .content.aire::after {
+  background-image: url(../media/elementos/aire.png);
+}
+
+#contenedor #pantalla.creacion .elemento .content.tierra {
+  color: #75471b;
+}
+
+#contenedor #pantalla.creacion .elemento .content.tierra::after {
+  background-image: url(../media/elementos/tierra.png);
+}
+
+#contenedor #pantalla.creacion .elemento:hover img {
+  width: 110%;
+}
+
+#contenedor #pantalla.creacion .elemento:hover .content h1 {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#contenedor #pantalla.creacion .elemento:hover .content::after {
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
 }
 
 #contenedor #pantalla.creacion #guerrero {

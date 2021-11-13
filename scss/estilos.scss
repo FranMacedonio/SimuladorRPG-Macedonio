@@ -234,21 +234,25 @@ a{
                     position: absolute;
                     width: 100%;
                     left: -20px;
+
+                    transition: width 250ms ease-in-out;
                 }
 
                 h1{
                     pointer-events: none;
                     position: absolute;
                     writing-mode: vertical-lr;
+                    z-index: 10;
 
                     top: 20px;
                     right: 0;
+
+                    transition: transform 500ms ease-in-out;
                 }
 
                 .content{
                     width: 100%;
                     height: 100%;
-                    
 
                     &::after{
                         position: absolute;
@@ -257,27 +261,58 @@ a{
                         height: 220px;
                         z-index: -1;
 
+                        transition: transform 350ms ease;
                     }
+
+                    &.fuego{
+                        color: rgb(117, 27, 27);
+
+                        &::after{
+
+                            background-image: url(../media/elementos/fuego.png);
+                            
+                        }
+                    }
+                    &.agua{
+                        color: rgb(27, 92, 117);
+
+                        &::after{
+
+                            background-image: url(../media/elementos/agua.png);
+                        }
+                    }
+                    &.aire{
+                        color: rgb(133, 138, 139);
+
+                        &::after{
+
+                            background-image: url(../media/elementos/aire.png);
+                        }
+                    }
+                    &.tierra{
+                        color: rgb(117, 71, 27);
+
+                        &::after{
+
+                            background-image: url(../media/elementos/tierra.png);
+                        }
+                    }
+
+
                 }
                 &:hover{
+                    img{
+                        width: 110%;
+                    }
+                    .content h1{
+                        transform: scale(1.1);
+                    }
                     .content::after{
-                        
+                        transform: translateY(20px);
                     }
                 }
             }
 
-            .fuego{
-                color: red;
-            }
-            .agua{
-                color: blue;
-            }
-            .aire{
-                color: cornsilk;
-            }
-            .tierra{
-                color: darkgreen;
-            }
 
             // CARTELES DE CREACION ***********************************************************
 
