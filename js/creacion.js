@@ -60,18 +60,38 @@ $(document).ready(function () {
 
                         $('.fuego').click(function () { 
                             eleccion_elemento ('fuego');
+                            
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.agua').click(function () { 
                             eleccion_elemento ('agua');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.aire').click(function () { 
                             eleccion_elemento ('aire');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.tierra').click(function () { 
                             eleccion_elemento ('tierra');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
                 });
 
@@ -80,18 +100,38 @@ $(document).ready(function () {
 
                         $('.fuego').click(function () { 
                             eleccion_elemento ('fuego');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.agua').click(function () { 
                             eleccion_elemento ('agua');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.aire').click(function () { 
                             eleccion_elemento ('aire');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.tierra').click(function () { 
                             eleccion_elemento ('tierra');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
                 });
 
@@ -100,18 +140,38 @@ $(document).ready(function () {
 
                         $('.fuego').click(function () { 
                             eleccion_elemento ('fuego');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.agua').click(function () { 
                             eleccion_elemento ('agua');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.aire').click(function () { 
                             eleccion_elemento ('aire');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.tierra').click(function () { 
                             eleccion_elemento ('tierra');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
                 });
         });
@@ -152,19 +212,39 @@ $(document).ready(function () {
                     eleccion_raza ('humano');
 
                         $('.fuego').click(function () { 
-                        eleccion_elemento ('fuego');
+                            eleccion_elemento ('fuego');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.agua').click(function () { 
                             eleccion_elemento ('agua');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.aire').click(function () { 
                             eleccion_elemento ('aire');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.tierra').click(function () { 
                             eleccion_elemento ('tierra');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
                 });
 
@@ -172,19 +252,39 @@ $(document).ready(function () {
                     eleccion_raza ('elfo');
 
                         $('.fuego').click(function () { 
-                        eleccion_elemento ('fuego');
+                            eleccion_elemento ('fuego');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.agua').click(function () { 
                             eleccion_elemento ('agua');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.aire').click(function () { 
                             eleccion_elemento ('aire');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.tierra').click(function () { 
                             eleccion_elemento ('tierra');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
                 });
 
@@ -192,19 +292,39 @@ $(document).ready(function () {
                     eleccion_raza ('oscuro');
 
                         $('.fuego').click(function () { 
-                        eleccion_elemento ('fuego');
+                            eleccion_elemento ('fuego');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.agua').click(function () { 
                             eleccion_elemento ('agua');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.aire').click(function () { 
                             eleccion_elemento ('aire');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.tierra').click(function () { 
                             eleccion_elemento ('tierra');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
                 });
         });
@@ -245,19 +365,39 @@ $(document).ready(function () {
                     eleccion_raza ('humano');
 
                         $('.fuego').click(function () { 
-                        eleccion_elemento ('fuego');
+                            eleccion_elemento ('fuego');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.agua').click(function () { 
                             eleccion_elemento ('agua');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.aire').click(function () { 
                             eleccion_elemento ('aire');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.tierra').click(function () { 
                             eleccion_elemento ('tierra');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
                 });
 
@@ -265,19 +405,39 @@ $(document).ready(function () {
                     eleccion_raza ('elfo');
 
                         $('.fuego').click(function () { 
-                        eleccion_elemento ('fuego');
+                            eleccion_elemento ('fuego');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.agua').click(function () { 
                             eleccion_elemento ('agua');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.aire').click(function () { 
                             eleccion_elemento ('aire');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.tierra').click(function () { 
                             eleccion_elemento ('tierra');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
                 });
 
@@ -285,19 +445,39 @@ $(document).ready(function () {
                     eleccion_raza ('oscuro');
 
                         $('.fuego').click(function () { 
-                        eleccion_elemento ('fuego');
+                            eleccion_elemento ('fuego');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.agua').click(function () { 
                             eleccion_elemento ('agua');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.aire').click(function () { 
                             eleccion_elemento ('aire');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
 
                         $('.tierra').click(function () { 
                             eleccion_elemento ('tierra');
+
+                            $('.btn-crear').click(function (e) { 
+                                e.preventDefault();
+                                crear();
+                            });
                         });
                 });
         });
@@ -346,13 +526,34 @@ function eleccion_elemento (elemento_seleccion){
     $('.creacion').append(`<div class="glass-card intro nickname">
                             <div class="content">
                                 <h2>Por ultimo ponele un nombre a tu personaje:</h2>
-                                <input class="input" type="text">
+                                <input id="input" type="text">
                                 <p class="input-active">Nombre</p>
                                 <button class="btn-crear">Crear Personaje</button>
                             </div>
                         </div>`);
 }
 
+let repetido = [];
+for (const obj of personajes){
+    repetido.push(obj.nombre);
+}
+
 function crear (){
-    
+
+    nombre = $('#input').val();
+    let igual;
+
+    for (let i = 0; i < repetido.length; i++){
+        if (nombre.toLowerCase() == repetido[i].toLowerCase()){
+            igual = true;
+        }
+    }
+
+    if (nombre == ''){
+        alert('No pusiste ningun nombre');
+    } else if (igual){
+        alert('Ya hay un personaje creado con ese nombre');
+    } else{
+        personajes.push(new Crear(nombre, clase, raza, elemento));
+    }
 }

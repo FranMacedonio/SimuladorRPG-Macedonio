@@ -265,7 +265,7 @@ input:focus {
   font-size: 36px;
 }
 
-#contenedor #pantalla.creacion .intro.nickname .input {
+#contenedor #pantalla.creacion .intro.nickname #input {
   position: relative;
   margin: 50px;
   width: 400px;
