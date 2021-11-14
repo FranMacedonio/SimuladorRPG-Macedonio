@@ -9,6 +9,10 @@ a {
   text-decoration: none;
 }
 
+input:focus {
+  outline: none;
+}
+
 #contenedor {
   background-image: url(../media/fondo.jpg);
   background-position: center;
@@ -242,6 +246,39 @@ a {
   bottom: 25px;
 }
 
+#contenedor #pantalla.creacion .intro.nickname {
+  height: 250px;
+}
+
+#contenedor #pantalla.creacion .intro.nickname h2 {
+  position: absolute;
+  top: 30px;
+}
+
+#contenedor #pantalla.creacion .intro.nickname .input-active {
+  position: absolute;
+  bottom: 75px;
+  left: 95px;
+  pointer-events: none;
+  width: 200px;
+  height: 50px;
+  font-size: 36px;
+}
+
+#contenedor #pantalla.creacion .intro.nickname .input {
+  position: relative;
+  margin: 50px;
+  width: 400px;
+  height: 50px;
+  border: none;
+  bottom: -20px;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+  font-size: 36px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: italic;
+}
+
 #contenedor #pantalla.creacion .elemento {
   width: 400px;
   height: 220px;
@@ -253,8 +290,8 @@ a {
   position: absolute;
   width: 100%;
   left: -20px;
-  -webkit-transition: width 250ms ease-in-out;
-  transition: width 250ms ease-in-out;
+  -webkit-transition: width 350ms ease-in;
+  transition: width 350ms ease-in;
 }
 
 #contenedor #pantalla.creacion .elemento h1 {
@@ -266,10 +303,10 @@ a {
   z-index: 10;
   top: 20px;
   right: 0;
-  -webkit-transition: -webkit-transform 500ms ease-in-out;
-  transition: -webkit-transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+  -webkit-transition: -webkit-transform 350ms ease-in;
+  transition: -webkit-transform 350ms ease-in;
+  transition: transform 350ms ease-in;
+  transition: transform 350ms ease-in, -webkit-transform 350ms ease-in;
 }
 
 #contenedor #pantalla.creacion .elemento .content {
@@ -283,10 +320,10 @@ a {
   width: 400px;
   height: 220px;
   z-index: -1;
-  -webkit-transition: -webkit-transform 350ms ease;
-  transition: -webkit-transform 350ms ease;
-  transition: transform 350ms ease;
-  transition: transform 350ms ease, -webkit-transform 350ms ease;
+  -webkit-transition: -webkit-transform 350ms ease-in;
+  transition: -webkit-transform 350ms ease-in;
+  transition: transform 350ms ease-in;
+  transition: transform 350ms ease-in, -webkit-transform 350ms ease-in;
 }
 
 #contenedor #pantalla.creacion .elemento .content.fuego {
