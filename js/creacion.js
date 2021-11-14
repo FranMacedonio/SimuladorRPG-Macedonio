@@ -56,15 +56,63 @@ $(document).ready(function () {
                 // SELECCION DE RAZA EN GUERRERO -----------------------------------------------------------
 
                 $('#guerrero--humano').click(function () { 
-                    $('.creacion').append( eleccion_raza ('humano') );
+                    eleccion_raza ('humano');
+
+                        $('.fuego').click(function () { 
+                            eleccion_elemento ('fuego');
+                        });
+
+                        $('.agua').click(function () { 
+                            eleccion_elemento ('agua');
+                        });
+
+                        $('.aire').click(function () { 
+                            eleccion_elemento ('aire');
+                        });
+
+                        $('.tierra').click(function () { 
+                            eleccion_elemento ('tierra');
+                        });
                 });
 
                 $('#guerrero--elfo').click(function () { 
-                    $('.creacion').append( eleccion_raza ('elfo') );
+                    eleccion_raza ('elfo');
+
+                        $('.fuego').click(function () { 
+                            eleccion_elemento ('fuego');
+                        });
+
+                        $('.agua').click(function () { 
+                            eleccion_elemento ('agua');
+                        });
+
+                        $('.aire').click(function () { 
+                            eleccion_elemento ('aire');
+                        });
+
+                        $('.tierra').click(function () { 
+                            eleccion_elemento ('tierra');
+                        });
                 });
 
                 $('#guerrero--oscuro').click(function () { 
-                    $('.creacion').append( eleccion_raza ('oscuro') );
+                    eleccion_raza ('oscuro');
+
+                        $('.fuego').click(function () { 
+                            eleccion_elemento ('fuego');
+                        });
+
+                        $('.agua').click(function () { 
+                            eleccion_elemento ('agua');
+                        });
+
+                        $('.aire').click(function () { 
+                            eleccion_elemento ('aire');
+                        });
+
+                        $('.tierra').click(function () { 
+                            eleccion_elemento ('tierra');
+                        });
                 });
         });
 
@@ -101,15 +149,63 @@ $(document).ready(function () {
                 // SELECCION DE RAZA EN ARQUERO -----------------------------------------------------------
 
                 $('#arquero--humano').click(function () { 
-                    $('.creacion').append( eleccion_raza ('humano') );
+                    eleccion_raza ('humano');
+
+                        $('.fuego').click(function () { 
+                        eleccion_elemento ('fuego');
+                        });
+
+                        $('.agua').click(function () { 
+                            eleccion_elemento ('agua');
+                        });
+
+                        $('.aire').click(function () { 
+                            eleccion_elemento ('aire');
+                        });
+
+                        $('.tierra').click(function () { 
+                            eleccion_elemento ('tierra');
+                        });
                 });
 
                 $('#arquero--elfo').click(function () { 
-                    $('.creacion').append( eleccion_raza ('elfo') );
+                    eleccion_raza ('elfo');
+
+                        $('.fuego').click(function () { 
+                        eleccion_elemento ('fuego');
+                        });
+
+                        $('.agua').click(function () { 
+                            eleccion_elemento ('agua');
+                        });
+
+                        $('.aire').click(function () { 
+                            eleccion_elemento ('aire');
+                        });
+
+                        $('.tierra').click(function () { 
+                            eleccion_elemento ('tierra');
+                        });
                 });
 
                 $('#arquero--oscuro').click(function () { 
-                    $('.creacion').append( eleccion_raza ('oscuro') );
+                    eleccion_raza ('oscuro');
+
+                        $('.fuego').click(function () { 
+                        eleccion_elemento ('fuego');
+                        });
+
+                        $('.agua').click(function () { 
+                            eleccion_elemento ('agua');
+                        });
+
+                        $('.aire').click(function () { 
+                            eleccion_elemento ('aire');
+                        });
+
+                        $('.tierra').click(function () { 
+                            eleccion_elemento ('tierra');
+                        });
                 });
         });
 
@@ -146,15 +242,63 @@ $(document).ready(function () {
                 // SELECCION DE RAZA EN MAGO -----------------------------------------------------------
 
                 $('#mago--humano').click(function () { 
-                    $('.creacion').append( eleccion_raza ('humano') );
+                    eleccion_raza ('humano');
+
+                        $('.fuego').click(function () { 
+                        eleccion_elemento ('fuego');
+                        });
+
+                        $('.agua').click(function () { 
+                            eleccion_elemento ('agua');
+                        });
+
+                        $('.aire').click(function () { 
+                            eleccion_elemento ('aire');
+                        });
+
+                        $('.tierra').click(function () { 
+                            eleccion_elemento ('tierra');
+                        });
                 });
 
                 $('#mago--elfo').click(function () { 
-                    $('.creacion').append( eleccion_raza ('elfo') );
+                    eleccion_raza ('elfo');
+
+                        $('.fuego').click(function () { 
+                        eleccion_elemento ('fuego');
+                        });
+
+                        $('.agua').click(function () { 
+                            eleccion_elemento ('agua');
+                        });
+
+                        $('.aire').click(function () { 
+                            eleccion_elemento ('aire');
+                        });
+
+                        $('.tierra').click(function () { 
+                            eleccion_elemento ('tierra');
+                        });
                 });
 
                 $('#mago--oscuro').click(function () { 
-                    $('.creacion').append( eleccion_raza ('oscuro') );
+                    eleccion_raza ('oscuro');
+
+                        $('.fuego').click(function () { 
+                        eleccion_elemento ('fuego');
+                        });
+
+                        $('.agua').click(function () { 
+                            eleccion_elemento ('agua');
+                        });
+
+                        $('.aire').click(function () { 
+                            eleccion_elemento ('aire');
+                        });
+
+                        $('.tierra').click(function () { 
+                            eleccion_elemento ('tierra');
+                        });
                 });
         });
     });
@@ -166,28 +310,28 @@ function eleccion_raza (raza_seleccion){
     $('.seleccion--raza').remove();
     raza = raza_seleccion;
 
-    $('.creacion').append(`<div class="glass-card elemento">
+    $('.creacion').append(`<div class="glass-card elemento fuego--card">
                                 <img src="../media/${clase}/${raza}/a.png">
                                 <div class="content fuego">
                                     <h1>FUEGO</h1>
                                 </div>
                             </div>
 
-                            <div class="glass-card elemento">
+                            <div class="glass-card elemento agua--card">
                                 <img src="../media/${clase}/${raza}/a.png">
                                 <div class="content agua">
                                     <h1>AGUA</h1>
                                 </div>
                             </div>
 
-                            <div class="glass-card elemento">
+                            <div class="glass-card elemento aire--card">
                                 <img src="../media/${clase}/${raza}/a.png">
                                 <div class="content aire">
                                     <h1>AIRE</h1>
                                 </div>
                             </div>
 
-                            <div class="glass-card elemento">
+                            <div class="glass-card elemento tierra--card">
                                 <img src="../media/${clase}/${raza}/a.png">
                                 <div class="content tierra">
                                     <h1>TIERRA</h1>
@@ -199,5 +343,16 @@ function eleccion_elemento (elemento_seleccion){
     $('.elemento').remove();
     elemento = elemento_seleccion;
 
+    $('.creacion').append(`<div class="glass-card intro nickname">
+                            <div class="content">
+                                <h2>Por ultimo ponele un nombre a tu personaje:</h2>
+                                <input class="input" type="text">
+                                <p class="input-active">Nombre</p>
+                                <button class="btn-crear">Crear Personaje</button>
+                            </div>
+                        </div>`);
+}
+
+function crear (){
     
 }
