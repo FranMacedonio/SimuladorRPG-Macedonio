@@ -597,5 +597,8 @@ function crear (){
         alert('Ya hay un personaje creado con ese nombre');
     } else{
         personajes.push(new Crear(nombre, clase, raza, elemento));
+        localStorage.setItem('personajes', JSON.stringify(personajes));
+
+        $('.creacion').remove();
     }
 }
