@@ -263,12 +263,14 @@ input:focus {
   width: 200px;
   height: 50px;
   font-size: 24px;
-  -webkit-transition: color 0.4s ease;
-  transition: color 0.4s ease;
+  -webkit-transition: color 0.4s ease-in;
+  transition: color 0.4s ease-in;
+  -webkit-transition: font-size 0.4s ease-in;
+  transition: font-size 0.4s ease-in;
 }
 
 #contenedor #pantalla.creacion .intro.nickname #input-border {
-  background-color: red;
+  background-color: purple;
   width: 0px;
   height: 5px;
   position: absolute;

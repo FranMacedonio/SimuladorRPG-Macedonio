@@ -527,10 +527,52 @@ function eleccion_elemento (elemento_seleccion){
                             <div class="content">
                                 <h2>Por ultimo ponele un nombre a tu personaje:</h2>
                                 <input id="input" type="text">
-                                <p class="input-active">Nombre</p>
+                                <div id="input-label" class="input-label">Nombre</div>
+                                <div id="input-border"></div>
                                 <button class="btn-crear">Crear Personaje</button>
                             </div>
                         </div>`);
+
+    // Animacion del Input
+    let inputValue;
+
+    $('#input').focus(function () { 
+
+        inputValue = $('#input').val();
+
+        if (inputValue == ''){
+            
+            $('#input-border').stop().animate({
+                width: '405px'
+            }, 1000);
+
+            $('#input-label').css('color', 'purple');
+            $('#input-label').css('fontSize', '16px');
+            $('#input-label').stop().animate({
+                left: '50px',
+                bottom: '100px'
+            }, 500);
+        }
+    });
+
+    $('#input').blur(function () { 
+
+        inputValue = $('#input').val();
+
+        if (inputValue == ''){
+
+            $('#input-border').stop().animate({
+                width: '0px'
+            }, 1000);
+
+            $('#input-label').css('color', 'black');
+            $('#input-label').css('fontSize', '24px');
+            $('#input-label').stop().animate({
+                left: '75px',
+                bottom: '65px'
+            }, 500);
+        }
+    });
 }
 
 let repetido = [];

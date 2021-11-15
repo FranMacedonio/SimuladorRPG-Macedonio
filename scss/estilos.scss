@@ -245,11 +245,12 @@ input{
                         height: 50px;
                         font-size: 24px;
 
-                        transition: color 0.4s ease;
+                        transition: color 0.4s ease-in;
+                        transition: font-size 0.4s ease-in;
                     }
 
                     #input-border{
-                        background-color: red;
+                        background-color: purple;
                         width: 0px;
                         height: 5px;
                         position: absolute;
