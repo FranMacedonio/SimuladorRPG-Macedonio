@@ -255,14 +255,26 @@ input:focus {
   top: 30px;
 }
 
-#contenedor #pantalla.creacion .intro.nickname .input-active {
+#contenedor #pantalla.creacion .intro.nickname .input-label {
   position: absolute;
-  bottom: 75px;
-  left: 95px;
+  bottom: 65px;
+  left: 75px;
   pointer-events: none;
   width: 200px;
   height: 50px;
-  font-size: 36px;
+  font-size: 24px;
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+}
+
+#contenedor #pantalla.creacion .intro.nickname #input-border {
+  background-color: red;
+  width: 0px;
+  height: 5px;
+  position: absolute;
+  left: 123px;
+  bottom: 77px;
+  border-radius: 50px;
 }
 
 #contenedor #pantalla.creacion .intro.nickname #input {
