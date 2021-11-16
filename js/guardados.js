@@ -6,5 +6,9 @@ $(document).ready(function () {
                                         <a href="../pages/creacion.html">¡Crear personaje!</a>
                                     </div>
                                 </div>`)
+    } else{
+
+        
+
     }
 });
