@@ -405,53 +405,6 @@ input:focus {
           transform: translate(100px, -170px);
 }
 
-#contenedor #pantalla.creacion .eliminar--cartel, #contenedor #pantalla.guardados .eliminar--cartel {
-  background-color: rgba(17, 17, 17, 0.26);
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: -ms-grid;
-  display: grid;
-  place-content: center;
-}
-
-#contenedor #pantalla.creacion .eliminar--cartel .eliminar--content, #contenedor #pantalla.guardados .eliminar--cartel .eliminar--content {
-  background-color: rgba(255, 255, 255, 0.363);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  width: 800px;
-  height: 150px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 0 10px;
-          box-shadow: 0 0 10px;
-  position: relative;
-}
-
-#contenedor #pantalla.creacion .eliminar--cartel .eliminar--content h1, #contenedor #pantalla.guardados .eliminar--cartel .eliminar--content h1 {
-  position: absolute;
-  top: 20px;
-  right: 60px;
-}
-
-#contenedor #pantalla.creacion .eliminar--cartel .eliminar--content .cancelar, #contenedor #pantalla.guardados .eliminar--cartel .eliminar--content .cancelar {
-  position: absolute;
-  bottom: 25px;
-  left: 200px;
-}
-
-#contenedor #pantalla.creacion .eliminar--cartel .eliminar--content .eliminar, #contenedor #pantalla.guardados .eliminar--cartel .eliminar--content .eliminar {
-  position: absolute;
-  bottom: 25px;
-  right: 200px;
-}
-
-#contenedor #pantalla.creacion .eliminar--cartel .eliminar--content .eliminar--botones, #contenedor #pantalla.guardados .eliminar--cartel .eliminar--content .eliminar--botones {
-  padding: 5px 10px;
-}
-
 #contenedor #pantalla.creacion .intro, #contenedor #pantalla.guardados .intro {
   width: 650px;
   height: 200px;
@@ -653,5 +606,52 @@ input:focus {
 
 #contenedor #pantalla.creacion #mago .content__clase::after, #contenedor #pantalla.guardados #mago .content__clase::after {
   background: #14679e;
+}
+
+#contenedor .eliminar--cartel {
+  background-color: rgba(17, 17, 17, 0.26);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+#contenedor .eliminar--cartel .eliminar--content {
+  background-color: rgba(255, 255, 255, 0.363);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  width: 800px;
+  height: 150px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 10px;
+          box-shadow: 0 0 10px;
+  position: relative;
+}
+
+#contenedor .eliminar--cartel .eliminar--content h1 {
+  position: absolute;
+  top: 20px;
+  right: 60px;
+}
+
+#contenedor .eliminar--cartel .eliminar--content .cancelar {
+  position: absolute;
+  bottom: 25px;
+  left: 200px;
+}
+
+#contenedor .eliminar--cartel .eliminar--content .eliminar {
+  position: absolute;
+  bottom: 25px;
+  right: 200px;
+}
+
+#contenedor .eliminar--cartel .eliminar--content .eliminar--botones {
+  padding: 5px 10px;
 }
 /*# sourceMappingURL=estilos.css.map */

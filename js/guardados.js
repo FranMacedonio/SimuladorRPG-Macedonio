@@ -21,9 +21,6 @@ $(document).ready(function () {
         }
 
         $('.fa-trash-alt').click(function (e) {
-
-            // $('.guardados').css("overflowY","hidden");
-
             $('#contenedor').append(`<div class="eliminar--cartel">
                                         <div class="eliminar--content">
                                             <h1>¿Estas seguro que queres eliminar a ${e.target.dataset.name}?</h1>
@@ -35,15 +32,22 @@ $(document).ready(function () {
                 $('.cancelar').click(function () { 
                     
                     $('.eliminar--cartel').remove();
-                    // $('.guardados').css("overflowY","auto");
 
                 });
 
                 $('.eliminar').click(function () { 
                     
+                    for (let i = 0; i < personajes.length; i++){
+                        if (e.target.dataset.name == personajes[i].nombre){
+                            personajes.splice(i, 1);
+                        }
+                    }
+
+                    localStorage.clear()
+                    localStorage.setItem('personajes', JSON.stringify(personajes))
+
                     $('.eliminar--cartel').remove();
                     e.target.parentElement.remove();
-                    // $('.guardados').css("overflowY","auto");
 
                 });
 
