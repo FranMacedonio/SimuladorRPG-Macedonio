@@ -12,12 +12,41 @@ $(document).ready(function () {
                                         <h1 class="nombre--personaje">${personaje.nombre}</h1>
                                         <img src="../media/${personaje.clase}/${personaje.raza}/a.png">
                                         <div class="content">
-                                            <h3>${personaje.clase} ${personaje.raza}</h3>
-                                            <h4>"De ${personaje.caracter}, ${personaje.historia} y ${personaje.hobby}."</h4>
+                                            <h3>${personaje.clase[0].toUpperCase() + personaje.clase.slice(1)} ${personaje.raza[0].toUpperCase() + personaje.raza.slice(1)}</h3>
+                                            <h4>"De ${personaje.caracter[0].toLowerCase() + personaje.caracter.slice(1)}, ${personaje.historia[0].toLowerCase() + personaje.historia.slice(1)} y ${personaje.hobby[0].toLowerCase() + personaje.hobby.slice(1)}."</h4>
                                             <p>Victoria: <strong>${personaje.victorias}</strong> || Derrotas: <strong>${personaje.derrotas}</strong></p>
                                         </div>
                                         <i data-name="${personaje.nombre}" class="fas fa-trash-alt"></i>
                                     </div>`);
         }
+
+        $('.fa-trash-alt').click(function (e) {
+
+            // $('.guardados').css("overflowY","hidden");
+
+            $('#contenedor').append(`<div class="eliminar--cartel">
+                                        <div class="eliminar--content">
+                                            <h1>¿Estas seguro que queres eliminar a ${e.target.dataset.name}?</h1>
+                                            <button class="cancelar eliminar--botones">Cancelar</button>
+                                            <button class="eliminar eliminar--botones">Eliminar</button>
+                                        </div>
+                                    </div>`);
+
+                $('.cancelar').click(function () { 
+                    
+                    $('.eliminar--cartel').remove();
+                    // $('.guardados').css("overflowY","auto");
+
+                });
+
+                $('.eliminar').click(function () { 
+                    
+                    $('.eliminar--cartel').remove();
+                    e.target.parentElement.remove();
+                    // $('.guardados').css("overflowY","auto");
+
+                });
+
+        });
     }
 });

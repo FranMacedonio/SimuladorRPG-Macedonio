@@ -44,12 +44,6 @@ input{
             position: absolute;
             left: 50px;
             bottom: 25px;
-        }
-
-        .fixed{
-            position: fixed;
-            left: 50px;
-            bottom: 290px;
             z-index: 20;
         }
 
@@ -359,7 +353,7 @@ input{
                         transform: translateX(-94px);
                     }
                     .content{
-                        right: 0;
+                        right: -1px;
                     }
                     &::after{
                         transform: scale(1.1);
@@ -367,6 +361,48 @@ input{
                     .nombre--personaje{
                         font-size: 25px;
                         transform: translate(100px, -170px);
+                    }
+                }
+            }
+
+            .eliminar--cartel{
+                background-color: rgba(17, 17, 17, 0.26);
+                width: 100%;
+                height: 100%;
+                z-index: 100;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                display: grid;
+                place-content: center;
+
+                .eliminar--content{
+                    background-color: rgba(255, 255, 255, 0.363);
+                    backdrop-filter: blur(10px);
+                    width: 800px;
+                    height: 150px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px;
+                    position: relative;
+
+                    h1{
+                        position: absolute;
+                        top: 20px;
+                        right: 60px;
+                    }
+                    .cancelar{
+                        position: absolute;
+                        bottom: 25px;
+                        left: 200px;
+                    }
+                    .eliminar{
+                        position: absolute;
+                        bottom: 25px;
+                        right: 200px;
+                    }
+                    .eliminar--botones{
+                        padding: 5px 10px;
                     }
                 }
             }
