@@ -233,37 +233,61 @@ input:focus {
 #contenedor #pantalla.creacion .guardado, #contenedor #pantalla.guardados .guardado {
   width: 400px;
   height: 220px;
-  z-index: 1;
+  border-radius: 0;
+}
+
+#contenedor #pantalla.creacion .guardado i, #contenedor #pantalla.guardados .guardado i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  font-size: 20px;
+  z-index: 20;
+  cursor: pointer;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
+}
+
+#contenedor #pantalla.creacion .guardado i:hover, #contenedor #pantalla.guardados .guardado i:hover {
+  color: #af0606;
 }
 
 #contenedor #pantalla.creacion .guardado img, #contenedor #pantalla.guardados .guardado img {
   pointer-events: none;
   position: absolute;
   width: 70%;
+  z-index: 10;
   -webkit-transition: width 250ms ease-in, -webkit-transform 250ms ease-in;
   transition: width 250ms ease-in, -webkit-transform 250ms ease-in;
   transition: width 250ms ease-in, transform 250ms ease-in;
   transition: width 250ms ease-in, transform 250ms ease-in, -webkit-transform 250ms ease-in;
 }
 
-#contenedor #pantalla.creacion .guardado h1, #contenedor #pantalla.guardados .guardado h1 {
+#contenedor #pantalla.creacion .guardado .nombre--personaje, #contenedor #pantalla.guardados .guardado .nombre--personaje {
   pointer-events: none;
   position: absolute;
-  z-index: 2;
-  top: 0;
-  -webkit-transition: -webkit-transform 250ms ease-in;
-  transition: -webkit-transform 250ms ease-in;
-  transition: transform 250ms ease-in;
-  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
+  z-index: 12;
+  font-size: 50px;
+  margin-top: 10px;
+  padding: 0 10px;
+  border-radius: 20px;
+  bottom: 0;
+  color: #d8d8d8;
+  text-shadow: 0 0 10px black;
+  -webkit-transition: font-size 250ms ease-in 250ms, -webkit-transform 450ms ease-in;
+  transition: font-size 250ms ease-in 250ms, -webkit-transform 450ms ease-in;
+  transition: transform 450ms ease-in, font-size 250ms ease-in 250ms;
+  transition: transform 450ms ease-in, font-size 250ms ease-in 250ms, -webkit-transform 450ms ease-in;
 }
 
 #contenedor #pantalla.creacion .guardado .content, #contenedor #pantalla.guardados .guardado .content {
   position: absolute;
   width: 50%;
   height: 80%;
-  right: 0;
+  right: -220px;
   bottom: 0;
   padding-top: 50px;
+  z-index: 8;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,9 +302,15 @@ input:focus {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background: rgba(255, 145, 0, 0.7);
-  border-left: 2px solid rgba(165, 107, 0, 0.8);
+  border-left: 2px solid rgba(165, 80, 0, 0.8);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+  -webkit-transition: right 1000ms ease;
+  transition: right 1000ms ease;
+}
+
+#contenedor #pantalla.creacion .guardado .content h4, #contenedor #pantalla.guardados .guardado .content h4 {
+  font-style: italic;
 }
 
 #contenedor #pantalla.creacion .guardado::after, #contenedor #pantalla.guardados .guardado::after {
@@ -288,12 +318,11 @@ input:focus {
   content: '';
   width: 100%;
   height: 100%;
-  z-index: -20;
   background-image: url(../media/elementos/fuego.png);
-  -webkit-transition: -webkit-transform 250ms;
-  transition: -webkit-transform 250ms;
-  transition: transform 250ms;
-  transition: transform 250ms, -webkit-transform 250ms;
+  -webkit-transition: -webkit-transform 250ms ease-in;
+  transition: -webkit-transform 250ms ease-in;
+  transition: transform 250ms ease-in;
+  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
 }
 
 #contenedor #pantalla.creacion .guardado:hover img, #contenedor #pantalla.guardados .guardado:hover img {
@@ -302,15 +331,19 @@ input:focus {
           transform: translateX(-94px);
 }
 
-#contenedor #pantalla.creacion .guardado:hover h1, #contenedor #pantalla.guardados .guardado:hover h1 {
-  -webkit-transform: scale(0.8) translate(126px, 5px);
-          transform: scale(0.8) translate(126px, 5px);
+#contenedor #pantalla.creacion .guardado:hover .content, #contenedor #pantalla.guardados .guardado:hover .content {
+  right: 0;
 }
 
 #contenedor #pantalla.creacion .guardado:hover::after, #contenedor #pantalla.guardados .guardado:hover::after {
-  z-index: -2;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+#contenedor #pantalla.creacion .guardado:hover .nombre--personaje, #contenedor #pantalla.guardados .guardado:hover .nombre--personaje {
+  font-size: 25px;
+  -webkit-transform: translate(100px, -170px);
+          transform: translate(100px, -170px);
 }
 
 #contenedor #pantalla.creacion .intro, #contenedor #pantalla.guardados .intro {
