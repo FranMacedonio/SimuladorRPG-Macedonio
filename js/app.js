@@ -11,6 +11,8 @@ class Crear {
         this.clase = clase;
         this.raza = raza;
         this.elemento = elemento;
+        this.victorias = 0;
+        this.derrotas = 0;
     }
 }
 

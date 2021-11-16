@@ -230,6 +230,74 @@ input:focus {
           transform: scaleX(1);
 }
 
+#contenedor #pantalla.creacion .fuego .content, #contenedor #pantalla.guardados .fuego .content {
+  background: rgba(255, 145, 0, 0.7);
+  border-left: 2px solid rgba(165, 80, 0, 0.8);
+}
+
+#contenedor #pantalla.creacion .fuego::after, #contenedor #pantalla.guardados .fuego::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: url(../media/elementos/fuego.png);
+  -webkit-transition: -webkit-transform 250ms ease-in;
+  transition: -webkit-transform 250ms ease-in;
+  transition: transform 250ms ease-in;
+  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
+}
+
+#contenedor #pantalla.creacion .agua .content, #contenedor #pantalla.guardados .agua .content {
+  background: rgba(0, 225, 255, 0.7);
+  border-left: 2px solid rgba(0, 118, 165, 0.8);
+}
+
+#contenedor #pantalla.creacion .agua::after, #contenedor #pantalla.guardados .agua::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: url(../media/elementos/agua.png);
+  -webkit-transition: -webkit-transform 250ms ease-in;
+  transition: -webkit-transform 250ms ease-in;
+  transition: transform 250ms ease-in;
+  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
+}
+
+#contenedor #pantalla.creacion .aire .content, #contenedor #pantalla.guardados .aire .content {
+  background: rgba(216, 216, 216, 0.7);
+  border-left: 2px solid rgba(177, 177, 177, 0.8);
+}
+
+#contenedor #pantalla.creacion .aire::after, #contenedor #pantalla.guardados .aire::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: url(../media/elementos/aire.png);
+  -webkit-transition: -webkit-transform 250ms ease-in;
+  transition: -webkit-transform 250ms ease-in;
+  transition: transform 250ms ease-in;
+  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
+}
+
+#contenedor #pantalla.creacion .tierra .content, #contenedor #pantalla.guardados .tierra .content {
+  background: rgba(102, 69, 43, 0.7);
+  border-left: 2px solid rgba(77, 39, 9, 0.7);
+}
+
+#contenedor #pantalla.creacion .tierra::after, #contenedor #pantalla.guardados .tierra::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: url(../media/elementos/tierra.png);
+  -webkit-transition: -webkit-transform 250ms ease-in;
+  transition: -webkit-transform 250ms ease-in;
+  transition: transform 250ms ease-in;
+  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
+}
+
 #contenedor #pantalla.creacion .guardado, #contenedor #pantalla.guardados .guardado {
   width: 400px;
   height: 220px;
@@ -274,10 +342,10 @@ input:focus {
   bottom: 0;
   color: #d8d8d8;
   text-shadow: 0 0 10px black;
-  -webkit-transition: font-size 250ms ease-in 250ms, -webkit-transform 450ms ease-in;
-  transition: font-size 250ms ease-in 250ms, -webkit-transform 450ms ease-in;
-  transition: transform 450ms ease-in, font-size 250ms ease-in 250ms;
-  transition: transform 450ms ease-in, font-size 250ms ease-in 250ms, -webkit-transform 450ms ease-in;
+  -webkit-transition: font-size 350ms ease-in 250ms, -webkit-transform 550ms ease-in 100ms;
+  transition: font-size 350ms ease-in 250ms, -webkit-transform 550ms ease-in 100ms;
+  transition: transform 550ms ease-in 100ms, font-size 350ms ease-in 250ms;
+  transition: transform 550ms ease-in 100ms, font-size 350ms ease-in 250ms, -webkit-transform 550ms ease-in 100ms;
 }
 
 #contenedor #pantalla.creacion .guardado .content, #contenedor #pantalla.guardados .guardado .content {
@@ -301,8 +369,6 @@ input:focus {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  background: rgba(255, 145, 0, 0.7);
-  border-left: 2px solid rgba(165, 80, 0, 0.8);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   -webkit-transition: right 1000ms ease;
@@ -311,18 +377,6 @@ input:focus {
 
 #contenedor #pantalla.creacion .guardado .content h4, #contenedor #pantalla.guardados .guardado .content h4 {
   font-style: italic;
-}
-
-#contenedor #pantalla.creacion .guardado::after, #contenedor #pantalla.guardados .guardado::after {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background-image: url(../media/elementos/fuego.png);
-  -webkit-transition: -webkit-transform 250ms ease-in;
-  transition: -webkit-transform 250ms ease-in;
-  transition: transform 250ms ease-in;
-  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
 }
 
 #contenedor #pantalla.creacion .guardado:hover img, #contenedor #pantalla.guardados .guardado:hover img {
