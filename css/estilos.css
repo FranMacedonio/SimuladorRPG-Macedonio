@@ -32,14 +32,17 @@ input:focus {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: pantalla;
+  background-color: #cacaca;
   width: 1026px;
   height: 599px;
   -webkit-box-shadow: 0 0 10px 7px black;
           box-shadow: 0 0 10px 7px black;
 }
 
-#contenedor #pantalla.principal {
-  background-color: #cacaca;
+#contenedor #pantalla .volver {
+  position: absolute;
+  left: 50px;
+  bottom: 25px;
 }
 
 #contenedor #pantalla.principal #botones {
@@ -63,8 +66,7 @@ input:focus {
   left: 150px;
 }
 
-#contenedor #pantalla.creacion {
-  background-color: #cacaca;
+#contenedor #pantalla.creacion, #contenedor #pantalla.guardados {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,13 +80,7 @@ input:focus {
           align-items: center;
 }
 
-#contenedor #pantalla.creacion a {
-  position: absolute;
-  left: 50px;
-  bottom: 25px;
-}
-
-#contenedor #pantalla.creacion .glass-card {
+#contenedor #pantalla.creacion .glass-card, #contenedor #pantalla.guardados .glass-card {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -110,7 +106,7 @@ input:focus {
           backdrop-filter: blur(5px);
 }
 
-#contenedor #pantalla.creacion .glass-card .content__clase {
+#contenedor #pantalla.creacion .glass-card .content__clase, #contenedor #pantalla.guardados .glass-card .content__clase {
   position: relative;
   -webkit-transform: translateY(165px);
           transform: translateY(165px);
@@ -119,14 +115,14 @@ input:focus {
   text-align: center;
 }
 
-#contenedor #pantalla.creacion .glass-card .content__clase h1 {
+#contenedor #pantalla.creacion .glass-card .content__clase h1, #contenedor #pantalla.guardados .glass-card .content__clase h1 {
   font-weight: 300;
   color: transparent;
   -webkit-transition: 150ms color ease-out;
   transition: 150ms color ease-out;
 }
 
-#contenedor #pantalla.creacion .glass-card .content__clase::after {
+#contenedor #pantalla.creacion .glass-card .content__clase::after, #contenedor #pantalla.guardados .glass-card .content__clase::after {
   position: absolute;
   content: '';
   width: 100%;
@@ -142,18 +138,18 @@ input:focus {
   transition: 350ms transform ease-in-out, 350ms -webkit-transform ease-in-out;
 }
 
-#contenedor #pantalla.creacion .glass-card:hover .content__clase::after {
+#contenedor #pantalla.creacion .glass-card:hover .content__clase::after, #contenedor #pantalla.guardados .glass-card:hover .content__clase::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
 
-#contenedor #pantalla.creacion .glass-card:hover .content__clase h1 {
+#contenedor #pantalla.creacion .glass-card:hover .content__clase h1, #contenedor #pantalla.guardados .glass-card:hover .content__clase h1 {
   color: #d4d4d4;
   -webkit-transition-delay: 350ms;
           transition-delay: 350ms;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza img {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza img, #contenedor #pantalla.guardados .glass-card.seleccion--raza img {
   position: absolute;
   width: 130%;
   bottom: 0;
@@ -164,7 +160,7 @@ input:focus {
   transition: opacity 250ms ease-in;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza, #contenedor #pantalla.guardados .glass-card.seleccion--raza .content__raza {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -187,12 +183,12 @@ input:focus {
   transition: opacity 250ms ease-in;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza h2 {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza h2, #contenedor #pantalla.guardados .glass-card.seleccion--raza .content__raza h2 {
   position: relative;
   margin-bottom: 10px;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza h2::after {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza h2::after, #contenedor #pantalla.guardados .glass-card.seleccion--raza .content__raza h2::after {
   content: '';
   width: calc( 100% + 20px);
   height: 3px;
@@ -207,55 +203,89 @@ input:focus {
   transition: transform 250ms ease-in 250ms, -webkit-transform 250ms ease-in 250ms;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza.guerrero--after h2::after {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza.guerrero--after h2::after, #contenedor #pantalla.guardados .glass-card.seleccion--raza .content__raza.guerrero--after h2::after {
   background: #9e1414;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza.arquero--after h2::after {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza.arquero--after h2::after, #contenedor #pantalla.guardados .glass-card.seleccion--raza .content__raza.arquero--after h2::after {
   background: #1b860d;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza.mago--after h2::after {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza .content__raza.mago--after h2::after, #contenedor #pantalla.guardados .glass-card.seleccion--raza .content__raza.mago--after h2::after {
   background: #14679e;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza:hover img {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza:hover img, #contenedor #pantalla.guardados .glass-card.seleccion--raza:hover img {
   opacity: 0;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza:hover .content__raza {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza:hover .content__raza, #contenedor #pantalla.guardados .glass-card.seleccion--raza:hover .content__raza {
   opacity: 1;
   -webkit-transition-delay: 250ms;
           transition-delay: 250ms;
 }
 
-#contenedor #pantalla.creacion .glass-card.seleccion--raza:hover .content__raza h2::after {
+#contenedor #pantalla.creacion .glass-card.seleccion--raza:hover .content__raza h2::after, #contenedor #pantalla.guardados .glass-card.seleccion--raza:hover .content__raza h2::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
 
-#contenedor #pantalla.creacion .intro {
+#contenedor #pantalla.creacion .guardado, #contenedor #pantalla.guardados .guardado {
+  width: 400px;
+  height: 220px;
+  z-index: 1;
+}
+
+#contenedor #pantalla.creacion .guardado img, #contenedor #pantalla.guardados .guardado img {
+  pointer-events: none;
+  position: absolute;
+  width: 70%;
+}
+
+#contenedor #pantalla.creacion .guardado h1, #contenedor #pantalla.guardados .guardado h1 {
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+}
+
+#contenedor #pantalla.creacion .guardado .content, #contenedor #pantalla.guardados .guardado .content {
+  width: 100%;
+  height: 100%;
+}
+
+#contenedor #pantalla.creacion .guardado:hover img, #contenedor #pantalla.guardados .guardado:hover img {
+  width: 60%;
+  bottom: 0;
+  left: 0;
+}
+
+#contenedor #pantalla.creacion .guardado:hover h1, #contenedor #pantalla.guardados .guardado:hover h1 {
+  opacity: 0;
+}
+
+#contenedor #pantalla.creacion .intro, #contenedor #pantalla.guardados .intro {
   width: 650px;
   height: 200px;
   text-align: center;
 }
 
-#contenedor #pantalla.creacion .intro button {
+#contenedor #pantalla.creacion .intro button, #contenedor #pantalla.guardados .intro button {
   position: absolute;
   right: 50px;
   bottom: 25px;
 }
 
-#contenedor #pantalla.creacion .intro.nickname {
+#contenedor #pantalla.creacion .intro.nickname, #contenedor #pantalla.guardados .intro.nickname {
   height: 250px;
 }
 
-#contenedor #pantalla.creacion .intro.nickname h2 {
+#contenedor #pantalla.creacion .intro.nickname h2, #contenedor #pantalla.guardados .intro.nickname h2 {
   position: absolute;
   top: 30px;
 }
 
-#contenedor #pantalla.creacion .intro.nickname .input-label {
+#contenedor #pantalla.creacion .intro.nickname .input-label, #contenedor #pantalla.guardados .intro.nickname .input-label {
   position: absolute;
   bottom: 65px;
   left: 75px;
@@ -269,7 +299,7 @@ input:focus {
   transition: font-size 0.4s ease-in;
 }
 
-#contenedor #pantalla.creacion .intro.nickname #input-border {
+#contenedor #pantalla.creacion .intro.nickname #input-border, #contenedor #pantalla.guardados .intro.nickname #input-border {
   background-color: purple;
   width: 0px;
   height: 5px;
@@ -279,7 +309,7 @@ input:focus {
   border-radius: 50px;
 }
 
-#contenedor #pantalla.creacion .intro.nickname #input {
+#contenedor #pantalla.creacion .intro.nickname #input, #contenedor #pantalla.guardados .intro.nickname #input {
   position: relative;
   margin: 50px;
   width: 400px;
@@ -293,13 +323,13 @@ input:focus {
   font-style: italic;
 }
 
-#contenedor #pantalla.creacion .elemento {
+#contenedor #pantalla.creacion .elemento, #contenedor #pantalla.guardados .elemento {
   width: 400px;
   height: 220px;
   z-index: 1;
 }
 
-#contenedor #pantalla.creacion .elemento img {
+#contenedor #pantalla.creacion .elemento img, #contenedor #pantalla.guardados .elemento img {
   pointer-events: none;
   position: absolute;
   width: 100%;
@@ -308,7 +338,7 @@ input:focus {
   transition: width 350ms ease-in;
 }
 
-#contenedor #pantalla.creacion .elemento h1 {
+#contenedor #pantalla.creacion .elemento h1, #contenedor #pantalla.guardados .elemento h1 {
   pointer-events: none;
   position: absolute;
   -webkit-writing-mode: vertical-lr;
@@ -323,12 +353,12 @@ input:focus {
   transition: transform 350ms ease-in, -webkit-transform 350ms ease-in;
 }
 
-#contenedor #pantalla.creacion .elemento .content {
+#contenedor #pantalla.creacion .elemento .content, #contenedor #pantalla.guardados .elemento .content {
   width: 100%;
   height: 100%;
 }
 
-#contenedor #pantalla.creacion .elemento .content::after {
+#contenedor #pantalla.creacion .elemento .content::after, #contenedor #pantalla.guardados .elemento .content::after {
   position: absolute;
   content: '';
   width: 400px;
@@ -340,53 +370,53 @@ input:focus {
   transition: transform 350ms ease-in, -webkit-transform 350ms ease-in;
 }
 
-#contenedor #pantalla.creacion .elemento .content.fuego {
+#contenedor #pantalla.creacion .elemento .content.fuego, #contenedor #pantalla.guardados .elemento .content.fuego {
   color: #751b1b;
 }
 
-#contenedor #pantalla.creacion .elemento .content.fuego::after {
+#contenedor #pantalla.creacion .elemento .content.fuego::after, #contenedor #pantalla.guardados .elemento .content.fuego::after {
   background-image: url(../media/elementos/fuego.png);
 }
 
-#contenedor #pantalla.creacion .elemento .content.agua {
+#contenedor #pantalla.creacion .elemento .content.agua, #contenedor #pantalla.guardados .elemento .content.agua {
   color: #1b5c75;
 }
 
-#contenedor #pantalla.creacion .elemento .content.agua::after {
+#contenedor #pantalla.creacion .elemento .content.agua::after, #contenedor #pantalla.guardados .elemento .content.agua::after {
   background-image: url(../media/elementos/agua.png);
 }
 
-#contenedor #pantalla.creacion .elemento .content.aire {
+#contenedor #pantalla.creacion .elemento .content.aire, #contenedor #pantalla.guardados .elemento .content.aire {
   color: #858a8b;
 }
 
-#contenedor #pantalla.creacion .elemento .content.aire::after {
+#contenedor #pantalla.creacion .elemento .content.aire::after, #contenedor #pantalla.guardados .elemento .content.aire::after {
   background-image: url(../media/elementos/aire.png);
 }
 
-#contenedor #pantalla.creacion .elemento .content.tierra {
+#contenedor #pantalla.creacion .elemento .content.tierra, #contenedor #pantalla.guardados .elemento .content.tierra {
   color: #75471b;
 }
 
-#contenedor #pantalla.creacion .elemento .content.tierra::after {
+#contenedor #pantalla.creacion .elemento .content.tierra::after, #contenedor #pantalla.guardados .elemento .content.tierra::after {
   background-image: url(../media/elementos/tierra.png);
 }
 
-#contenedor #pantalla.creacion .elemento:hover img {
+#contenedor #pantalla.creacion .elemento:hover img, #contenedor #pantalla.guardados .elemento:hover img {
   width: 110%;
 }
 
-#contenedor #pantalla.creacion .elemento:hover .content h1 {
+#contenedor #pantalla.creacion .elemento:hover .content h1, #contenedor #pantalla.guardados .elemento:hover .content h1 {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-#contenedor #pantalla.creacion .elemento:hover .content::after {
+#contenedor #pantalla.creacion .elemento:hover .content::after, #contenedor #pantalla.guardados .elemento:hover .content::after {
   -webkit-transform: translateY(20px);
           transform: translateY(20px);
 }
 
-#contenedor #pantalla.creacion #guerrero {
+#contenedor #pantalla.creacion #guerrero, #contenedor #pantalla.guardados #guerrero {
   background-image: url(../media/guerrero/espada.png);
   background-position: 50% 20%;
   background-repeat: no-repeat;
@@ -395,15 +425,15 @@ input:focus {
   transition: 250ms ease-in;
 }
 
-#contenedor #pantalla.creacion #guerrero:hover {
+#contenedor #pantalla.creacion #guerrero:hover, #contenedor #pantalla.guardados #guerrero:hover {
   background-position: 50% 0%;
 }
 
-#contenedor #pantalla.creacion #guerrero .content__clase::after {
+#contenedor #pantalla.creacion #guerrero .content__clase::after, #contenedor #pantalla.guardados #guerrero .content__clase::after {
   background: #9e1414;
 }
 
-#contenedor #pantalla.creacion #arquero {
+#contenedor #pantalla.creacion #arquero, #contenedor #pantalla.guardados #arquero {
   background-image: url(../media/arquero/arco.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -412,15 +442,15 @@ input:focus {
   transition: 250ms ease-in;
 }
 
-#contenedor #pantalla.creacion #arquero:hover {
+#contenedor #pantalla.creacion #arquero:hover, #contenedor #pantalla.guardados #arquero:hover {
   background-position: 50% 10%;
 }
 
-#contenedor #pantalla.creacion #arquero .content__clase::after {
+#contenedor #pantalla.creacion #arquero .content__clase::after, #contenedor #pantalla.guardados #arquero .content__clase::after {
   background: #1b860d;
 }
 
-#contenedor #pantalla.creacion #mago {
+#contenedor #pantalla.creacion #mago, #contenedor #pantalla.guardados #mago {
   background-image: url(../media/mago/baculo.png);
   background-position: 50% -70%;
   background-repeat: no-repeat;
@@ -429,11 +459,11 @@ input:focus {
   transition: 250ms ease-in;
 }
 
-#contenedor #pantalla.creacion #mago:hover {
+#contenedor #pantalla.creacion #mago:hover, #contenedor #pantalla.guardados #mago:hover {
   background-position: 50% -100%;
 }
 
-#contenedor #pantalla.creacion #mago .content__clase::after {
+#contenedor #pantalla.creacion #mago .content__clase::after, #contenedor #pantalla.guardados #mago .content__clase::after {
   background: #14679e;
 }
 /*# sourceMappingURL=estilos.css.map */
