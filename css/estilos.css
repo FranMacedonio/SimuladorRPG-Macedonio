@@ -240,6 +240,10 @@ input:focus {
   pointer-events: none;
   position: absolute;
   width: 70%;
+  -webkit-transition: width 250ms ease-in, -webkit-transform 250ms ease-in;
+  transition: width 250ms ease-in, -webkit-transform 250ms ease-in;
+  transition: width 250ms ease-in, transform 250ms ease-in;
+  transition: width 250ms ease-in, transform 250ms ease-in, -webkit-transform 250ms ease-in;
 }
 
 #contenedor #pantalla.creacion .guardado h1, #contenedor #pantalla.guardados .guardado h1 {
@@ -247,17 +251,35 @@ input:focus {
   position: absolute;
   z-index: 2;
   top: 0;
+  -webkit-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
 }
 
 #contenedor #pantalla.creacion .guardado .content, #contenedor #pantalla.guardados .guardado .content {
-  width: 100%;
+  position: absolute;
+  width: 50%;
   height: 100%;
+  right: 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #contenedor #pantalla.creacion .guardado:hover img, #contenedor #pantalla.guardados .guardado:hover img {
   width: 60%;
-  bottom: 0;
-  left: 0;
+  -webkit-transform: translateX(-80px);
+          transform: translateX(-80px);
 }
 
 #contenedor #pantalla.creacion .guardado:hover h1, #contenedor #pantalla.guardados .guardado:hover h1 {
