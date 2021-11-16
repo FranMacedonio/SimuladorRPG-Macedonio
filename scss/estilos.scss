@@ -46,6 +46,13 @@ input{
             bottom: 25px;
         }
 
+        .fixed{
+            position: fixed;
+            left: 50px;
+            bottom: 290px;
+            z-index: 20;
+        }
+
         // PANTALLA PRINCIPAL *****************************************************************
 
         &.principal{
@@ -67,9 +74,10 @@ input{
 
         &.creacion, &.guardados{
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-flow: row wrap;
+            justify-content: start;
             align-items: center;
+            overflow-x: hidden;
 
             .glass-card{
                 position: relative;
@@ -260,7 +268,7 @@ input{
             }
             .tierra{
                 .content{
-                    background: rgba(102, 69, 43, 0.7);
+                    background: rgba(146, 110, 84, 0.7);
                     border-left: 2px solid rgba(51, 26, 7, 0.7);
                 }
                 &::after{
@@ -277,8 +285,7 @@ input{
                 width: 400px;
                 height: 220px;
                 border-radius: 0;
-
-
+                margin: 50px;
                 i{
                     position: absolute;
                     top: 0;

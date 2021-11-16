@@ -45,6 +45,13 @@ input:focus {
   bottom: 25px;
 }
 
+#contenedor #pantalla .fixed {
+  position: fixed;
+  left: 50px;
+  bottom: 290px;
+  z-index: 20;
+}
+
 #contenedor #pantalla.principal #botones {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -70,14 +77,17 @@ input:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow-x: hidden;
 }
 
 #contenedor #pantalla.creacion .glass-card, #contenedor #pantalla.guardados .glass-card {
@@ -282,7 +292,7 @@ input:focus {
 }
 
 #contenedor #pantalla.creacion .tierra .content, #contenedor #pantalla.guardados .tierra .content {
-  background: rgba(102, 69, 43, 0.7);
+  background: rgba(146, 110, 84, 0.7);
   border-left: 2px solid rgba(51, 26, 7, 0.7);
 }
 
@@ -302,6 +312,7 @@ input:focus {
   width: 400px;
   height: 220px;
   border-radius: 0;
+  margin: 50px;
 }
 
 #contenedor #pantalla.creacion .guardado i, #contenedor #pantalla.guardados .guardado i {
