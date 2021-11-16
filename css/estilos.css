@@ -75,9 +75,9 @@ input:focus {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -464,6 +464,12 @@ input:focus {
   font-style: italic;
 }
 
+#contenedor #pantalla.creacion .intro.nickname .input-contador, #contenedor #pantalla.guardados .intro.nickname .input-contador {
+  position: absolute;
+  bottom: 50px;
+  left: 125px;
+}
+
 #contenedor #pantalla.creacion .elemento, #contenedor #pantalla.guardados .elemento {
   width: 400px;
   height: 220px;
@@ -634,9 +640,10 @@ input:focus {
 }
 
 #contenedor .eliminar--cartel .eliminar--content h1 {
-  position: absolute;
-  top: 20px;
-  right: 60px;
+  font-size: 28px;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
 }
 
 #contenedor .eliminar--cartel .eliminar--content .cancelar {

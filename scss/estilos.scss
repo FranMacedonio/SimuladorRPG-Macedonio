@@ -69,7 +69,7 @@ input{
         &.creacion, &.guardados{
             display: flex;
             flex-flow: row wrap;
-            justify-content: start;
+            justify-content: center;
             align-items: center;
             overflow-x: hidden;
 
@@ -420,6 +420,11 @@ input{
                         font-family: 'Source Sans Pro', sans-serif;
                         font-style: italic;
                     }
+                    .input-contador{
+                        position: absolute;
+                        bottom: 50px;
+                        left: 125px;
+                    }
                 }
 
             }
@@ -593,9 +598,10 @@ input{
             position: relative;
 
             h1{
-                position: absolute;
-                top: 20px;
-                right: 60px;
+                font-size: 28px;
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
             }
             .cancelar{
                 position: absolute;

@@ -529,11 +529,26 @@ function eleccion_elemento (elemento_seleccion){
                                 <input id="input" type="text">
                                 <div id="input-label" class="input-label">Nombre</div>
                                 <div id="input-border"></div>
+                                <p class="input-contador">0/13</p>
                                 <button class="btn-crear">Crear Personaje</button>
                             </div>
                         </div>`);
 
-    // Animacion del Input
+
+    const input = document.getElementById('input');
+    const inputContador = document.getElementsByClassName('input-contador')[0];
+    input.addEventListener('input', () => {
+
+        inputContador.textContent = input.value.length + '/13'
+        inputContador.style.color = "black";
+
+        if (input.value.length > 13){
+            inputContador.style.color = "red";
+        }
+
+    })
+    
+
     let inputValue;
 
     $('#input').focus(function () { 
@@ -616,6 +631,8 @@ function crear (){
         alert('No pusiste ningun nombre');
     } else if (igual){
         alert('Ya hay un personaje creado con ese nombre');
+    } else if (nombre.length > 13){
+        alert('No puede superar los 13 caracteres')
     } else{
         personajes.push(new Crear(nombre, clase, raza, elemento, caracter, historia, hobby));
         localStorage.setItem('personajes', JSON.stringify(personajes));
