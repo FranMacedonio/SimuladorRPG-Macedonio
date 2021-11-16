@@ -283,7 +283,7 @@ input:focus {
 
 #contenedor #pantalla.creacion .tierra .content, #contenedor #pantalla.guardados .tierra .content {
   background: rgba(102, 69, 43, 0.7);
-  border-left: 2px solid rgba(77, 39, 9, 0.7);
+  border-left: 2px solid rgba(51, 26, 7, 0.7);
 }
 
 #contenedor #pantalla.creacion .tierra::after, #contenedor #pantalla.guardados .tierra::after {

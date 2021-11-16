@@ -580,6 +580,27 @@ for (const obj of personajes){
     repetido.push(obj.nombre);
 }
 
+$.getJSON('../js/caracter.json', function (response, state){
+    if (state === 'success'){
+        let randomuno = Math.ceil (Math.random()*9);
+        caracter = response[randomuno];
+    }
+});
+
+$.getJSON('../js/historia.json', function (response, state){
+    if (state === 'success'){
+        let randomdos = Math.ceil (Math.random()*9);
+        historia = response[randomdos];
+    }
+});
+
+$.getJSON('../js/hobby.json', function (response, state){
+    if (state === 'success'){
+        let randomtres = Math.ceil (Math.random()*9);
+        hobby = response[randomtres];
+    }
+});
+
 function crear (){
 
     nombre = $('#input').val();
@@ -596,7 +617,7 @@ function crear (){
     } else if (igual){
         alert('Ya hay un personaje creado con ese nombre');
     } else{
-        personajes.push(new Crear(nombre, clase, raza, elemento));
+        personajes.push(new Crear(nombre, clase, raza, elemento, caracter, historia, hobby));
         localStorage.setItem('personajes', JSON.stringify(personajes));
 
         $('.creacion').remove();
