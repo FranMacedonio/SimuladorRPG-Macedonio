@@ -638,6 +638,10 @@ input:focus {
   position: relative;
 }
 
+#contenedor .eliminar--cartel .eliminar--content.salir--cartel {
+  height: 300px;
+}
+
 #contenedor .eliminar--cartel .eliminar--content h1 {
   font-size: 28px;
   width: 100%;
@@ -655,6 +659,12 @@ input:focus {
   position: absolute;
   bottom: 25px;
   right: 200px;
+}
+
+#contenedor .eliminar--cartel .eliminar--content .entiendo {
+  position: absolute;
+  left: 230px;
+  bottom: 30px;
 }
 
 #contenedor .eliminar--cartel .eliminar--content .eliminar--botones {

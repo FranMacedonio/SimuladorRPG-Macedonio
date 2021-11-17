@@ -596,6 +596,10 @@ input{
             box-shadow: 0 0 10px;
             position: relative;
 
+            &.salir--cartel{
+                height: 300px;
+            }
+
             h1{
                 font-size: 28px;
                 width: 100%;
@@ -611,6 +615,11 @@ input{
                 position: absolute;
                 bottom: 25px;
                 right: 200px;
+            }
+            .entiendo{
+                position: absolute;
+                left: 230px;
+                bottom: 30px;
             }
             .eliminar--botones{
                 padding: 5px 10px;
