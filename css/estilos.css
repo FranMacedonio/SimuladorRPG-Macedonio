@@ -441,7 +441,6 @@ input:focus {
 }
 
 #contenedor #pantalla.creacion .intro.nickname #input-border, #contenedor #pantalla.guardados .intro.nickname #input-border {
-  background-color: purple;
   width: 0px;
   height: 5px;
   position: absolute;

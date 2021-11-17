@@ -543,7 +543,7 @@ function eleccion_elemento (elemento_seleccion){
         inputContador.style.color = "black";
 
         if (input.value.length > 13){
-            inputContador.style.color = "red";
+            inputContador.style.color = "#8b0c0c";
         }
 
     })
@@ -551,17 +551,30 @@ function eleccion_elemento (elemento_seleccion){
 
     let inputValue;
 
+    let colorInput;
+
+    if (elemento == 'fuego'){
+        colorInput = '#c7530f';
+    } else if (elemento == 'agua'){
+        colorInput = '#1b5c75';
+    } else if (elemento == 'aire'){
+        colorInput = '#858a8b';
+    } else if (elemento == 'tierra'){
+        colorInput = '#75471b';
+    }
+
     $('#input').focus(function () { 
 
         inputValue = $('#input').val();
 
         if (inputValue == ''){
             
+            $('#input-border').css('backgroundColor', colorInput);
             $('#input-border').stop().animate({
                 width: '405px'
             }, 1000);
 
-            $('#input-label').css('color', 'purple');
+            $('#input-label').css('color', colorInput);
             $('#input-label').css('fontSize', '16px');
             $('#input-label').stop().animate({
                 left: '50px',
