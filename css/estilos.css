@@ -635,22 +635,67 @@ input:focus {
   left: 20px;
   border: 4px solid black;
   background-color: blue;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  font-size: 36px;
+  font-style: italic;
+  text-align: center;
 }
 
 #contenedor #pantalla.jugar #interfaz .acciones {
   position: absolute;
   width: 43%;
-  height: 200px;
+  height: 180px;
   bottom: 20px;
   right: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "atacar especial" "objetos abandonar";
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  row-gap: 10px;
+  padding: 10px;
   border: 4px solid black;
   background-color: green;
+}
+
+#contenedor #pantalla.jugar #interfaz .acciones .atacar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: atacar;
+}
+
+#contenedor #pantalla.jugar #interfaz .acciones .especial {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: especial;
+}
+
+#contenedor #pantalla.jugar #interfaz .acciones .objetos {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: objetos;
+}
+
+#contenedor #pantalla.jugar #interfaz .acciones .abandonar {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: abandonar;
+}
+
+#contenedor #pantalla.jugar #interfaz .acciones .btn-accion {
+  font-size: 24px;
 }
 
 #contenedor #pantalla.jugar #interfaz .sector-juego {
   position: relative;
   width: 100%;
-  height: 344px;
+  height: 345px;
   top: -349px;
   background-color: hotpink;
 }
@@ -658,7 +703,7 @@ input:focus {
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-personaje {
   position: absolute;
   width: 40%;
-  height: 340px;
+  height: 345px;
   left: 50px;
   bottom: 0;
   background-color: yellowgreen;
@@ -701,7 +746,6 @@ input:focus {
   position: absolute;
   width: 100.4%;
   height: 31px;
-  top: -1px;
   background-color: green;
 }
 
@@ -715,7 +759,7 @@ input:focus {
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-enemigo {
   position: absolute;
   width: 40%;
-  height: 340px;
+  height: 345px;
   right: 50px;
   bottom: 0;
   background-color: yellow;
@@ -756,9 +800,8 @@ input:focus {
 
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-enemigo .enemigo-cartel .enemigo-vida .enemigo-vida__barra {
   position: absolute;
-  width: 100.4%;
+  width: 100%;
   height: 31px;
-  top: -1px;
   background-color: green;
 }
 
