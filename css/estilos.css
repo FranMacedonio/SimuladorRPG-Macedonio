@@ -81,6 +81,7 @@ input:focus {
   z-index: 1000;
   top: 35px;
   left: 50px;
+  color: blanchedalmond;
 }
 
 #contenedor #pantalla.principal .elegir-personaje_panel button {
@@ -88,13 +89,14 @@ input:focus {
   bottom: 40px;
   left: 50px;
   z-index: 100;
+  width: 50px;
 }
 
 #contenedor #pantalla.principal .elegir-personaje_panel .elegir-personaje {
   width: 950px;
   height: 550px;
   z-index: 100;
-  background-color: blanchedalmond;
+  background-color: #0f0f0f;
 }
 
 #contenedor #pantalla.principal .elegir-personaje_panel .elegir-personaje .elegir-personaje_botones {
@@ -120,6 +122,7 @@ input:focus {
   -webkit-box-shadow: inset 0 0 10px black;
           box-shadow: inset 0 0 10px black;
   border-radius: 5px;
+  background-color: #161616;
 }
 
 #contenedor #pantalla.principal .elegir-personaje_panel .elegir-personaje .elegir-personaje_botones .personaje {
@@ -130,7 +133,8 @@ input:focus {
   text-align: center;
   -webkit-box-shadow: 0 0 15px black;
           box-shadow: 0 0 15px black;
-  background-color: cornsilk;
+  overflow: hidden;
+  background-color: #3a3a3a;
 }
 
 #contenedor #pantalla.principal .elegir-personaje_panel .elegir-personaje .elegir-personaje_botones .personaje img {
@@ -138,6 +142,10 @@ input:focus {
   bottom: 0;
   left: 20%;
   width: 60%;
+  -webkit-transition: -webkit-transform 250ms ease;
+  transition: -webkit-transform 250ms ease;
+  transition: transform 250ms ease;
+  transition: transform 250ms ease, -webkit-transform 250ms ease;
 }
 
 #contenedor #pantalla.principal .elegir-personaje_panel .elegir-personaje .elegir-personaje_botones .personaje h1 {
@@ -147,6 +155,21 @@ input:focus {
   left: 10px;
   color: #e2e2e2;
   text-shadow: 0 0 10px black;
+  -webkit-transition: text-shadow 250ms ease, -webkit-transform 250ms ease;
+  transition: text-shadow 250ms ease, -webkit-transform 250ms ease;
+  transition: text-shadow 250ms ease, transform 250ms ease;
+  transition: text-shadow 250ms ease, transform 250ms ease, -webkit-transform 250ms ease;
+}
+
+#contenedor #pantalla.principal .elegir-personaje_panel .elegir-personaje .elegir-personaje_botones .personaje:hover h1 {
+  text-shadow: 0 0 5px black;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#contenedor #pantalla.principal .elegir-personaje_panel .elegir-personaje .elegir-personaje_botones .personaje:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 #contenedor #pantalla.principal .elegir-personaje_panel .elegir-personaje .elegir-personaje_botones .personaje.fuego {
