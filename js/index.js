@@ -61,13 +61,17 @@ $('.btn-jugar').click(function () {
 
         $('.personaje').click(function (e) { 
             
-            console.log(e.target.dataset.jugar)
             for (const personaje of personajes){
                 if (e.target.dataset.jugar == personaje.nombre){
                     jugar.splice(0, jugar.length);
                     jugar.push(personaje);
 
                     localStorage.setItem('jugar', JSON.stringify(jugar));
+
+                    $('.elegir-personaje_panel').fadeOut();
+                    setTimeout(function (){
+                        window.location.href = '../pages/jugar.html';
+                    }, 2000);
                 }
             }
             
