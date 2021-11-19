@@ -76,11 +76,4 @@ $('.btn-jugar').click(function () {
             }
             
         });
-    
 });
-
-// $('.personaje').click(function () { 
-        
-//     window.location.href = '../pages/jugar.html';
-    
-// });

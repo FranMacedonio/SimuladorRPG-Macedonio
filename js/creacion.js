@@ -650,6 +650,7 @@ function crear (){
         personajes.push(new Crear(nombre, clase, raza, elemento, caracter, historia, hobby));
         localStorage.setItem('personajes', JSON.stringify(personajes));
 
-        $('.creacion').remove();
+        window.location.href = '../index.html';
+
     }
 }
