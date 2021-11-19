@@ -613,6 +613,39 @@ input:focus {
   background: #14679e;
 }
 
+#contenedor #pantalla.jugar {
+  position: relative;
+}
+
+#contenedor #pantalla.jugar #interfaz {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  bottom: 0;
+  border-top: 5px solid black;
+  background-color: red;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto {
+  position: absolute;
+  width: 49%;
+  height: 200px;
+  bottom: 20px;
+  left: 20px;
+  border: 5px solid black;
+  background-color: blue;
+}
+
+#contenedor #pantalla.jugar #interfaz .acciones {
+  position: absolute;
+  width: 43%;
+  height: 200px;
+  bottom: 20px;
+  right: 20px;
+  border: 5px solid black;
+  background-color: green;
+}
+
 #contenedor .eliminar--cartel {
   background-color: rgba(17, 17, 17, 0.26);
   width: 100%;
