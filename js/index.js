@@ -1,3 +1,15 @@
+let personajesText = '';
+
+$(document).ready(function () {
+    for (const personaje of personajes){
+        personajesText += `<div data-jugar="${personaje.nombre}" class="personaje ${personaje.elemento}">
+                                <img src="media/${personaje.clase}/${personaje.raza}/a.png" alt="">
+                                <h1>${personaje.nombre}</h1>
+                            </div>
+                            `
+    }
+});
+
 $('.salir').click(function () { 
     
     $('#pantalla').append(`<div class="eliminar--cartel">
@@ -28,6 +40,39 @@ $('.salir').click(function () {
                     $('.eliminar--cartel').remove();
                 });
         });
+});
+
+$('.btn-jugar').click(function () {
+
+    $('.principal').append(`<div class="elegir-personaje_panel">
+                                <h2>Elegi un personaje para jugar la historia:</h2>
+                                <div class="elegir-personaje">
+                                    <div class="elegir-personaje_botones">
+                                        ${personajesText}
+                                    </div>
+                                </div>
+                                <button class="btn--cerrar">Cerrar</button>
+                            </div>`);
+
+        $('.btn--cerrar').click(function (e) { 
+            e.preventDefault();
+            $('.elegir-personaje_panel').remove();
+        });
+
+        $('.personaje').click(function (e) { 
+            
+            console.log(e.target.dataset.jugar)
+            for (const personaje of personajes){
+                if (e.target.dataset.jugar == personaje.nombre){
+                    jugar.splice(0, jugar.length);
+                    jugar.push(personaje);
+
+                    localStorage.setItem('jugar', JSON.stringify(jugar));
+                }
+            }
+            
+        });
+    
 });
 
 // $('.personaje').click(function () { 

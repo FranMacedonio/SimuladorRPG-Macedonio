@@ -1,8 +1,15 @@
 let personajes = [];
 
+let jugar = [];
+
 let personajesLS = JSON.parse( localStorage.getItem('personajes') );
-if(personajesLS !== null) {
+if (personajesLS !== null) {
     personajes = JSON.parse( localStorage.getItem('personajes') );
+}
+
+let jugarLS = JSON.parse (localStorage.getItem('jugar'));
+if (jugarLS !== null){
+    jugar = JSON.parse (localStorage.getItem('jugar'));
 }
 
 class Crear {
@@ -26,4 +33,3 @@ let elemento;
 let caracter;
 let historia;
 let hobby;
-let jugar = [];
