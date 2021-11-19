@@ -26,4 +26,4 @@ let elemento;
 let caracter;
 let historia;
 let hobby;
-let jugar;
+let jugar = [];

@@ -29,3 +29,9 @@ $('.salir').click(function () {
                 });
         });
 });
+
+// $('.personaje').click(function () { 
+        
+//     window.location.href = '../pages/jugar.html';
+    
+// });
