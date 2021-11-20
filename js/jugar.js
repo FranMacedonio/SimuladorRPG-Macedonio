@@ -5,15 +5,39 @@ $(document).ready(function () {
 
 });
 
+// VARIABLES --------------------------------------------------------------------------------
+let nombreU = jugar[0].nombre;
+let claseU = jugar[0].clase;
+let razaU = jugar[0].raza;
+let elementoU = jugar[0].elemento;
+let usuarioPV = 100;
+let enemigoPV = 100;
+
+// SECTOR DE INICIO -------------------------------------------------------------------------
+
+// personaje left 70
+// enemigo right 70
+    $('.personaje-cartel').hide();
+    $('.enemigo-cartel').hide();
+    displayInicial (`Era un dia tranquilo en la vida de ${nombreU}`);
+    $('.btn-textoUno').click(function (e) { 
+        e.preventDefault();
+        $('.texto-activo').text(`Hoy habia decidido tomar otro camino hacia la ruta de su trabajo de ${claseU} para cambiar un poco la rutina`);
+
+        $('.personaje-juego img').animate({'left': '70px'}, 1500);
+    });
+
+    
+
 
 // SECTOR BOTONES ---------------------------------------------------------------------------
 $('.atacar').hover(function () {
 
-        if (jugar[0].clase == 'guerrero'){
+        if (claseU == 'guerrero'){
             $('.texto-activo').text('Atacas con tu espada vikinga por 10/20 de daño');
-        } else if (jugar[0].clase == 'arquero'){
+        } else if (claseU == 'arquero'){
             $('.texto-activo').text('Atacas con tu arco y flecha por 10/20 de daño');
-        } else if (jugar[0].clase == 'mago'){
+        } else if (claseU == 'mago'){
             $('.texto-activo').text('Atacas con tu hechizo magico por 10/20 de daño');
         }
         
@@ -34,13 +58,13 @@ $('.atacar').click(function (e) {
 
 $('.especial').hover(function () {
 
-        if (jugar[0].elemento == 'fuego'){
+        if (elementoU == 'fuego'){
             $('.texto-activo').text('Provocas una tormenta de fuego por 5/30 de daño');
-        } else if (jugar[0].elemento == 'agua'){
+        } else if (elementoU == 'agua'){
             $('.texto-activo').text('Provocas un tsunami por 5/30 de daño');
-        } else if (jugar[0].elemento == 'aire'){
+        } else if (elementoU == 'aire'){
             $('.texto-activo').text('Provocas un tornado por 5/30 de daño');
-        } else if (jugar[0].elemento == 'tierra'){
+        } else if (elementoU == 'tierra'){
             $('.texto-activo').text('Provocas una avalancha de rocas por 5/30 de daño');
         }
         
@@ -56,10 +80,6 @@ $('.especial').click(function (e) {
 
 });
 // ----------------------------------------------------------------------------------------------
-
-let usuarioPV = 100;
-let enemigoPV = 100;
-
 
 $('.objetos').hover(function () {
         $('.texto-activo').text('Abre tu bolsa de objetos');

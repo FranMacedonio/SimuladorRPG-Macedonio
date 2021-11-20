@@ -33,6 +33,7 @@ input:focus {
   -ms-grid-column: 2;
   grid-area: pantalla;
   background-color: #cacaca;
+  overflow: hidden;
   width: 1026px;
   height: 599px;
   -webkit-box-shadow: 0 0 10px 7px black;
@@ -885,7 +886,7 @@ input:focus {
   position: absolute;
   width: 60%;
   bottom: 0;
-  left: 70px;
+  left: -270px;
 }
 
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-enemigo {
@@ -941,7 +942,7 @@ input:focus {
   position: absolute;
   width: 60%;
   bottom: 0;
-  right: 70px;
+  right: -270px;
 }
 
 #contenedor .eliminar--cartel {
