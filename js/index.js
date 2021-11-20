@@ -70,7 +70,7 @@ $('.btn-jugar').click(function () {
 
                     $('.elegir-personaje_panel').fadeOut();
                     setTimeout(function (){
-                        window.location.href = '../pages/jugar.html';
+                        window.location.href = './pages/jugar.html';
                     }, 2000);
                 }
             }
