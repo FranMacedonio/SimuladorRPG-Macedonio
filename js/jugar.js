@@ -57,6 +57,8 @@ $('.especial').click(function (e) {
 });
 // ----------------------------------------------------------------------------------------------
 
+let usuarioPV = 100;
+let enemigoPV = 100;
 
 
 $('.objetos').hover(function () {
@@ -69,6 +71,8 @@ $('.objetos').hover(function () {
 $('.objetos').click(function (e) { 
     e.preventDefault();
     
+    displayInicial ('Abriste tu bolsa de objetos')
+    displaySiguiente ('La bolsa esta vacia, te olvidaste los objetos en la mesita de luz..')
 });
 
 
@@ -81,16 +85,18 @@ $('.abandonar').hover(function () {
 );
 $('.abandonar').click(function (e) { 
     e.preventDefault();
+
+    displayInicial ('Intentaste huir de la pelea pero Larry no te dejo');
+    displaySiguiente ('Te pego un chatetazo y te saco 1PV');
+    vidaUsuario (1);
     
 });
-
-// 93.5
 
 function displayInicial (texto){
     $('.texto').css('width', '93.5%');
     setTimeout(function (){
         $('.texto-activo').text(texto);
-    }, 1);
+    }, 10);
     
     $('.btn-textoUno').show();
 }
@@ -108,4 +114,15 @@ function displaySiguiente (texto){
         $('.btn-textoDos').hide();
         $('.texto').css('width', '46%');
     });
+}
+
+function vidaUsuario (daño){
+    usuarioPV -= daño;
+
+    $('.personaje-vida__barra').animate({'width': usuarioPV + '%'}, 500)
+}
+function vidaEnemigo (daño){
+    enemigoPV -= daño;
+
+    $('.enemigo-vida__barra').animate({'width': enemigoPV + '%'}, 500)
 }

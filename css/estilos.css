@@ -878,8 +878,7 @@ input:focus {
   position: absolute;
   width: 100.4%;
   height: 31px;
-  top: -1px;
-  background-color: green;
+  background-color: #229722;
 }
 
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-personaje .personaje-juego img {
@@ -933,10 +932,9 @@ input:focus {
 
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-enemigo .enemigo-cartel .enemigo-vida .enemigo-vida__barra {
   position: absolute;
-  width: 100%;
+  width: 100.4%;
   height: 31px;
-  top: -1px;
-  background-color: green;
+  background-color: #911a1a;
 }
 
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-enemigo .enemigo-juego img {
