@@ -2,7 +2,7 @@ let personajesText = '';
 
 $(document).ready(function () {
     for (const personaje of personajes){
-        personajesText += `<div href="" data-jugar="${personaje.nombre}" class="personaje ${personaje.elemento}">
+        personajesText += `<div data-jugar="${personaje.nombre}" class="personaje ${personaje.elemento}">
                                 <img src="media/${personaje.clase}/${personaje.raza}/a.png" alt="">
                                 <h1>${personaje.nombre}</h1>
                             </div>
