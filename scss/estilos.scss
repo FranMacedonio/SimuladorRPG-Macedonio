@@ -17,6 +17,86 @@ input{
     }
 }
 
+@keyframes impacto {
+    0%{
+        transform: translateX(-10px);
+        opacity: .2;
+        filter: grayscale(1);
+    }
+    25%{
+        transform: translateX(10px);
+        opacity: .3;
+    }
+    50%{
+        transform: translateX(-10px);
+    }
+    75%{
+        transform: translateX(10px);
+        filter: grayscale(1);
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes barraV {
+    0%{
+        background-color: green;
+    }
+    25%{
+        background-color: grey;
+    }
+    50%{
+        background-color: green;
+    }
+    75%{
+        background-color: grey;
+    }
+    100%{
+        background-color: green;
+    }
+}
+
+@keyframes barraR {
+    0%{
+        background-color: red;
+    }
+    25%{
+        background-color: grey;
+    }
+    50%{
+        background-color: red;
+    }
+    75%{
+        background-color: grey;
+    }
+    100%{
+        background-color: red;
+    }
+}
+
+.impacto{
+    animation-name: impacto;
+    animation-timing-function: ease;
+    animation-duration: 350ms;
+    animation-iteration-count: 1;
+}
+
+.barraV{
+    animation-name: barraV;
+    animation-timing-function: ease;
+    animation-duration: 350ms;
+    animation-iteration-count: 1;
+}
+
+.barraR{
+    animation-name: barraR;
+    animation-timing-function: ease;
+    animation-duration: 350ms;
+    animation-iteration-count: 1;
+}
+
 #contenedor{
     background-image: url(../media/fondo.jpg);
     background-position: center;
@@ -775,7 +855,7 @@ input{
                     height: 345px;
                     top: -349px;
 
-                    background-color: hotpink;
+                    background-color: rgb(175, 175, 175);
 
                     .sector-personaje{
                         position: absolute;
@@ -783,8 +863,6 @@ input{
                         height: 345px;
                         left: 50px;
                         bottom: 0;
-
-                        background-color: yellowgreen;
 
                         .personaje-cartel{
                             position: absolute;
@@ -822,6 +900,7 @@ input{
                                     position: absolute;
                                     width: 100.4%;
                                     height: 31px;
+                                    top: -1px;
 
                                     background-color: rgb(34, 151, 34);
                                 }
@@ -844,8 +923,6 @@ input{
                         height: 345px;
                         right: 50px;
                         bottom: 0;
-
-                        background-color: yellow;
 
                         .enemigo-cartel{
                             position: absolute;
@@ -883,6 +960,7 @@ input{
                                     position: absolute;
                                     width: 100.4%;
                                     height: 31px;
+                                    top: -1px;
 
                                     background-color: rgb(145, 26, 26);
                                 }
