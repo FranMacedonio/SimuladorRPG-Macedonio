@@ -24,8 +24,8 @@ $('.atacar').hover(function () {
 $('.atacar').click(function (e) { 
     e.preventDefault();
     
-    let usuario
-
+    displayInicial(`${jugar[0].nombre} se la come`)
+    displaySiguiente(`Joda amigo no te enojes`)
 
 });
 // ----------------------------------------------------------------------------------------------
@@ -83,3 +83,29 @@ $('.abandonar').click(function (e) {
     e.preventDefault();
     
 });
+
+// 93.5
+
+function displayInicial (texto){
+    $('.texto').css('width', '93.5%');
+    setTimeout(function (){
+        $('.texto-activo').text(texto);
+    }, 1);
+    
+    $('.btn-textoUno').show();
+}
+
+function displaySiguiente (texto){
+
+    $('.btn-textoUno').click(function (e) { 
+        e.preventDefault();
+        $('.texto-activo').text(texto);
+        $('.btn-textoUno').hide();
+        $('.btn-textoDos').show();
+    });
+    $('.btn-textoDos').click(function (e) { 
+        e.preventDefault();
+        $('.btn-textoDos').hide();
+        $('.texto').css('width', '46%');
+    });
+}
