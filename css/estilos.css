@@ -769,7 +769,7 @@ input:focus {
   text-align: center;
 }
 
-#contenedor #pantalla.jugar #interfaz .texto .btn-textoUno, #contenedor #pantalla.jugar #interfaz .texto .btn-textoDos {
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoUno, #contenedor #pantalla.jugar #interfaz .texto .btn-textoDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicio, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicioDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoFinal {
   position: absolute;
   bottom: 15px;
   right: 15px;
@@ -886,7 +886,7 @@ input:focus {
   position: absolute;
   width: 60%;
   bottom: 0;
-  left: -270px;
+  left: -300px;
 }
 
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-enemigo {
