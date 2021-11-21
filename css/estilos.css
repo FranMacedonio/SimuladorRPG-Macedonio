@@ -145,6 +145,30 @@ input:focus {
   }
 }
 
+@-webkit-keyframes coma {
+  0% {
+    background-color: transparent;
+  }
+  75% {
+    background-color: #c11111;
+  }
+  100% {
+    background-color: #c11111;
+  }
+}
+
+@keyframes coma {
+  0% {
+    background-color: transparent;
+  }
+  75% {
+    background-color: #c11111;
+  }
+  100% {
+    background-color: #c11111;
+  }
+}
+
 .impacto {
   -webkit-animation-name: impacto;
           animation-name: impacto;
@@ -176,6 +200,17 @@ input:focus {
           animation-duration: 350ms;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
+}
+
+.coma {
+  -webkit-animation-name: coma;
+          animation-name: coma;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-duration: 1300ms;
+          animation-duration: 1300ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 #contenedor {

@@ -307,6 +307,7 @@ function vidaUsuario (daño){
         $('.personaje-juego img').css({'left': '70px'});
         impacto (imgU);
     }else if (usuarioPV <= 25){
+        $('.personaje-vida__barra').addClass('coma');
         $('.personaje-vida__barra').css('backgroundColor', '#c11111');
         $('.personaje-juego img').remove();
         $('.personaje-juego').append(`<img src="../media/${claseU}/${razaU}/c.png">`);

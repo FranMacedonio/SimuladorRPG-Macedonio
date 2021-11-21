@@ -76,6 +76,18 @@ input{
     }
 }
 
+@keyframes coma {
+    0%{
+        background-color: transparent;
+    }
+    75%{
+        background-color: #c11111;
+    }
+    100%{
+        background-color: #c11111;
+    }
+}
+
 .impacto{
     animation-name: impacto;
     animation-timing-function: ease;
@@ -95,6 +107,13 @@ input{
     animation-timing-function: ease;
     animation-duration: 350ms;
     animation-iteration-count: 1;
+}
+
+.coma{
+    animation-name: coma;
+    animation-timing-function: ease-out;
+    animation-duration: 1300ms;
+    animation-iteration-count: infinite;
 }
 
 #contenedor{
