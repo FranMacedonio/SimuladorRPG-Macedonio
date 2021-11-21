@@ -106,15 +106,15 @@ if (claseU == 'guerrero'){
 }else if (claseU == 'mago'){
     switch (suerte_personaje){
         case 1:
-            suerte_personaje = 10
+            suerte_personaje = 20
             break;
     
         case 2:
-            suerte_personaje = 15
+            suerte_personaje = 30
             break;
     
         case 3:
-            suerte_personaje = 25
+            suerte_personaje = 40
             break;
     }
 }
@@ -149,17 +149,17 @@ $('.atacar').click(function (e) {
             }, 1500)
         }else if(usuarioPV <= 25 && vidaCriticaU === true){
             displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`)
-            displaySiguiente(`${nombreU} ataca con su espada con furia y ataca por ${golpe * suerte_personaje}.
-            La vida del borracho bada de ${enemigoPV} a ${enemigoPV - (golpe * suerte_personaje)}`)
+            displaySiguiente(`${nombreU} ataca con su espada con furia y ataca por ${Math.ceil(golpe * suerte_personaje)}.
+            La vida del borracho bada de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`)
             setTimeout(() => {
-                vidaEnemigo(golpe * suerte_personaje); 
+                vidaEnemigo(Math.ceil(golpe * suerte_personaje)); 
             }, 2000)
             vidaCriticaU = false;
         }else if(usuarioPV <= 25 && vidaCriticaU === false){
-            displayInicial(`${nombreU} cansado de pelear usa su ultimo esfuerzo y ataca por ${golpe * suerte_personaje}`)
-            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - (golpe * suerte_personaje)}`)
+            displayInicial(`${nombreU} cansado de pelear usa su ultimo esfuerzo y ataca por ${Math.ceil(golpe * suerte_personaje)}`)
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`)
             setTimeout(() => {
-                vidaEnemigo(golpe * suerte_personaje); 
+                vidaEnemigo(Math.ceil(golpe * suerte_personaje)); 
             }, 1500)
         }
 
@@ -167,8 +167,34 @@ $('.atacar').click(function (e) {
         
 
     }else if (claseU == 'mago'){
-
-
+            if (usuarioPV > 25){
+                displayInicial(`${nombreU} ataca con su hechizo magico por ${golpe} de daño`)
+                displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`)
+                setTimeout(() => {
+                    vidaEnemigo(golpe); 
+                }, 1500)
+            }else if (usuarioPV <= 25 && vidaCriticaU === true){
+                if (elementoU == 'fuego'){
+                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con una tormenta de fuego que hace ${suerte_personaje} de daño`)
+                }else if(elementoU == 'agua'){
+                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con un tsunami que hace ${suerte_personaje} de daño`)
+                }else if(elementoU == 'aire'){
+                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con una tormenta que hace ${suerte_personaje} de daño`)
+                }else if(elementoU == 'tierra'){
+                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con avalancha de piedras que hace  ${suerte_personaje} de daño`)
+                }
+                displaySiguiente(`La vida del borracho bada de ${enemigoPV} a ${enemigoPV - suerte_personaje}`)
+                setTimeout(() => {
+                    vidaEnemigo(suerte_personaje); 
+                }, 2000)
+                vidaCriticaU = false;
+            }else if(usuarioPV <= 25 && vidaCriticaU === false){
+                displayInicial(`${nombreU} ataca con el poco mana que le queda por ${golpe} de daño`)
+                displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`)
+                setTimeout(() => {
+                    vidaEnemigo(golpe); 
+                }, 1500)
+            }
     } 
     
     
@@ -185,7 +211,7 @@ $('.especial').hover(function () {
         } else if (claseU == 'arquero'){
             $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su espiritu ${elementoU} hace que su proxima flecha deja sangrando al enemigo por 3, 5 o 10 dependiendo de tu suerte`);
         } else if (claseU == 'mago'){
-            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 desata su poder de ${elementoU} y lanza un poderozo ataque que daña al enemigo por 10, 15 o 25 dependiendo de tu suerte`);
+            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 desata su poder de ${elementoU} y lanza un poderozo ataque que daña al enemigo por 20, 30 o 40 dependiendo de tu suerte`);
         }
         
     }, function () {
@@ -273,15 +299,15 @@ function vidaUsuario (daño){
     }, 350);
 
     if (usuarioPV > 50) {
-        $('.personaje-vida__barra').css('backgroundColor', 'green');
+        $('.personaje-vida__barra').css('backgroundColor', '#229722');
     }else if (usuarioPV > 25){
-        $('.personaje-vida__barra').css('backgroundColor', 'yellow');
+        $('.personaje-vida__barra').css('backgroundColor', '#cdcd1b');
         $('.personaje-juego img').remove();
         $('.personaje-juego').append(`<img src="../media/${claseU}/${razaU}/b.png">`);
         $('.personaje-juego img').css({'left': '70px'});
         impacto (imgU);
     }else if (usuarioPV <= 25){
-        $('.personaje-vida__barra').css('backgroundColor', 'red');
+        $('.personaje-vida__barra').css('backgroundColor', '#c11111');
         $('.personaje-juego img').remove();
         $('.personaje-juego').append(`<img src="../media/${claseU}/${razaU}/c.png">`);
         $('.personaje-juego img').css({'left': '70px'});
