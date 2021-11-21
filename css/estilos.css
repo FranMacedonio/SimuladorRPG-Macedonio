@@ -934,8 +934,8 @@ input:focus {
   bottom: 0;
   z-index: 10;
   border-top: 4px solid black;
-  background: -webkit-gradient(linear, left bottom, left top, from(#00000033), to(#e2e2e2));
-  background: linear-gradient(to top, #00000033, #e2e2e2);
+  background: -webkit-gradient(linear, left bottom, left top, from(#c5c5c5), to(#e2e2e2));
+  background: linear-gradient(to top, #c5c5c5, #e2e2e2);
 }
 
 #contenedor #pantalla.jugar #interfaz .texto {
@@ -1091,7 +1091,7 @@ input:focus {
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-personaje .personaje-cartel .personaje-vida .personaje-vida__barra {
   position: absolute;
   width: 100.4%;
-  height: 31px;
+  height: 30px;
   background-color: #229722;
 }
 

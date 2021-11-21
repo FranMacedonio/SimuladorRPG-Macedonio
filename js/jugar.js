@@ -188,6 +188,7 @@ function vidaUsuario (daño){
 
     impacto (imgU);
 
+    $('.vida-contador_personaje').text(usuarioPV);
     $('.personaje-vida__barra').animate({'width': usuarioPV + '%'}, 500)
     $('.personaje-vida__barra').addClass('barraV');
     setTimeout(() => {
@@ -199,6 +200,7 @@ function vidaEnemigo (daño){
 
     impacto (imgE);
 
+    $('.vida-contador_enemigo').text(enemigoPV);
     $('.enemigo-vida__barra').animate({'width': enemigoPV + '%'}, 500)
     $('.enemigo-vida__barra').addClass('barraR');
     setTimeout(() => {
