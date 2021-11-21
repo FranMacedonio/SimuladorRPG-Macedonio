@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     $('.personaje-cartel').append(`<h3>${jugar[0].nombre}</h3>`);
     $('.personaje-juego').append(`<img src="../media/${jugar[0].clase}/${jugar[0].raza}/a.png">`);
-    $('.especial span').text(`${jugar[0].elemento}`);
 
 
     // SECTOR DE INICIO -------------------------------------------------------------------------
@@ -72,17 +71,63 @@ let usuarioPV = 100;
 let enemigoPV = 100;
 let turno = 1;
 
+// SUERTE -----------------------------------------------------------------------------------
+let suerte_personaje = Math.ceil(Math.random()*3);
+
+if (claseU == 'guerrero'){
+    switch (suerte_personaje){
+        case 1:
+            suerte_personaje = 1.25
+            break;
+    
+        case 2:
+            suerte_personaje = 1.5
+            break;
+    
+        case 3:
+            suerte_personaje = 2
+            break;
+    }
+}else if (claseU == 'arquero'){
+    switch (suerte_personaje){
+        case 1:
+            suerte_personaje = 3
+            break;
+    
+        case 2:
+            suerte_personaje = 5
+            break;
+    
+        case 3:
+            suerte_personaje = 10
+            break;
+    }
+}else if (claseU == 'mago'){
+    switch (suerte_personaje){
+        case 1:
+            suerte_personaje = 10
+            break;
+    
+        case 2:
+            suerte_personaje = 15
+            break;
+    
+        case 3:
+            suerte_personaje = 25
+            break;
+    }
+}
 
 
 // SECTOR BOTONES ---------------------------------------------------------------------------
 $('.atacar').hover(function () {
 
         if (claseU == 'guerrero'){
-            $('.texto-activo').text('Atacas con tu espada vikinga por 10/20 de daño');
+            $('.texto-activo').text('Atacas con tu espada vikinga por 5/15 de daño');
         } else if (claseU == 'arquero'){
-            $('.texto-activo').text('Atacas con tu arco y flecha por 10/20 de daño');
+            $('.texto-activo').text('Atacas con tu arco y flecha por 5/15 de daño');
         } else if (claseU == 'mago'){
-            $('.texto-activo').text('Atacas con tu hechizo magico por 10/20 de daño');
+            $('.texto-activo').text('Atacas con tu hechizo magico por 5/15 de daño');
         }
         
     }, function () {
@@ -92,16 +137,15 @@ $('.atacar').hover(function () {
 $('.atacar').click(function (e) { 
     e.preventDefault();
 
-    let random = Math.ceil(Math.random()*10);
-    let golpe = 20 - random;
-    
-    if (clase == 'guerrero'){
+    let random = Math.ceil(Math.random()*11);
+    let golpe = 16 - random;
+    if (claseU == 'guerrero'){
+        
 
+    }else if (claseU == 'arquero'){
+        
 
-    }else if (clase == 'arquero'){
-
-
-    }else if (clase == 'mago'){
+    }else if (claseU == 'mago'){
 
 
     } 
@@ -115,27 +159,18 @@ $('.atacar').click(function (e) {
 
 $('.especial').hover(function () {
 
-        if (elementoU == 'fuego'){
-            $('.texto-activo').text('Provocas una tormenta de fuego por 5/30 de daño');
-        } else if (elementoU == 'agua'){
-            $('.texto-activo').text('Provocas un tsunami por 5/30 de daño');
-        } else if (elementoU == 'aire'){
-            $('.texto-activo').text('Provocas un tornado por 5/30 de daño');
-        } else if (elementoU == 'tierra'){
-            $('.texto-activo').text('Provocas una avalancha de rocas por 5/30 de daño');
+        if (claseU == 'guerrero'){
+            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su furia de ${elementoU} aumenta su daño un 25%, 50% o 100% dependiendo de tu suerte`);
+        } else if (claseU == 'arquero'){
+            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su espiritu ${elementoU} hace que su proxima flecha deja sangrando al enemigo por 3, 5 o 10 dependiendo de tu suerte`);
+        } else if (claseU == 'mago'){
+            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 desata su poder de ${elementoU} y lanza un poderozo ataque que daña al enemigo por 10, 15 o 25 dependiendo de tu suerte`);
         }
         
     }, function () {
         $('.texto-activo').text('Elegi una accion');
     }
 );
-$('.especial').click(function (e) { 
-    e.preventDefault();
-    
-    let usuario
-
-
-});
 // ----------------------------------------------------------------------------------------------
 
 $('.objetos').hover(function () {
@@ -215,13 +250,13 @@ function vidaUsuario (daño){
 
     if (usuarioPV > 50) {
         $('.personaje-vida__barra').css('backgroundColor', 'green');
-    }else if (usuarioPV > 20){
+    }else if (usuarioPV > 25){
         $('.personaje-vida__barra').css('backgroundColor', 'yellow');
         $('.personaje-juego img').remove();
         $('.personaje-juego').append(`<img src="../media/${claseU}/${razaU}/b.png">`);
         $('.personaje-juego img').css({'left': '70px'});
         impacto (imgU);
-    }else if (usuarioPV <= 20){
+    }else if (usuarioPV <= 25){
         $('.personaje-vida__barra').css('backgroundColor', 'red');
         $('.personaje-juego img').remove();
         $('.personaje-juego').append(`<img src="../media/${claseU}/${razaU}/c.png">`);
