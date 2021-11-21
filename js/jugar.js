@@ -67,6 +67,7 @@ let nombreU = jugar[0].nombre;
 let claseU = jugar[0].clase;
 let razaU = jugar[0].raza;
 let elementoU = jugar[0].elemento;
+let vidaCriticaU = true;
 let usuarioPV = 100;
 let enemigoPV = 100;
 let turno = 1;
@@ -140,7 +141,27 @@ $('.atacar').click(function (e) {
     let random = Math.ceil(Math.random()*11);
     let golpe = 16 - random;
     if (claseU == 'guerrero'){
-        
+        if (usuarioPV > 25){
+            displayInicial(`${nombreU} ataca con su espada vikinga por ${golpe} de daño`)
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`)
+            setTimeout(() => {
+                vidaEnemigo(golpe); 
+            }, 1500)
+        }else if(usuarioPV <= 25 && vidaCriticaU === true){
+            displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`)
+            displaySiguiente(`${nombreU} ataca con su espada con furia y ataca por ${golpe * suerte_personaje}.
+            La vida del borracho bada de ${enemigoPV} a ${enemigoPV - (golpe * suerte_personaje)}`)
+            setTimeout(() => {
+                vidaEnemigo(golpe * suerte_personaje); 
+            }, 2000)
+            vidaCriticaU = false;
+        }else if(usuarioPV <= 25 && vidaCriticaU === false){
+            displayInicial(`${nombreU} cansado de pelear usa su ultimo esfuerzo y ataca por ${golpe * suerte_personaje}`)
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - (golpe * suerte_personaje)}`)
+            setTimeout(() => {
+                vidaEnemigo(golpe * suerte_personaje); 
+            }, 1500)
+        }
 
     }else if (claseU == 'arquero'){
         
@@ -201,8 +222,8 @@ $('.abandonar').click(function (e) {
     displayInicial ('Intentaste huir de la pelea pero Larry no te dejo');
     displaySiguiente ('Te pego un chatetazo y te saco 1PV');
     setTimeout(() => {
-        vidaUsuario (1);
-    }, 1500);
+        vidaUsuario (20);
+    }, 100);
     
 });
 // ----------------------------------------------------------------------------------------------
@@ -238,6 +259,9 @@ let imgE = '.enemigo-juego img';
 
 function vidaUsuario (daño){
     usuarioPV -= daño;
+    if (usuarioPV < 0){
+        usuarioPV = 0;
+    }
 
     impacto (imgU);
 
@@ -266,6 +290,9 @@ function vidaUsuario (daño){
 }
 function vidaEnemigo (daño){
     enemigoPV -= daño;
+    if (enemigoPV < 0){
+        enemigoPV = 0;
+    }
 
     impacto (imgE);
 
