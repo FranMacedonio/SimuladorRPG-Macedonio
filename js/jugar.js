@@ -100,7 +100,7 @@ if (claseU == 'guerrero'){
             break;
     
         case 3:
-            suerte_personaje = 10
+            suerte_personaje = 8
             break;
     }
 }else if (claseU == 'mago'){
@@ -140,6 +140,9 @@ $('.atacar').click(function (e) {
 
     let random = Math.ceil(Math.random()*11);
     let golpe = 16 - random;
+
+    // GUERRERO
+
     if (claseU == 'guerrero'){
         if (usuarioPV > 25){
             displayInicial(`${nombreU} ataca con su espada vikinga por ${golpe} de daño`)
@@ -148,7 +151,7 @@ $('.atacar').click(function (e) {
                 vidaEnemigo(golpe); 
             }, 1500)
         }else if(usuarioPV <= 25 && vidaCriticaU === true){
-            displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`)
+            displayInicial(`La vida de ${nombreU} esta al limite lo que desata su espiritu de ${elementoU}.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`)
             displaySiguiente(`${nombreU} ataca con su espada con furia y ataca por ${Math.ceil(golpe * suerte_personaje)}.
             La vida del borracho bada de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`)
             setTimeout(() => {
@@ -163,8 +166,39 @@ $('.atacar').click(function (e) {
             }, 1500)
         }
 
+    // ARQUERO
+
     }else if (claseU == 'arquero'){
-        
+        if (usuarioPV > 25){
+            displayInicial(`${nombreU} ataca con su arco y flecha por ${golpe} de daño`)
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`)
+            setTimeout(() => {
+                vidaEnemigo(golpe); 
+            }, 1500)
+        }else if(usuarioPV <= 25 && vidaCriticaU === true){
+            displayInicial(`La vida de ${nombreU} esta al limite y se concentra para disparar a la cabeza del borracho.. Tira los dados para ver su suerte y deja sangrando al enemigo por ${suerte_personaje} de daño por turno`)
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}..
+            El borracho ahora esta sangrando y pierde ${suerte_personaje} de vida..`)
+            setTimeout(() => {
+                vidaEnemigo(golpe);
+                setTimeout(() => {
+                    vidaEnemigo(suerte_personaje); 
+                }, 3000)
+            }, 2000)
+            vidaCriticaU = false;
+        }else if(usuarioPV <= 25 && vidaCriticaU === false){
+            displayInicial(`${nombreU} usa sus ultimas flechas y ataca por ${golpe}`)
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}..
+            El borracho esta sangrando y pierde ${suerte_personaje} de vida..`)
+            setTimeout(() => {
+                vidaEnemigo(golpe);
+                setTimeout(() => {
+                    vidaEnemigo(suerte_personaje); 
+                }, 3000)
+            }, 2000)
+        }
+
+    // MAGO
 
     }else if (claseU == 'mago'){
             if (usuarioPV > 25){
@@ -209,7 +243,7 @@ $('.especial').hover(function () {
         if (claseU == 'guerrero'){
             $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su furia de ${elementoU} aumenta su daño un 25%, 50% o 100% dependiendo de tu suerte`);
         } else if (claseU == 'arquero'){
-            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su espiritu ${elementoU} hace que su proxima flecha deja sangrando al enemigo por 3, 5 o 10 dependiendo de tu suerte`);
+            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su espiritu ${elementoU} hace que su proxima flecha deja sangrando al enemigo por 3, 5 o 8 dependiendo de tu suerte`);
         } else if (claseU == 'mago'){
             $('.texto-activo').text(`Cuando su vida esta por debajo de 25 desata su poder de ${elementoU} y lanza un poderozo ataque que daña al enemigo por 20, 30 o 40 dependiendo de tu suerte`);
         }
