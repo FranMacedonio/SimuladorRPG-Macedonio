@@ -70,8 +70,8 @@ let razaU = jugar[0].raza;
 let elementoU = jugar[0].elemento;
 let usuarioPV = 100;
 let enemigoPV = 100;
-let imgU = '.personaje-juego img';
-let imgE = '.enemigo-juego img';
+let turno = 1;
+
 
 
 // SECTOR BOTONES ---------------------------------------------------------------------------
@@ -91,9 +91,22 @@ $('.atacar').hover(function () {
 );
 $('.atacar').click(function (e) { 
     e.preventDefault();
+
+    let random = Math.ceil(Math.random()*10);
+    let golpe = 20 - random;
     
-    displayInicial(`${jugar[0].nombre} se la come`)
-    displaySiguiente(`Joda amigo no te enojes`)
+    if (clase == 'guerrero'){
+
+
+    }else if (clase == 'arquero'){
+
+
+    }else if (clase == 'mago'){
+
+
+    } 
+    
+    
 
 });
 // ----------------------------------------------------------------------------------------------
@@ -152,7 +165,9 @@ $('.abandonar').click(function (e) {
 
     displayInicial ('Intentaste huir de la pelea pero Larry no te dejo');
     displaySiguiente ('Te pego un chatetazo y te saco 1PV');
-    vidaUsuario (1);
+    setTimeout(() => {
+        vidaUsuario (1);
+    }, 1500);
     
 });
 // ----------------------------------------------------------------------------------------------
@@ -183,6 +198,9 @@ function displaySiguiente (texto){
     });
 }
 
+let imgU = '.personaje-juego img';
+let imgE = '.enemigo-juego img';
+
 function vidaUsuario (daño){
     usuarioPV -= daño;
 
@@ -194,6 +212,22 @@ function vidaUsuario (daño){
     setTimeout(() => {
         $('.personaje-vida__barra').removeClass('barraV');
     }, 350);
+
+    if (usuarioPV > 50) {
+        $('.personaje-vida__barra').css('backgroundColor', 'green');
+    }else if (usuarioPV > 20){
+        $('.personaje-vida__barra').css('backgroundColor', 'yellow');
+        $('.personaje-juego img').remove();
+        $('.personaje-juego').append(`<img src="../media/${claseU}/${razaU}/b.png">`);
+        $('.personaje-juego img').css({'left': '70px'});
+        impacto (imgU);
+    }else if (usuarioPV <= 20){
+        $('.personaje-vida__barra').css('backgroundColor', 'red');
+        $('.personaje-juego img').remove();
+        $('.personaje-juego').append(`<img src="../media/${claseU}/${razaU}/c.png">`);
+        $('.personaje-juego img').css({'left': '70px'});
+        impacto (imgU);
+    }
 }
 function vidaEnemigo (daño){
     enemigoPV -= daño;
