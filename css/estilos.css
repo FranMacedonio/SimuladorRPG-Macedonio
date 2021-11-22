@@ -991,7 +991,7 @@ input:focus {
   text-align: center;
 }
 
-#contenedor #pantalla.jugar #interfaz .texto .btn-textoUno, #contenedor #pantalla.jugar #interfaz .texto .btn-textoDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicio, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicioDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoFinal {
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoUno, #contenedor #pantalla.jugar #interfaz .texto .btn-textoDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicio, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicioDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoFinal, #contenedor #pantalla.jugar #interfaz .texto .btn-textoTres, #contenedor #pantalla.jugar #interfaz .texto .btn-textoCuatro {
   position: absolute;
   bottom: 15px;
   right: 15px;

@@ -3,6 +3,10 @@ $(document).ready(function () {
     $('.personaje-cartel').append(`<h3>${jugar[0].nombre}</h3>`);
     $('.personaje-juego').append(`<img src="../media/${jugar[0].clase}/${jugar[0].raza}/a.png">`);
 
+    displayInicial('Hola display uno')
+    displaySiguiente('Hola display dos')
+    enemigoInicial('Hola display enemigo uno')
+    enemigoSiguiente('Hola display enemigo dos')
 
     // SECTOR DE INICIO -------------------------------------------------------------------------
 
@@ -148,7 +152,7 @@ $('.atacar').click(function (e) {
             displayInicial(`${nombreU} ataca con su espada vikinga por ${golpe} de daño`)
             displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`)
             setTimeout(() => {
-                vidaEnemigo(golpe); 
+                vidaEnemigo(golpe);
             }, 1500)
         }else if(usuarioPV <= 25 && vidaCriticaU === true){
             displayInicial(`La vida de ${nombreU} esta al limite lo que desata su espiritu de ${elementoU}.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`)
@@ -306,13 +310,32 @@ function displaySiguiente (texto){
         $('.btn-textoUno').hide();
         $('.btn-textoDos').show();
     });
+}
+
+function enemigoInicial (texto){
     $('.btn-textoDos').click(function (e) { 
         e.preventDefault();
+        $('.texto-activo').text(texto);
         $('.btn-textoDos').hide();
-        $('.texto').css('width', '46%');
-        $('.texto-activo').text('Elegi una accion');
+        $('.btn-textoTres').show();
     });
 }
+
+function enemigoSiguiente (texto){
+
+    $('.btn-textoTres').click(function (e) { 
+        e.preventDefault();
+        $('.texto-activo').text(texto);
+        $('.btn-textoTres').hide();
+        $('.btn-textoCuatro').show();
+    });
+    $('.btn-textoCuatro').click(function (e) { 
+        e.preventDefault();
+        $('.btn-textoCuatro').hide();
+        $('.texto').css('width', '46%');
+    });
+}
+
 
 let imgU = '.personaje-juego img';
 let imgE = '.enemigo-juego img';
