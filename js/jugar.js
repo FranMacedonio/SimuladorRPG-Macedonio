@@ -11,17 +11,17 @@ $(document).ready(function () {
     // $('.enemigo-cartel').hide();
     // $('.texto-activo').text(`Era un dia tranquilo en la vida de ${nombreU}..`);
     // $('.btn-textoInicio').fadeIn();
-    // $('.btn-textoInicio').click(function (e) { 
+    // $('.btn-textoInicio').click(function (e) {
     //     e.preventDefault();
     //     $('.texto-activo').text(`Hoy habia decidido tomar otro camino hacia la ruta de su trabajo de ${claseU} para cambiar un poco la rutina..`);
-    
+
     //     $('.personaje-juego img').animate({'left': '70px'}, 1500);
-    
+
     //     $('.btn-textoInicio').click(function (e){
     //         e.preventDefault();
     //         $('.texto-activo').text('Mientras iba caminando se cruzo con una botella en el piso y como debe hacerse la pateo con toda sus fuerzas..');
     //         $('.btn-textoInicio').hide();
-    
+
     //         setTimeout(() => {
     //             $('.texto-activo').text('*Ruido de golpe*');
     //             setTimeout(() => {
@@ -36,14 +36,14 @@ $(document).ready(function () {
     //                             $('.personaje-cartel').fadeIn();
     //                             $('.enemigo-cartel').fadeIn();
     //                         }, 1000)
-    
-    //                         $('.btn-textoInicioDos').click(function (e) { 
+
+    //                         $('.btn-textoInicioDos').click(function (e) {
     //                             e.preventDefault();
     //                             $('.texto-activo').text(`A ${nombreU} no le queda otra que hacerle frente al borracho.`);
     //                             $('.btn-textoInicioDos').hide();
     //                             $('.btn-textoFinal').show();
-    
-    //                             $('.btn-textoFinal').click(function (e) { 
+
+    //                             $('.btn-textoFinal').click(function (e) {
     //                                 e.preventDefault();
     //                                 $('.btn-textoFinal').hide();
     //                                 $('.texto').css('width', '46%');
@@ -68,6 +68,8 @@ let claseU = jugar[0].clase;
 let razaU = jugar[0].raza;
 let elementoU = jugar[0].elemento;
 let vidaCriticaU = true;
+let vidaCriticaE = true;
+let definitivaE = true;
 let usuarioPV = 100;
 let enemigoPV = 100;
 let turno = 1;
@@ -78,48 +80,87 @@ let suerte_personaje = Math.ceil(Math.random()*3);
 if (claseU == 'guerrero'){
     switch (suerte_personaje){
         case 1:
-            suerte_personaje = 1.25
+            suerte_personaje = 1.25;
             break;
-    
+
         case 2:
-            suerte_personaje = 1.5
+            suerte_personaje = 1.5;
             break;
-    
+
         case 3:
-            suerte_personaje = 2
+            suerte_personaje = 2;
             break;
     }
 }else if (claseU == 'arquero'){
     switch (suerte_personaje){
         case 1:
-            suerte_personaje = 3
+            suerte_personaje = 3;
             break;
-    
+
         case 2:
-            suerte_personaje = 5
+            suerte_personaje = 5;
             break;
-    
+
         case 3:
-            suerte_personaje = 8
+            suerte_personaje = 8;
             break;
     }
 }else if (claseU == 'mago'){
     switch (suerte_personaje){
         case 1:
-            suerte_personaje = 20
+            suerte_personaje = 20;;
             break;
-    
+
         case 2:
-            suerte_personaje = 30
+            suerte_personaje = 30;
             break;
-    
+
         case 3:
-            suerte_personaje = 40
+            suerte_personaje = 40;
             break;
     }
 }
 
 
+let suerte_enemigo = Math.ceil(Math.random()*3);
+
+switch (suerte_enemigo) {
+    case 1:
+        suerte_enemigo = 10;
+        break;
+
+    case 2:
+        suerte_enemigo = 15;
+        break;
+
+    case 3:
+        suerte_enemigo = 25;
+        break;
+}
+
+let definitiva = Math.ceil(Math.random()*5);
+
+switch (definitiva) {
+    case 1:
+        definitiva = 5;
+        break;
+
+    case 2:
+        definitiva = 10;
+        break;
+
+    case 3:
+        definitiva = 12;
+        break;
+
+    case 4:
+        definitiva = 15;
+        break;
+
+    case 5:
+        definitiva = 20;
+        break;
+}
 
 
 // SECTOR BOTONES ---------------------------------------------------------------------------
@@ -132,12 +173,12 @@ $('.atacar').hover(function () {
         } else if (claseU == 'mago'){
             $('.texto-activo').text('Atacas con tu hechizo magico por 5/15 de daño');
         }
-        
+
     }, function () {
         $('.texto-activo').text('Elegi una accion');
     }
 );
-$('.atacar').click(function (e) { 
+$('.atacar').click(function (e) {
     e.preventDefault();
 
     let random = Math.ceil(Math.random()*11);
@@ -148,88 +189,71 @@ $('.atacar').click(function (e) {
     if (claseU == 'guerrero'){
         if (usuarioPV > 25){
             displayInicial(`${nombreU} ataca con su espada vikinga por ${golpe} de daño`)
-            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, golpe)
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, golpe);
 
         }else if(usuarioPV <= 25 && vidaCriticaU === true){
-            displayInicial(`La vida de ${nombreU} esta al limite lo que desata su espiritu de ${elementoU}.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`)
+            displayInicial(`La vida de ${nombreU} esta al limite lo que desata su espiritu de ${elementoU}.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`);
             displaySiguiente(`${nombreU} ataca con su espada con furia y ataca por ${Math.ceil(golpe * suerte_personaje)}.
-            La vida del borracho bada de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`, Math.ceil(golpe * suerte_personaje))
+            La vida del borracho bada de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`, Math.ceil(golpe * suerte_personaje));
             vidaCriticaU = false;
 
         }else if(usuarioPV <= 25 && vidaCriticaU === false){
-            displayInicial(`${nombreU} cansado de pelear usa su ultimo esfuerzo y ataca por ${Math.ceil(golpe * suerte_personaje)}`)
-            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`, Math.ceil(golpe * suerte_personaje))
+            displayInicial(`${nombreU} cansado de pelear usa su ultimo esfuerzo y ataca por ${Math.ceil(golpe * suerte_personaje)}`);
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`, Math.ceil(golpe * suerte_personaje));
         }
 
-        turnoEnemigo()
+        turnoEnemigo();
 
     // ARQUERO
 
     }else if (claseU == 'arquero'){
         if (usuarioPV > 25){
-            displayInicial(`${nombreU} ataca con su arco y flecha por ${golpe} de daño`)
-            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`)
-            setTimeout(() => {
-                vidaEnemigo(golpe); 
-            }, 1500)
+            displayInicial(`${nombreU} ataca con su arco y flecha por ${golpe} de daño`);
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, golpe);
+
         }else if(usuarioPV <= 25 && vidaCriticaU === true){
-            displayInicial(`La vida de ${nombreU} esta al limite y se concentra para disparar a la cabeza del borracho.. Tira los dados para ver su suerte y deja sangrando al enemigo por ${suerte_personaje} de daño por turno`)
+            displayInicial(`La vida de ${nombreU} esta al limite y se concentra para disparar a la cabeza del borracho.. Tira los dados para ver su suerte y deja sangrando al enemigo por ${suerte_personaje} de daño por turno`);
             displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}..
-            El borracho ahora esta sangrando y pierde ${suerte_personaje} de vida..`)
+            El borracho ahora esta sangrando y pierde ${suerte_personaje} de vida..`, golpe);
             setTimeout(() => {
-                vidaEnemigo(golpe);
-                setTimeout(() => {
-                    vidaEnemigo(suerte_personaje); 
-                }, 3000)
-            }, 2000)
+                vidaEnemigo(suerte_personaje);
+            }, 5000)
             vidaCriticaU = false;
+
         }else if(usuarioPV <= 25 && vidaCriticaU === false){
-            displayInicial(`${nombreU} usa sus ultimas flechas y ataca por ${golpe}`)
+            displayInicial(`${nombreU} usa sus ultimas flechas y ataca por ${golpe}`);
             displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}..
-            El borracho esta sangrando y pierde ${suerte_personaje} de vida..`)
+            El borracho esta sangrando y pierde ${suerte_personaje} de vida..`, golpe);
             setTimeout(() => {
-                vidaEnemigo(golpe);
-                setTimeout(() => {
-                    vidaEnemigo(suerte_personaje); 
-                }, 3000)
-            }, 2000)
+                vidaEnemigo(suerte_personaje);
+            }, 5000)
         }
 
     // MAGO
 
     }else if (claseU == 'mago'){
             if (usuarioPV > 25){
-                displayInicial(`${nombreU} ataca con su hechizo magico por ${golpe} de daño`)
-                displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`)
-                setTimeout(() => {
-                    vidaEnemigo(golpe); 
-                }, 1500)
+                displayInicial(`${nombreU} ataca con su hechizo magico por ${golpe} de daño`);
+                displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, golpe);
+
             }else if (usuarioPV <= 25 && vidaCriticaU === true){
                 if (elementoU == 'fuego'){
-                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con una tormenta de fuego que hace ${suerte_personaje} de daño`)
+                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con una tormenta de fuego que hace ${suerte_personaje} de daño`);
                 }else if(elementoU == 'agua'){
-                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con un tsunami que hace ${suerte_personaje} de daño`)
+                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con un tsunami que hace ${suerte_personaje} de daño`);
                 }else if(elementoU == 'aire'){
-                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con una tormenta que hace ${suerte_personaje} de daño`)
+                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con una tormenta que hace ${suerte_personaje} de daño`);
                 }else if(elementoU == 'tierra'){
-                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con avalancha de piedras que hace  ${suerte_personaje} de daño`)
+                    displayInicial(`La vida de ${nombreU} esta al limite y se activa su habilidad especial.. Tira los dados para ver su suerte y ataca con avalancha de piedras que hace  ${suerte_personaje} de daño`);
                 }
-                displaySiguiente(`La vida del borracho bada de ${enemigoPV} a ${enemigoPV - suerte_personaje}`)
-                setTimeout(() => {
-                    vidaEnemigo(suerte_personaje); 
-                }, 2000)
+                displaySiguiente(`La vida del borracho bada de ${enemigoPV} a ${enemigoPV - suerte_personaje}`, suerte_personaje);
                 vidaCriticaU = false;
-            }else if(usuarioPV <= 25 && vidaCriticaU === false){
-                displayInicial(`${nombreU} ataca con el poco mana que le queda por ${golpe} de daño`)
-                displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`)
-                setTimeout(() => {
-                    vidaEnemigo(golpe); 
-                }, 1500)
-            }
-    } 
-    
-    
 
+            }else if(usuarioPV <= 25 && vidaCriticaU === false){
+                displayInicial(`${nombreU} ataca con el poco mana que le queda por ${golpe} de daño`);
+                displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, golpe);
+            }
+    }
 });
 // ----------------------------------------------------------------------------------------------
 // ENEMIGO --------------------------------------------------------------------------------------
@@ -240,8 +264,25 @@ function turnoEnemigo(){
     let golpe = 16 - random;
 
     if (enemigoPV > 20){
-        enemigoInicial(`Larry pega por ${golpe}`);
-        enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe)    
+        enemigoInicial(`Larry pega una patada por ${golpe} de daño`);
+        enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
+
+    } else if (enemigoPV <= 20 && vidaCriticaE === true){
+        enemigoInicial(`"Me estas haciendo laburar eh.." *Larry se toma un trago de su bebida y se cura ${suerte_enemigo} de vida*"`);
+        enemigoSiguiente(`*Larry eructa en tu cara*`, 0);
+        vidaCriticaE = false;
+        setTimeout(() => {
+            curaEnemigo(suerte_enemigo);
+        }, 3000)
+
+    } else if (enemigoPV < 20 && enemigoPV > 0 && vidaCriticaE === false && definitivaE === true){
+        enemigoInicial(`"Nunca nadie me habia hecho llegar hasta estas alturas en una pelea.. No mequeda otra opcion que usar mi ataque especial.. Nos vemos ${nombreU}.."`);
+        enemigoSiguiente(`Larry te tira un botellazo y te hace ${definitiva} de daño`, definitiva);
+        definitivaE = false;
+
+    }else if (enemigoPV < 20 && enemigoPV > 0 && vidaCriticaE === false && definitivaE === false) {
+            enemigoInicial(`Larry ya sin fuerzas pega una cachetada por ${golpe} de daño`);
+            enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
     }
 }
 
@@ -255,7 +296,7 @@ $('.especial').hover(function () {
         } else if (claseU == 'mago'){
             $('.texto-activo').text(`Cuando su vida esta por debajo de 25 desata su poder de ${elementoU} y lanza un poderozo ataque que daña al enemigo por 20, 30 o 40 dependiendo de tu suerte`);
         }
-        
+
     }, function () {
         $('.texto-activo').text('Elegi una accion');
     }
@@ -264,14 +305,14 @@ $('.especial').hover(function () {
 
 $('.objetos').hover(function () {
         $('.texto-activo').text('Abre tu bolsa de objetos');
-        
+
     }, function () {
         $('.texto-activo').text('Elegi una accion');
     }
 );
-$('.objetos').click(function (e) { 
+$('.objetos').click(function (e) {
     e.preventDefault();
-    
+
     displayInicial ('Abriste tu bolsa de objetos')
     displaySiguiente ('La bolsa esta vacia, te olvidaste los objetos en la mesita de luz..')
 });
@@ -279,12 +320,12 @@ $('.objetos').click(function (e) {
 
 $('.abandonar').hover(function () {
         $('.texto-activo').text('Abandonar la pelea');
-        
+
     }, function () {
         $('.texto-activo').text('Elegi una accion');
     }
 );
-$('.abandonar').click(function (e) { 
+$('.abandonar').click(function (e) {
     e.preventDefault();
 
     displayInicial ('Intentaste huir de la pelea pero Larry no te dejo');
@@ -292,7 +333,7 @@ $('.abandonar').click(function (e) {
     setTimeout(() => {
         vidaUsuario (20);
     }, 100);
-    
+
 });
 // ----------------------------------------------------------------------------------------------
 
@@ -302,7 +343,7 @@ function displayInicial (texto){
     setTimeout(function (){
         $('.texto-activo').text(texto);
     }, 10);
-    
+
     $('.texto').append(`<button class="btn-textoUno">Siguiente</button>
                     <button class="btn-textoDos">Siguiente</button>
                     <button class="btn-textoTres">Siguiente</button>
@@ -311,7 +352,7 @@ function displayInicial (texto){
 
 function displaySiguiente (texto, damage){
 
-    $('.btn-textoUno').click(function (e) { 
+    $('.btn-textoUno').click(function (e) {
         e.preventDefault();
         $('.texto-activo').text(texto);
         $('.btn-textoUno').remove();
@@ -321,7 +362,7 @@ function displaySiguiente (texto, damage){
 }
 
 function enemigoInicial (texto){
-    $('.btn-textoDos').click(function (e) { 
+    $('.btn-textoDos').click(function (e) {
         e.preventDefault();
         $('.texto-activo').text(texto);
         $('.btn-textoDos').remove();
@@ -330,14 +371,14 @@ function enemigoInicial (texto){
 
 function enemigoSiguiente (texto, damage){
 
-    $('.btn-textoTres').click(function (e) { 
+    $('.btn-textoTres').click(function (e) {
         e.preventDefault();
         $('.texto-activo').text(texto);
         $('.btn-textoTres').remove();
 
         vidaUsuario(damage);
     });
-    $('.btn-textoCuatro').click(function (e) { 
+    $('.btn-textoCuatro').click(function (e) {
         e.preventDefault();
         $('.btn-textoCuatro').remove();
         $('.texto').css('width', '46%');
@@ -394,6 +435,12 @@ function vidaEnemigo (daño){
     setTimeout(() => {
         $('.enemigo-vida__barra').removeClass('barraR');
     }, 350);
+}
+
+function curaEnemigo (cura){
+    enemigoPV += cura;
+    $('.vida-contador_enemigo').text(enemigoPV);
+    $('.enemigo-vida__barra').animate({'width': enemigoPV + '%'}, 500)
 }
 
 function impacto (objeto){
