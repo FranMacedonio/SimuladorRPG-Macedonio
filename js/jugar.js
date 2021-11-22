@@ -80,11 +80,11 @@ let suerte_personaje = Math.ceil(Math.random()*3);
 if (claseU == 'guerrero'){
     switch (suerte_personaje){
         case 1:
-            suerte_personaje = 1.25;
+            suerte_personaje = 1.35;
             break;
 
         case 2:
-            suerte_personaje = 1.5;
+            suerte_personaje = 1.65;
             break;
 
         case 3:
@@ -108,15 +108,15 @@ if (claseU == 'guerrero'){
 }else if (claseU == 'mago'){
     switch (suerte_personaje){
         case 1:
-            suerte_personaje = 20;;
+            suerte_personaje = 10;;
             break;
 
         case 2:
-            suerte_personaje = 30;
+            suerte_personaje = 15;
             break;
 
         case 3:
-            suerte_personaje = 40;
+            suerte_personaje = 20;
             break;
     }
 }
@@ -142,23 +142,23 @@ let definitiva = Math.ceil(Math.random()*5);
 
 switch (definitiva) {
     case 1:
-        definitiva = 5;
-        break;
-
-    case 2:
         definitiva = 10;
         break;
 
-    case 3:
+    case 2:
         definitiva = 12;
         break;
 
-    case 4:
+    case 3:
         definitiva = 15;
         break;
 
-    case 5:
+    case 4:
         definitiva = 20;
+        break;
+
+    case 5:
+        definitiva = 25;
         break;
 }
 
@@ -215,7 +215,7 @@ $('.atacar').click(function (e) {
             La vida de Larry baja de ${enemigoPV} a ${enemigoPV - (golpe + suerte_personaje)}`, golpe);
             setTimeout(() => {
                 vidaEnemigo(suerte_personaje);
-            }, 3000)
+            }, 1000)
             vidaCriticaU = false;
 
         }else if(usuarioPV <= 25 && vidaCriticaU === false){
@@ -224,7 +224,7 @@ $('.atacar').click(function (e) {
             El borracho esta sangrando y pierde ${suerte_personaje} de vida..`, golpe);
             setTimeout(() => {
                 vidaEnemigo(suerte_personaje);
-            }, 3000)
+            }, 1000)
         }
 
     // MAGO
@@ -258,7 +258,7 @@ $('.atacar').click(function (e) {
 
 function turnoEnemigo(){
 
-    let random = Math.ceil(Math.random()*5)
+    let random = Math.ceil(Math.random()*11)
     let golpe = 16 - random;
 
     if (enemigoPV > 20){
@@ -284,7 +284,7 @@ function turnoEnemigo(){
 $('.especial').hover(function () {
 
         if (claseU == 'guerrero'){
-            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su furia de ${elementoU} aumenta su daño un 25%, 50% o 100% dependiendo de tu suerte`);
+            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su furia de ${elementoU} aumenta su daño un 35%, 65% o 100% dependiendo de tu suerte`);
         } else if (claseU == 'arquero'){
             $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su espiritu ${elementoU} hace que su proxima flecha deja sangrando al enemigo por 3, 5 o 8 dependiendo de tu suerte`);
         } else if (claseU == 'mago'){
