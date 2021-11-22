@@ -307,8 +307,7 @@ $('.objetos').hover(function () {
 $('.objetos').click(function (e) {
     e.preventDefault();
 
-    displayInicial ('Abriste tu bolsa de objetos')
-    displaySiguiente ('La bolsa esta vacia, te olvidaste los objetos en la mesita de luz..')
+    displayCartel('Abriste tu bolsa de objetos', 'La bolsa esta vacia, te olvidaste los objetos en la mesita de luz..');
 });
 // ----------------------------------------------------------------------------------------------
 
@@ -322,11 +321,10 @@ $('.abandonar').hover(function () {
 $('.abandonar').click(function (e) {
     e.preventDefault();
 
-    displayInicial ('Intentaste huir de la pelea pero Larry no te dejo');
-    displaySiguiente ('Te pego un chatetazo y te saco 1PV');
+    displayCartel('Intentaste huir de la pelea pero Larry no te dejo', 'Te pego un chatetazo y te saco 1PV');
     setTimeout(() => {
-        vidaUsuario (20);
-    }, 100);
+        vidaUsuario (1);
+    }, 1000);
 
 });
 // ----------------------------------------------------------------------------------------------
@@ -385,6 +383,34 @@ function enemigoSiguiente (texto, damage){
         $('.texto').css('width', '46%');
     });
 }
+
+function displayCartel(texto, texto2){
+    $('.texto').css('width', '93.5%');
+    setTimeout(function (){
+        $('.texto-activo').text(texto);
+    }, 10);
+    $('.texto').append(`<button class="btn-textoUno">Siguiente</button>
+                    <button class="btn-textoDos">Siguiente</button>`);
+
+    $('.btn-textoUno').click(function (e) { 
+        e.preventDefault();
+        
+        $('.texto-activo').text(texto2);
+        $('.btn-textoUno').remove();
+
+        $('.btn-textoDos').click(function (e) { 
+            e.preventDefault();
+            
+            $('.btn-textoDos').remove();
+            $('.texto').css('width', '46%');
+        });
+    });
+}
+
+
+
+
+
 
 
 let imgU = '.personaje-juego img';
