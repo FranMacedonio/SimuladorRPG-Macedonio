@@ -202,8 +202,6 @@ $('.atacar').click(function (e) {
             displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`, Math.ceil(golpe * suerte_personaje));
         }
 
-        turnoEnemigo();
-
     // ARQUERO
 
     }else if (claseU == 'arquero'){
@@ -213,11 +211,11 @@ $('.atacar').click(function (e) {
 
         }else if(usuarioPV <= 25 && vidaCriticaU === true){
             displayInicial(`La vida de ${nombreU} esta al limite y se concentra para disparar a la cabeza del borracho.. Tira los dados para ver su suerte y deja sangrando al enemigo por ${suerte_personaje} de daño por turno`);
-            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}..
-            El borracho ahora esta sangrando y pierde ${suerte_personaje} de vida..`, golpe);
+            displaySiguiente(`El borracho ahora esta sangrando y pierde ${suerte_personaje} de vida..
+            La vida de Larry baja de ${enemigoPV} a ${enemigoPV - (golpe + suerte_personaje)}`, golpe);
             setTimeout(() => {
                 vidaEnemigo(suerte_personaje);
-            }, 5000)
+            }, 3000)
             vidaCriticaU = false;
 
         }else if(usuarioPV <= 25 && vidaCriticaU === false){
@@ -226,7 +224,7 @@ $('.atacar').click(function (e) {
             El borracho esta sangrando y pierde ${suerte_personaje} de vida..`, golpe);
             setTimeout(() => {
                 vidaEnemigo(suerte_personaje);
-            }, 5000)
+            }, 3000)
         }
 
     // MAGO
@@ -270,10 +268,6 @@ function turnoEnemigo(){
     } else if (enemigoPV <= 20 && vidaCriticaE === true){
         enemigoInicial(`"Me estas haciendo laburar eh.." *Larry se toma un trago de su bebida y se cura ${suerte_enemigo} de vida*"`);
         enemigoSiguiente(`*Larry eructa en tu cara*`, 0);
-        vidaCriticaE = false;
-        setTimeout(() => {
-            curaEnemigo(suerte_enemigo);
-        }, 3000)
 
     } else if (enemigoPV < 20 && enemigoPV > 0 && vidaCriticaE === false && definitivaE === true){
         enemigoInicial(`"Nunca nadie me habia hecho llegar hasta estas alturas en una pelea.. No mequeda otra opcion que usar mi ataque especial.. Nos vemos ${nombreU}.."`);
@@ -358,6 +352,8 @@ function displaySiguiente (texto, damage){
         $('.btn-textoUno').remove();
 
         vidaEnemigo(damage);
+
+        turnoEnemigo();
     });
 }
 
@@ -366,6 +362,11 @@ function enemigoInicial (texto){
         e.preventDefault();
         $('.texto-activo').text(texto);
         $('.btn-textoDos').remove();
+
+        if (enemigoPV <= 20 && vidaCriticaE === true){
+            curaEnemigo(suerte_enemigo);
+            vidaCriticaE = false;
+        }
     });
 }
 
