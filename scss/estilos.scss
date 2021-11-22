@@ -844,7 +844,20 @@ input{
                         position: absolute;
                         bottom: 15px;
                         right: 15px;
-
+                    }
+                    .btn-textoUno{
+                        z-index: 10;
+                    }
+                    .btn-textoDos{
+                        z-index: 8;
+                    }
+                    .btn-textoTres{
+                        z-index: 6;
+                    }
+                    .btn-textoCuatro{
+                        z-index: 4;
+                    }
+                    .btn-textoInicio, .btn-textoInicioDos, .btn-textoFinal{
                         display: none;
                     }
                 }

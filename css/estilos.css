@@ -995,6 +995,25 @@ input:focus {
   position: absolute;
   bottom: 15px;
   right: 15px;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoUno {
+  z-index: 10;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoDos {
+  z-index: 8;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoTres {
+  z-index: 6;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoCuatro {
+  z-index: 4;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoInicio, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicioDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoFinal {
   display: none;
 }
 

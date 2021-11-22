@@ -3,10 +3,6 @@ $(document).ready(function () {
     $('.personaje-cartel').append(`<h3>${jugar[0].nombre}</h3>`);
     $('.personaje-juego').append(`<img src="../media/${jugar[0].clase}/${jugar[0].raza}/a.png">`);
 
-    displayInicial('Hola display uno')
-    displaySiguiente('Hola display dos')
-    enemigoInicial('Hola display enemigo uno')
-    enemigoSiguiente('Hola display enemigo dos')
 
     // SECTOR DE INICIO -------------------------------------------------------------------------
 
@@ -124,6 +120,8 @@ if (claseU == 'guerrero'){
 }
 
 
+
+
 // SECTOR BOTONES ---------------------------------------------------------------------------
 $('.atacar').hover(function () {
 
@@ -150,25 +148,20 @@ $('.atacar').click(function (e) {
     if (claseU == 'guerrero'){
         if (usuarioPV > 25){
             displayInicial(`${nombreU} ataca con su espada vikinga por ${golpe} de daño`)
-            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`)
-            setTimeout(() => {
-                vidaEnemigo(golpe);
-            }, 1500)
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, golpe)
+
         }else if(usuarioPV <= 25 && vidaCriticaU === true){
             displayInicial(`La vida de ${nombreU} esta al limite lo que desata su espiritu de ${elementoU}.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`)
             displaySiguiente(`${nombreU} ataca con su espada con furia y ataca por ${Math.ceil(golpe * suerte_personaje)}.
-            La vida del borracho bada de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`)
-            setTimeout(() => {
-                vidaEnemigo(Math.ceil(golpe * suerte_personaje)); 
-            }, 2000)
+            La vida del borracho bada de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`, Math.ceil(golpe * suerte_personaje))
             vidaCriticaU = false;
+
         }else if(usuarioPV <= 25 && vidaCriticaU === false){
             displayInicial(`${nombreU} cansado de pelear usa su ultimo esfuerzo y ataca por ${Math.ceil(golpe * suerte_personaje)}`)
-            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`)
-            setTimeout(() => {
-                vidaEnemigo(Math.ceil(golpe * suerte_personaje)); 
-            }, 1500)
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - (Math.ceil(golpe * suerte_personaje))}`, Math.ceil(golpe * suerte_personaje))
         }
+
+        turnoEnemigo()
 
     // ARQUERO
 
@@ -239,7 +232,18 @@ $('.atacar').click(function (e) {
 
 });
 // ----------------------------------------------------------------------------------------------
+// ENEMIGO --------------------------------------------------------------------------------------
 
+function turnoEnemigo(){
+
+    let random = Math.ceil(Math.random()*5)
+    let golpe = 16 - random;
+
+    if (enemigoPV > 20){
+        enemigoInicial(`Larry pega por ${golpe}`);
+        enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe)    
+    }
+}
 
 
 $('.especial').hover(function () {
@@ -299,16 +303,20 @@ function displayInicial (texto){
         $('.texto-activo').text(texto);
     }, 10);
     
-    $('.btn-textoUno').show();
+    $('.texto').append(`<button class="btn-textoUno">Siguiente</button>
+                    <button class="btn-textoDos">Siguiente</button>
+                    <button class="btn-textoTres">Siguiente</button>
+                    <button class="btn-textoCuatro">Siguiente</button>`);
 }
 
-function displaySiguiente (texto){
+function displaySiguiente (texto, damage){
 
     $('.btn-textoUno').click(function (e) { 
         e.preventDefault();
         $('.texto-activo').text(texto);
-        $('.btn-textoUno').hide();
-        $('.btn-textoDos').show();
+        $('.btn-textoUno').remove();
+
+        vidaEnemigo(damage);
     });
 }
 
@@ -316,22 +324,22 @@ function enemigoInicial (texto){
     $('.btn-textoDos').click(function (e) { 
         e.preventDefault();
         $('.texto-activo').text(texto);
-        $('.btn-textoDos').hide();
-        $('.btn-textoTres').show();
+        $('.btn-textoDos').remove();
     });
 }
 
-function enemigoSiguiente (texto){
+function enemigoSiguiente (texto, damage){
 
     $('.btn-textoTres').click(function (e) { 
         e.preventDefault();
         $('.texto-activo').text(texto);
-        $('.btn-textoTres').hide();
-        $('.btn-textoCuatro').show();
+        $('.btn-textoTres').remove();
+
+        vidaUsuario(damage);
     });
     $('.btn-textoCuatro').click(function (e) { 
         e.preventDefault();
-        $('.btn-textoCuatro').hide();
+        $('.btn-textoCuatro').remove();
         $('.texto').css('width', '46%');
     });
 }
