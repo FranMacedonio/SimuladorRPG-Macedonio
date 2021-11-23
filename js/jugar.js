@@ -266,17 +266,32 @@ function turnoEnemigo(){
     let golpe = 90;
 
     if (enemigoPV > 20){
-        enemigoInicial(`Larry pega una patada por ${golpe} de daño`);
-        enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
+
+        if ( (usuarioPV - golpe) <= 0){
+            enemigoInicial(`Larry pega una patada por ${golpe} de daño`);
+            enemigoSiguienteFinal(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
+
+        } else{
+            enemigoInicial(`Larry pega una patada por ${golpe} de daño`);
+            enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
+        }
 
     } else if (enemigoPV <= 20 && vidaCriticaE === true){
+
         enemigoInicial(`"Me estas haciendo laburar eh.." *Larry se toma un trago de su bebida y se cura ${suerte_enemigo} de vida*"`);
         enemigoSiguiente(`*Larry eructa en tu cara*`, 0);
 
     } else if (enemigoPV < 20 && enemigoPV > 0 && vidaCriticaE === false && definitivaE === true){
-        enemigoInicial(`"Nunca nadie me habia hecho llegar hasta estas alturas en una pelea.. No mequeda otra opcion que usar mi ataque especial.. Nos vemos ${nombreU}.."`);
-        enemigoSiguiente(`Larry te tira un botellazo y te hace ${definitiva} de daño`, definitiva);
-        definitivaE = false;
+
+        if ( (usuarioPV - definitiva) <= 0){
+            enemigoInicial(`"Nunca nadie me habia hecho llegar hasta estas alturas en una pelea.. No mequeda otra opcion que usar mi ataque especial.. Nos vemos ${nombreU}.."`);
+            enemigoSiguienteFinal(`Larry te tira un botellazo y te hace ${definitiva} de daño`, definitiva);
+
+        } else{
+            enemigoInicial(`"Nunca nadie me habia hecho llegar hasta estas alturas en una pelea.. No mequeda otra opcion que usar mi ataque especial.. Nos vemos ${nombreU}.."`);
+            enemigoSiguiente(`Larry te tira un botellazo y te hace ${definitiva} de daño`, definitiva);
+            definitivaE = false;
+        }
 
     }else if (enemigoPV < 20 && enemigoPV > 0 && vidaCriticaE === false && definitivaE === false) {
 
