@@ -991,7 +991,7 @@ input:focus {
   text-align: center;
 }
 
-#contenedor #pantalla.jugar #interfaz .texto .btn-textoUno, #contenedor #pantalla.jugar #interfaz .texto .btn-textoDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicio, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicioDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoFinal, #contenedor #pantalla.jugar #interfaz .texto .btn-textoTres, #contenedor #pantalla.jugar #interfaz .texto .btn-textoCuatro {
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoUno, #contenedor #pantalla.jugar #interfaz .texto .btn-textoDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicio, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicioDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoFinal, #contenedor #pantalla.jugar #interfaz .texto .btn-textoTres, #contenedor #pantalla.jugar #interfaz .texto .btn-textoCuatro, #contenedor #pantalla.jugar #interfaz .texto .btn-textoMatar {
   position: absolute;
   bottom: 15px;
   right: 15px;
@@ -1015,6 +1015,16 @@ input:focus {
 
 #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicio, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicioDos, #contenedor #pantalla.jugar #interfaz .texto .btn-textoFinal {
   display: none;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoMatar {
+  right: 240px;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoPiedad {
+  position: absolute;
+  left: 250px;
+  bottom: 15px;
 }
 
 #contenedor #pantalla.jugar #interfaz .acciones {

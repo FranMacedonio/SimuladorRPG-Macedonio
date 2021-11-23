@@ -189,7 +189,7 @@ $('.atacar').click(function (e) {
     if (claseU == 'guerrero'){
         if (usuarioPV > 25){
             displayInicial(`${nombreU} ataca con su espada vikinga por ${golpe} de daño`)
-            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, golpe);
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, 110);
 
         }else if(usuarioPV <= 25 && vidaCriticaU === true){
             displayInicial(`La vida de ${nombreU} esta al limite lo que desata su espiritu de ${elementoU}.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`);
@@ -275,8 +275,27 @@ function turnoEnemigo(){
         definitivaE = false;
 
     }else if (enemigoPV < 20 && enemigoPV > 0 && vidaCriticaE === false && definitivaE === false) {
-            enemigoInicial(`Larry ya sin fuerzas pega una cachetada por ${golpe} de daño`);
-            enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
+        enemigoInicial(`Larry ya sin fuerzas pega una cachetada por ${golpe} de daño`);
+        enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
+    }else{
+
+    //   DECISIONES FINALES ------------------------------------------------------------------------------
+        if (usuarioPV > 0 && enemigoPV <= 0){
+            if (claseU == 'guerrero'){
+                enemigoInicial(`...`);
+                enemigoFinal(`Vay.. Vaya ${nombreU}.. Se ve que tu espada es mas rapida que mi botella ja ja..`);
+
+            }else if (claseU == 'arquero'){
+                enemigoInicial(`...`);
+                enemigoFinal(`Vay.. Vaya ${nombreU}.. Creo que fue tonto de mi parte pelear con una botella contra un arquero..`);
+
+            }else if (claseU == 'mago'){
+                enemigoInicial(`...`);
+                enemigoFinal(`Vay.. Vaya ${nombreU}.. Nunca debi haber peleado con una botella contra un mago..`);
+            }
+        }
+
+
     }
 }
 
@@ -384,6 +403,97 @@ function enemigoSiguiente (texto, damage){
     });
 }
 
+function enemigoFinal (texto){
+    $('.btn-textoTres').click(function (e) {
+        e.preventDefault();
+        $('.texto-activo').text(texto);
+        $('.btn-textoTres').remove();
+    });
+    $('.btn-textoCuatro').click(function (e) {
+        e.preventDefault();
+        $('.btn-textoCuatro').remove();
+
+        if (usuarioPV > 0 && enemigoPV <= 0){
+
+            actoFinal('Veo en tus ojos que sos una buena persona y nunca debi haberme enojado por el botellazo que me pegaste.. Por favor dejame ir..', '¿Dar golpe final?');
+
+        }
+    });
+}
+
+function actoFinal (texto, texto2){
+    $('.texto-activo').text(texto);
+
+    $('.texto').append(`<button class="btn-textoUno">Siguiente</button>`);
+
+    $('.btn-textoUno').click(function (e) { 
+        e.preventDefault();
+        $('.texto-activo').text(texto2);
+        $('.btn-textoUno').remove();
+        $('.texto').append(`<button class="btn-textoMatar">Dar golpe final</button>
+                            <button class="btn-textoPiedad">Dejarlo vivir</button>`);
+
+        matar ('Decidiste no tener piedad con Larry aunque te lo pidio de buena forma..', decisionPersonaje ());
+
+        piedad ('Decidiste tener piedad sobre');
+    });
+}
+
+function matar (texto, texto2){
+    $('.btn-textoMatar').click(function (e) { 
+        e.preventDefault();
+        $('.btn-textoMatar').remove();
+        $('.btn-textoPiedad').remove();
+        
+        $('.texto-activo').text(texto);
+        $('.texto').append(`<button class="btn-textoUno">Siguiente</button>`);
+
+        $('.btn-textoUno').click(function (e) { 
+            e.preventDefault();
+            $('.btn-textoUno').remove();
+
+            $('.texto-activo').text(texto2);
+        });
+    });
+}
+
+function decisionPersonaje (){
+
+    victoria();
+
+    if (claseU == 'guerrero'){
+        return `${nombreU} cansado de Larry le corta la cabeza con su espada terminando para siempre con esta pelea..
+        Final Cruel`;
+
+    }else if (claseU == 'arquero'){
+        return `${nombreU} harto de esta pelea saca su daga y apuñala a Larry para nunca mas verlo de nuevo..
+        Final Cruel`;
+
+    }else if (claseU == 'mago'){
+        return `${nombreU} usa su hechizo mas poderoso del clan ${elementoU} dejandolo sin vida al pobre Larry..
+        Final Cruel`;
+    }
+}
+
+
+function piedad (texto, texto2){
+    $('.btn-textoPiedad').click(function (e) { 
+        e.preventDefault();
+        $('.btn-textoMatar').remove();
+        $('.btn-textoPiedad').remove();
+        
+        $('.texto-activo').text(texto);
+        $('.texto').append(`<button class="btn-textoUno">Siguiente</button>`);
+
+        $('.btn-textoUno').click(function (e) { 
+            e.preventDefault();
+            $('.btn-textoUno').remove();
+
+            $('.texto-activo').text(texto2);
+        });
+    });
+}
+
 function displayCartel(texto, texto2){
     $('.texto').css('width', '93.5%');
     setTimeout(function (){
@@ -406,11 +516,6 @@ function displayCartel(texto, texto2){
         });
     });
 }
-
-
-
-
-
 
 
 let imgU = '.personaje-juego img';
@@ -475,4 +580,26 @@ function impacto (objeto){
     setTimeout(() => {
         $(objeto).removeClass('impacto');
     }, 350);
+}
+
+function victoria(){
+    for (const personaje of personajes){
+        if (nombreU == personaje.nombre){
+            personaje.victorias ++;
+
+            localStorage.clear();
+            localStorage.setItem('personajes', JSON.stringify(personajes));
+        }
+    }
+}
+
+function derrota(){
+    for (const personaje of personajes){
+        if (nombreU == personaje.nombre){
+            personaje.derrotas ++;
+
+            localStorage.clear();
+            localStorage.setItem('personajes', JSON.stringify(personajes));
+        }
+    }
 }

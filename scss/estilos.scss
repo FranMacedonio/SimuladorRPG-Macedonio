@@ -840,7 +840,7 @@ input{
                     color: rgb(211, 211, 211);
                     text-align: center;
 
-                    .btn-textoUno, .btn-textoDos, .btn-textoInicio, .btn-textoInicioDos, .btn-textoFinal, .btn-textoTres, .btn-textoCuatro{
+                    .btn-textoUno, .btn-textoDos, .btn-textoInicio, .btn-textoInicioDos, .btn-textoFinal, .btn-textoTres, .btn-textoCuatro, .btn-textoMatar{
                         position: absolute;
                         bottom: 15px;
                         right: 15px;
@@ -859,6 +859,14 @@ input{
                     }
                     .btn-textoInicio, .btn-textoInicioDos, .btn-textoFinal{
                         display: none;
+                    }
+                    .btn-textoMatar{
+                        right: 240px;
+                    }
+                    .btn-textoPiedad{
+                        position: absolute;
+                        left: 250px;
+                        bottom: 15px;
                     }
                 }
 
