@@ -1056,6 +1056,18 @@ input:focus {
   position: absolute;
   bottom: 15px;
   right: 15px;
+  padding: 5px 10px;
+  background-color: #1c1c1c;
+  color: #cbcbcb;
+  font-size: 16px;
+  font-weight: 800;
+  border: 3px solid #cbcbcb;
+  -webkit-transition: background-color 250ms ease;
+  transition: background-color 250ms ease;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoUno:hover, #contenedor #pantalla.jugar #interfaz .texto .btn-textoDos:hover, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicio:hover, #contenedor #pantalla.jugar #interfaz .texto .btn-textoInicioDos:hover, #contenedor #pantalla.jugar #interfaz .texto .btn-textoFinal:hover, #contenedor #pantalla.jugar #interfaz .texto .btn-textoTres:hover, #contenedor #pantalla.jugar #interfaz .texto .btn-textoCuatro:hover, #contenedor #pantalla.jugar #interfaz .texto .btn-textoMatar:hover {
+  background-color: #230441;
 }
 
 #contenedor #pantalla.jugar #interfaz .texto .btn-textoUno {
@@ -1086,6 +1098,18 @@ input:focus {
   position: absolute;
   left: 250px;
   bottom: 15px;
+  padding: 5px 10px;
+  background-color: #1c1c1c;
+  color: #cbcbcb;
+  font-size: 16px;
+  font-weight: 800;
+  border: 3px solid #cbcbcb;
+  -webkit-transition: background-color 250ms ease;
+  transition: background-color 250ms ease;
+}
+
+#contenedor #pantalla.jugar #interfaz .texto .btn-textoPiedad:hover {
+  background-color: #230441;
 }
 
 #contenedor #pantalla.jugar #interfaz .acciones {

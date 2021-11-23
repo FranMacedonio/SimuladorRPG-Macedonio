@@ -903,6 +903,19 @@ input{
                         position: absolute;
                         bottom: 15px;
                         right: 15px;
+
+                        padding: 5px 10px;
+                        background-color: #1c1c1c;
+                        color: #cbcbcb;
+                        font-size: 16px;
+                        font-weight: 800;
+                        border: 3px solid #cbcbcb;
+
+                        transition: background-color 250ms ease;
+
+                        &:hover{
+                            background-color: #230441;
+                        }
                     }
                     .btn-textoUno{
                         z-index: 10;
@@ -926,6 +939,19 @@ input{
                         position: absolute;
                         left: 250px;
                         bottom: 15px;
+
+                        padding: 5px 10px;
+                        background-color: #1c1c1c;
+                        color: #cbcbcb;
+                        font-size: 16px;
+                        font-weight: 800;
+                        border: 3px solid #cbcbcb;
+
+                        transition: background-color 250ms ease;
+
+                        &:hover{
+                            background-color: #230441;
+                        }
                     }
                 }
 
