@@ -73,6 +73,8 @@ let definitivaE = true;
 let usuarioPV = 100;
 let enemigoPV = 100;
 let turno = 1;
+let randomFinal = String(Math.ceil(Math.random()*2));
+let decision;
 
 // SUERTE -----------------------------------------------------------------------------------
 let suerte_personaje = Math.ceil(Math.random()*3);
@@ -184,6 +186,8 @@ $('.atacar').click(function (e) {
     let random = Math.ceil(Math.random()*11);
     let golpe = 16 - random;
 
+    turno ++;
+
     // GUERRERO
 
     if (claseU == 'guerrero'){
@@ -293,9 +297,8 @@ function turnoEnemigo(){
                 enemigoInicial(`...`);
                 enemigoFinal(`Vay.. Vaya ${nombreU}.. Nunca debi haber peleado con una botella contra un mago..`);
             }
+
         }
-
-
     }
 }
 
@@ -435,7 +438,7 @@ function actoFinal (texto, texto2){
 
         matar ('Decidiste no tener piedad con Larry aunque te lo pidio de buena forma..', decisionPersonaje ());
 
-        piedad ('Decidiste tener piedad sobre');
+        piedad ('Decidiste tener piedad sobre el borracho como todo un heroe..', '"¡JA JA NUNCA DEBISTE HABER CONFIADO EN MI!"', 'Aparentemente el cagon de Larry esta a punto de hacer algo. Elegi entre uno de los siguientes numeros para determinar tu suerte con el numero que salga en la pantalla a continuacion..');
     });
 }
 
@@ -444,6 +447,8 @@ function matar (texto, texto2){
         e.preventDefault();
         $('.btn-textoMatar').remove();
         $('.btn-textoPiedad').remove();
+
+        victoria();
         
         $('.texto-activo').text(texto);
         $('.texto').append(`<button class="btn-textoUno">Siguiente</button>`);
@@ -459,24 +464,22 @@ function matar (texto, texto2){
 
 function decisionPersonaje (){
 
-    victoria();
-
     if (claseU == 'guerrero'){
         return `${nombreU} cansado de Larry le corta la cabeza con su espada terminando para siempre con esta pelea..
-        Final Cruel`;
+        ** FINAL CRUEL ** Turnos jugados: ${turno}`;
 
     }else if (claseU == 'arquero'){
         return `${nombreU} harto de esta pelea saca su daga y apuñala a Larry para nunca mas verlo de nuevo..
-        Final Cruel`;
+        ** FINAL CRUEL ** Turnos jugados: ${turno}`;
 
     }else if (claseU == 'mago'){
         return `${nombreU} usa su hechizo mas poderoso del clan ${elementoU} dejandolo sin vida al pobre Larry..
-        Final Cruel`;
+        ** FINAL CRUEL ** Turnos jugados: ${turno}`;
     }
 }
 
 
-function piedad (texto, texto2){
+function piedad (texto, texto2, texto3){
     $('.btn-textoPiedad').click(function (e) { 
         e.preventDefault();
         $('.btn-textoMatar').remove();
@@ -490,6 +493,93 @@ function piedad (texto, texto2){
             $('.btn-textoUno').remove();
 
             $('.texto-activo').text(texto2);
+            $('.texto').append(`<button class="btn-textoDos">Siguiente</button>`);
+
+            $('.btn-textoDos').click(function (e) { 
+                e.preventDefault();
+                $('.btn-textoDos').remove();
+                $('.texto-activo').text(texto3);
+                $('.texto').append(`<button class="btn-textoMatar">Numero Dos</button>
+            <button class="btn-textoPiedad">Numero Uno</button>`);
+
+                $('.btn-textoMatar').click(function (e) { 
+                    e.preventDefault();
+
+                    decision = '2';
+                    
+                    $('.btn-textoMatar').remove();
+                    $('.btn-textoPiedad').remove();
+
+                    if (decision === randomFinal){
+                        $('.texto-activo').text(`Elegiste el numero "2" y tiramos un dado imaginario y salio el "2".. Que buena suerte la tuya..`);
+
+                        $('.texto').append(`<button class="btn-textoUno">Siguiente</button>`);
+                        $('.btn-textoUno').click(function (e) { 
+                            e.preventDefault();
+
+                            $('.btn-textoUno').remove();
+                            $('.texto').text(`Te diste cuenta de las intenciones de Larry y llegaste a tiempo para esquivar su ataque traicionero.. Lo remataste antes de que eso vuelva a pasar..
+                            **FINAL BUENO** Turnos jugados: ${turno}`);
+
+                            victoria();
+                            
+                        });
+                    }else{
+                        $('.texto-activo').text(`Elegiste el numero "2" y tiramos un dado imaginario y salio el "1".. Que mala suerte la tuya..`);
+
+                        $('.texto').append(`<button class="btn-textoDos">Siguiente</button>`);
+                        $('.btn-textoDos').click(function (e) { 
+                            e.preventDefault();
+
+                            $('.btn-textoDos').remove();
+                            $('.texto').text(`Lamentablemente no te diste cuenta a tiempo y Larry te partio la nuca de un botellazo.. Intentaste ser un buen tipo dejandolo vivir pero no fue muy inteligente de tu parte.. Nunca confies en Larry..
+                            **FINAL TRISTE** Turnos jugados: ${turno}`);
+
+                            derrota();
+                        });
+                    }
+
+                });
+
+                $('.btn-textoPiedad').click(function (e) { 
+                    e.preventDefault();
+                    
+                    decision = '1';
+
+                    $('.btn-textoMatar').remove();
+                    $('.btn-textoPiedad').remove();
+
+                    if (decision === randomFinal){
+                        $('.texto-activo').text(`Elegiste el numero "1" y tiramos un dado imaginario y salio el numero "1".. Que buena suerte la tuya..`);
+
+                        $('.texto').append(`<button class="btn-textoTres">Siguiente</button>`);
+                        $('.btn-textoTres').click(function (e) { 
+                            e.preventDefault();
+
+                            $('.btn-textoTres').remove();
+                            $('.texto').text(`Te diste cuenta de las intenciones de Larry y llegaste a tiempo para esquivar su ataque traicionero.. Lo remataste antes de que eso vuelva a pasar..
+                            **FINAL BUENO** Turnos jugados: ${turno}`);
+
+                            victoria();
+                            
+                        });
+                    }else{
+                        $('.texto-activo').text(`Elegiste el numero "1" y tiramos un dado imaginario y salio el "2".. Que mala suerte la tuya..`);
+
+                        $('.texto').append(`<button class="btn-textoCuatro">Siguiente</button>`);
+                        $('.btn-textoCuatro').click(function (e) { 
+                            e.preventDefault();
+
+                            $('.btn-textoDos').remove();
+                            $('.texto').text(`Lamentablemente no te diste cuenta a tiempo y Larry te partio la nuca de un botellazo.. Intentaste ser un buen tipo dejandolo vivir pero no fue muy inteligente de tu parte.. Nunca confies en Larry..
+                            **FINAL TRISTE** Turnos jugados: ${turno}`);
+
+                            derrota();
+                        });
+                    }
+                });
+
+            });
         });
     });
 }
@@ -513,6 +603,28 @@ function displayCartel(texto, texto2){
             
             $('.btn-textoDos').remove();
             $('.texto').css('width', '46%');
+        });
+    });
+}
+
+function derrotado(texto, texto2){
+
+    derrota();
+
+    $('.texto-activo').text(texto);
+    $('.texto').append(`<button class="btn-textoUno">Siguiente</button>
+                    <button class="btn-textoDos">Salir</button>`);
+
+    $('.btn-textoUno').click(function (e) { 
+        e.preventDefault();
+        
+        $('.btn-textoUno').remove();
+        $('.texto-activo').text(texto2);
+
+        $('.btn-textoDos').click(function (e) { 
+            e.preventDefault();
+            
+            window.location.href = '../index.html';
         });
     });
 }
