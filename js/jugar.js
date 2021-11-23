@@ -6,59 +6,59 @@ $(document).ready(function () {
 
     // SECTOR DE INICIO -------------------------------------------------------------------------
 
-    // $('.texto').css('width', '93.5%');
-    // $('.personaje-cartel').hide();
-    // $('.enemigo-cartel').hide();
-    // $('.texto-activo').text(`Era un dia tranquilo en la vida de ${nombreU}..`);
-    // $('.btn-textoInicio').fadeIn();
-    // $('.btn-textoInicio').click(function (e) {
-    //     e.preventDefault();
-    //     $('.texto-activo').text(`Hoy habia decidido tomar otro camino hacia la ruta de su trabajo de ${claseU} para cambiar un poco la rutina..`);
+    $('.texto').css('width', '93.5%');
+    $('.personaje-cartel').hide();
+    $('.enemigo-cartel').hide();
+    $('.texto-activo').text(`Era un dia tranquilo en la vida de ${nombreU}..`);
+    $('.btn-textoInicio').fadeIn();
+    $('.btn-textoInicio').click(function (e) {
+        e.preventDefault();
+        $('.texto-activo').text(`Hoy habia decidido tomar otro camino hacia la ruta de su trabajo de ${claseU} para cambiar un poco la rutina..`);
 
-    //     $('.personaje-juego img').animate({'left': '70px'}, 1500);
+        $('.personaje-juego img').animate({'left': '70px'}, 1500);
 
-    //     $('.btn-textoInicio').click(function (e){
-    //         e.preventDefault();
-    //         $('.texto-activo').text('Mientras iba caminando se cruzo con una botella en el piso y como debe hacerse la pateo con toda sus fuerzas..');
-    //         $('.btn-textoInicio').hide();
+        $('.btn-textoInicio').click(function (e){
+            e.preventDefault();
+            $('.texto-activo').text('Mientras iba caminando se cruzo con una botella en el piso y como debe hacerse la pateo con toda sus fuerzas..');
+            $('.btn-textoInicio').hide();
 
-    //         setTimeout(() => {
-    //             $('.texto-activo').text('*Ruido de golpe*');
-    //             setTimeout(() => {
-    //                 $('.texto-activo').text('"Que te pasa a vos casi me sacas un ojo con esa botella"');
-    //                 $('.enemigo-juego img').animate({'right': '70px'}, 1500);
-    //                 setTimeout(() => {
-    //                     $('.texto-activo').text('"Ahora vas a ver con quien te metiste.."');
-    //                     setTimeout(() => {
-    //                         $('.texto-activo').text(`Al patear la botella ${nombreU} sin querer golpeo a un borracho que estaba durmiendo al lado de un arbol..`);
-    //                         $('.btn-textoInicioDos').fadeIn();
-    //                         setTimeout(() => {
-    //                             $('.personaje-cartel').fadeIn();
-    //                             $('.enemigo-cartel').fadeIn();
-    //                         }, 1000)
+            setTimeout(() => {
+                $('.texto-activo').text('*Ruido de golpe*');
+                setTimeout(() => {
+                    $('.texto-activo').text('"Que te pasa a vos casi me sacas un ojo con esa botella"');
+                    $('.enemigo-juego img').animate({'right': '70px'}, 1500);
+                    setTimeout(() => {
+                        $('.texto-activo').text('"Ahora vas a ver con quien te metiste.."');
+                        setTimeout(() => {
+                            $('.texto-activo').text(`Al patear la botella ${nombreU} sin querer golpeo a un borracho que estaba durmiendo al lado de un arbol..`);
+                            $('.btn-textoInicioDos').fadeIn();
+                            setTimeout(() => {
+                                $('.personaje-cartel').fadeIn();
+                                $('.enemigo-cartel').fadeIn();
+                            }, 1000)
 
-    //                         $('.btn-textoInicioDos').click(function (e) {
-    //                             e.preventDefault();
-    //                             $('.texto-activo').text(`A ${nombreU} no le queda otra que hacerle frente al borracho.`);
-    //                             $('.btn-textoInicioDos').hide();
-    //                             $('.btn-textoFinal').show();
+                            $('.btn-textoInicioDos').click(function (e) {
+                                e.preventDefault();
+                                $('.texto-activo').text(`A ${nombreU} no le queda otra que hacerle frente al borracho.`);
+                                $('.btn-textoInicioDos').hide();
+                                $('.btn-textoFinal').show();
 
-    //                             $('.btn-textoFinal').click(function (e) {
-    //                                 e.preventDefault();
-    //                                 $('.btn-textoFinal').hide();
-    //                                 $('.texto').css('width', '46%');
-    //                                 $('.texto-activo').text('Elegi una accion');
-    //                             });
-    //                         });
-    //                     }, 3000);
-    //                 }, 3000);
-    //             }, 1000);
-    //         }, 6000);
-    //     });
-    // });
+                                $('.btn-textoFinal').click(function (e) {
+                                    e.preventDefault();
+                                    $('.btn-textoFinal').hide();
+                                    $('.texto').css('width', '46%');
+                                    $('.texto-activo').text('Elegi una accion');
+                                });
+                            });
+                        }, 3000);
+                    }, 3000);
+                }, 1000);
+            }, 6000);
+        });
+    });
 
-    $('.personaje-juego img').css({'left': '70px'});
-    $('.enemigo-juego img').css({'right': '70px'});
+    // $('.personaje-juego img').css({'left': '70px'});
+    // $('.enemigo-juego img').css({'right': '70px'});
 
 });
 
@@ -263,7 +263,7 @@ $('.atacar').click(function (e) {
 function turnoEnemigo(){
 
     let random = Math.ceil(Math.random()*11)
-    let golpe = 90;
+    let golpe = 16 - random;
 
     if (enemigoPV > 20){
 
@@ -481,6 +481,13 @@ function matar (texto, texto2){
             $('.btn-textoUno').remove();
 
             $('.texto-activo').text(texto2);
+            $('.texto').append(`<button class="btn-textoUno">Salir</button>`);
+
+            $('.btn-textoDos').click(function (e) { 
+                e.preventDefault();
+                
+                window.location.href = '../index.html';
+            });
         });
     });
 }
@@ -544,7 +551,16 @@ function piedad (texto, texto2, texto3){
                             $('.texto').text(`Te diste cuenta de las intenciones de Larry y llegaste a tiempo para esquivar su ataque traicionero.. Lo remataste antes de que eso vuelva a pasar..
                             **FINAL BUENO** Turnos jugados: ${turno}`);
 
+                            $('.texto').append(`<button class="btn-textoCuatro">Salir</button>`);
+
                             victoria();
+
+                            $('.btn-textoCuatro').click(function (e) { 
+                                e.preventDefault();
+
+                                window.location.href = '../index.html';
+
+                            });
                             
                         });
                     }else{
@@ -558,7 +574,16 @@ function piedad (texto, texto2, texto3){
                             $('.texto').text(`Lamentablemente no te diste cuenta a tiempo y Larry te partio la nuca de un botellazo.. Intentaste ser un buen tipo dejandolo vivir pero no fue muy inteligente de tu parte.. Nunca confies en Larry..
                             **FINAL TRISTE** Turnos jugados: ${turno}`);
 
+                            $('.texto').append(`<button class="btn-textoCuatro">Salir</button>`);
+
                             derrota();
+
+                            $('.btn-textoCuatro').click(function (e) { 
+                                e.preventDefault();
+
+                                window.location.href = '../index.html';
+
+                            });
                         });
                     }
 
@@ -583,8 +608,16 @@ function piedad (texto, texto2, texto3){
                             $('.texto').text(`Te diste cuenta de las intenciones de Larry y llegaste a tiempo para esquivar su ataque traicionero.. Lo remataste antes de que eso vuelva a pasar..
                             **FINAL BUENO** Turnos jugados: ${turno}`);
 
+                            $('.texto').append(`<button class="btn-textoCuatro">Salir</button>`);
+
                             victoria();
                             
+                            $('.btn-textoCuatro').click(function (e) { 
+                                e.preventDefault();
+
+                                window.location.href = '../index.html';
+
+                            });
                         });
                     }else{
                         $('.texto-activo').text(`Elegiste el numero "1" y tiramos un dado imaginario y salio el "2".. Que mala suerte la tuya..`);
@@ -597,7 +630,16 @@ function piedad (texto, texto2, texto3){
                             $('.texto').text(`Lamentablemente no te diste cuenta a tiempo y Larry te partio la nuca de un botellazo.. Intentaste ser un buen tipo dejandolo vivir pero no fue muy inteligente de tu parte.. Nunca confies en Larry..
                             **FINAL TRISTE** Turnos jugados: ${turno}`);
 
+                            $('.texto').append(`<button class="btn-textoCuatro">Salir</button>`);
+
                             derrota();
+
+                            $('.btn-textoCuatro').click(function (e) { 
+                                e.preventDefault();
+
+                                window.location.href = '../index.html';
+
+                            });
                         });
                     }
                 });
