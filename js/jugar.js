@@ -193,7 +193,7 @@ $('.atacar').click(function (e) {
     if (claseU == 'guerrero'){
         if (usuarioPV > 25){
             displayInicial(`${nombreU} ataca con su espada vikinga por ${golpe} de daño`)
-            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, 110);
+            displaySiguiente(`La vida del borracho baja de ${enemigoPV} a ${enemigoPV - golpe}`, golpe);
 
         }else if(usuarioPV <= 25 && vidaCriticaU === true){
             displayInicial(`La vida de ${nombreU} esta al limite lo que desata su espiritu de ${elementoU}.. Tira los dados para ver su suerte y ahora sus golpes se multiplican por ${suerte_personaje}`);
@@ -263,7 +263,7 @@ $('.atacar').click(function (e) {
 function turnoEnemigo(){
 
     let random = Math.ceil(Math.random()*11)
-    let golpe = 16 - random;
+    let golpe = 90;
 
     if (enemigoPV > 20){
         enemigoInicial(`Larry pega una patada por ${golpe} de daño`);
@@ -279,8 +279,16 @@ function turnoEnemigo(){
         definitivaE = false;
 
     }else if (enemigoPV < 20 && enemigoPV > 0 && vidaCriticaE === false && definitivaE === false) {
-        enemigoInicial(`Larry ya sin fuerzas pega una cachetada por ${golpe} de daño`);
-        enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
+
+        if ( (usuarioPV - golpe) <= 0){
+            enemigoInicial(`Larry ya sin fuerzas pega una cachetada por ${golpe} de daño`);
+            enemigoSiguienteFinal(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
+
+        } else{
+            enemigoInicial(`Larry ya sin fuerzas pega una cachetada por ${golpe} de daño`);
+            enemigoSiguiente(`La vida de ${nombreU} baja de ${usuarioPV} a ${usuarioPV - golpe}`, golpe);
+        }
+
     }else{
 
     //   DECISIONES FINALES ------------------------------------------------------------------------------
@@ -607,13 +615,44 @@ function displayCartel(texto, texto2){
     });
 }
 
-function derrotado(texto, texto2){
+function enemigoSiguienteFinal (texto, damage){
+
+    $('.btn-textoTres').click(function (e) {
+        e.preventDefault();
+        $('.texto-activo').text(texto);
+        $('.btn-textoTres').remove();
+
+        vidaUsuario(damage);
+    });
+    $('.btn-textoCuatro').click(function (e) {
+        e.preventDefault();
+        $('.btn-textoCuatro').remove();
+        
+        if (claseU == 'guerrero'){
+            derrotado(`Jajaja das mucha pena, no me quiero imaginar que se siente ser un ${claseU} y no poder derrotar una botella de birra con una espada..`, `Lamentablemente no fuiste lo suficientemente fuerte como para derrotar a un simple borracho.. En la proxima vida podrias probar con ser carpintero..`, `Larry te remato con un botellazo..
+            **FINAL TRISTE** Turnos jugados: ${turno}`);
+    
+        }else if (claseU == 'arquero'){
+    
+            derrotado(`Jajaja das mucha pena, no me quiero imaginar que se siente perder contra un tipo con una botella siendo un ${claseU}..`, `Lamentablemente no fuiste lo suficientemente fuerte como para derrotar a un simple borracho.. En la proxima vida podrias probar con ser carpintero..`, `Larry te remato con un botellazo..
+            **FINAL TRISTE** Turnos jugados: ${turno}`);
+    
+        }else if (claseU == 'mago'){
+            
+            derrotado(`Jajaja Harry Potter pudo vencer a un Troll de las cavernas y vos no pudiste contra un simple tipo con una botella..`, `Lamentablemente no fuiste lo suficientemente fuerte como para derrotar a un simple borracho.. En la proxima vida podrias probar con ser carpintero..`, `Larry te remato con un botellazo..
+            **FINAL TRISTE** Turnos jugados: ${turno}`);
+        }
+    });
+}
+
+function derrotado(texto, texto2, texto3){
 
     derrota();
 
     $('.texto-activo').text(texto);
     $('.texto').append(`<button class="btn-textoUno">Siguiente</button>
-                    <button class="btn-textoDos">Salir</button>`);
+                    <button class="btn-textoDos">Siguiente</button>
+                    <button class="btn-textoTres">Salir</button>`);
 
     $('.btn-textoUno').click(function (e) { 
         e.preventDefault();
@@ -622,6 +661,12 @@ function derrotado(texto, texto2){
         $('.texto-activo').text(texto2);
 
         $('.btn-textoDos').click(function (e) { 
+            e.preventDefault();
+            $('.btn-textoDos').remove();
+            $('.texto-activo').text(texto3);
+        });
+
+        $('.btn-textoTres').click(function (e) { 
             e.preventDefault();
             
             window.location.href = '../index.html';
