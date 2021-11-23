@@ -259,6 +259,15 @@ input:focus {
   background-repeat: no-repeat;
 }
 
+#contenedor #pantalla.principal .cartel-botones {
+  position: absolute;
+  top: 200px;
+  left: -5px;
+  width: 400px;
+  -webkit-filter: grayscale(0.6);
+          filter: grayscale(0.6);
+}
+
 #contenedor #pantalla.principal #botones {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -275,15 +284,59 @@ input:focus {
           align-items: center;
   width: 300px;
   height: 250px;
+  z-index: 2;
   position: absolute;
   top: 300px;
   left: 50px;
 }
 
 #contenedor #pantalla.principal #botones a {
-  color: azure;
-  font-weight: 600;
+  color: #e7e7e7;
+  font-weight: 700;
   font-size: 20px;
+  letter-spacing: -1px;
+  word-spacing: -1px;
+  text-shadow: 0 0 5px black;
+  -webkit-transition: -webkit-transform 250ms ease;
+  transition: -webkit-transform 250ms ease;
+  transition: transform 250ms ease;
+  transition: transform 250ms ease, -webkit-transform 250ms ease;
+}
+
+#contenedor #pantalla.principal #botones a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#contenedor #pantalla.principal .cartel {
+  position: absolute;
+  right: 0;
+  bottom: -80px;
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+  -webkit-filter: grayscale(0.6);
+          filter: grayscale(0.6);
+}
+
+#contenedor #pantalla.principal .texto-cartel {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  bottom: 125px;
+  right: 205px;
+  width: 230px;
+  height: 160px;
+  padding: 10px;
+  text-align: center;
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+  color: #1d1d1d;
+  font-weight: 400;
+  font-size: 40px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.425);
 }
 
 #contenedor #pantalla.principal .elegir-personaje_panel {

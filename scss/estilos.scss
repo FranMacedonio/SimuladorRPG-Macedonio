@@ -160,6 +160,15 @@ input{
             background-size: cover;
             background-repeat: no-repeat;
 
+            .cartel-botones{
+                position: absolute;
+                top: 200px;
+                left: -5px;
+                width: 400px;
+
+                filter: grayscale(.6);
+            }
+
             #botones{
                 display: flex;
                 flex-direction: column;
@@ -168,15 +177,56 @@ input{
                 width: 300px;
                 height: 250px;
 
+                z-index: 2;
+
                 position: absolute;
                 top: 300px;
                 left: 50px;
 
                 a{
-                    color: azure;
-                    font-weight: 600;
+                    color: rgb(231, 231, 231);
+                    font-weight: 700;
                     font-size: 20px;
+
+                    letter-spacing: -1px;
+                    word-spacing: -1px;
+
+                    text-shadow: 0 0 5px rgb(0, 0, 0);
+
+                    transition: transform 250ms ease;
+
+                    &:hover{
+                        transform: scale(1.1);
+                    }
                 }
+            }
+
+            .cartel{
+                position: absolute;
+                right: 0;
+                bottom: -80px;
+                transform: rotate(-15deg);
+                filter: grayscale(.6);
+            }
+            .texto-cartel{
+                display: grid;
+                place-content: center;
+                box-sizing: border-box;
+
+                position: absolute;
+                bottom: 125px;
+                right: 205px;
+                width: 230px;
+                height: 160px;
+                padding: 10px;
+
+                text-align: center;
+                transform: rotate(-15deg);
+
+                color: rgb(29, 29, 29);
+                font-weight: 400;
+                font-size: 40px;
+                text-shadow: 0 0 2px rgba(0, 0, 0, 0.425);
             }
 
             .elegir-personaje_panel{

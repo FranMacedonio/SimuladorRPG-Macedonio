@@ -77,3 +77,35 @@ $('.btn-jugar').click(function () {
             
         });
 });
+
+$('.btn-jugar').hover(function () {
+        $('.texto-cartel').text('Jugar Historia');
+        
+    }, function () {
+        $('.texto-cartel').text('No Patear Botellas');
+    }
+);
+
+$('.crear-btn').hover(function () {
+    $('.texto-cartel').text('Crear Personaje');
+        
+    }, function () {
+        $('.texto-cartel').text('No Patear Botellas');
+    }
+);
+
+$('.guardados-btn').hover(function () {
+    $('.texto-cartel').text('Personajes Guardados');
+        
+    }, function () {
+        $('.texto-cartel').text('No Patear Botellas');
+    }
+);
+
+$('.salir').hover(function () {
+    $('.texto-cartel').text('Salir');
+        
+    }, function () {
+        $('.texto-cartel').text('No Patear Botellas');
+    }
+);
