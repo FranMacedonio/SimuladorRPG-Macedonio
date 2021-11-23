@@ -275,6 +275,19 @@ input:focus {
           filter: grayscale(0.6);
 }
 
+#contenedor #pantalla.principal .eliminar--botones {
+  padding: 5px 10px;
+  background-color: #b8b8b8;
+  color: #101010;
+  font-size: 14px;
+  -webkit-transition: background-color 250ms ease-in;
+  transition: background-color 250ms ease-in;
+}
+
+#contenedor #pantalla.principal .eliminar--botones:hover {
+  background-color: #948c66;
+}
+
 #contenedor #pantalla.principal #botones {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -486,6 +499,19 @@ input:focus {
           align-items: center;
   overflow-x: hidden;
   background: radial-gradient(white, grey);
+}
+
+#contenedor #pantalla.creacion .btn-inicio, #contenedor #pantalla.creacion .btn-crear, #contenedor #pantalla.guardados .btn-inicio, #contenedor #pantalla.guardados .btn-crear {
+  padding: 5px 10px;
+  background-color: #b8b8b8;
+  color: #101010;
+  font-size: 14px;
+  -webkit-transition: background-color 250ms ease-in;
+  transition: background-color 250ms ease-in;
+}
+
+#contenedor #pantalla.creacion .btn-inicio:hover, #contenedor #pantalla.creacion .btn-crear:hover, #contenedor #pantalla.guardados .btn-inicio:hover, #contenedor #pantalla.guardados .btn-crear:hover {
+  background-color: #948c66;
 }
 
 #contenedor #pantalla.creacion .glass-card, #contenedor #pantalla.guardados .glass-card {

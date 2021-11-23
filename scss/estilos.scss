@@ -176,6 +176,20 @@ input{
                 filter: grayscale(.6);
             }
 
+            .eliminar--botones{
+
+                padding: 5px 10px;
+                background-color: #b8b8b8;
+                color: #101010;
+                font-size: 14px;
+
+                transition: background-color 250ms ease-in;
+
+                &:hover{
+                    background-color: rgb(148, 140, 102);
+                }
+            }
+
             #botones{
                 display: flex;
                 flex-direction: column;
@@ -363,6 +377,20 @@ input{
             overflow-x: hidden;
 
             background: radial-gradient(white, grey);
+
+            .btn-inicio, .btn-crear{
+
+                padding: 5px 10px;
+                background-color: #b8b8b8;
+                color: #101010;
+                font-size: 14px;
+
+                transition: background-color 250ms ease-in;
+
+                &:hover{
+                    background-color: rgb(148, 140, 102);
+                }
+            }
 
             .glass-card{
                 position: relative;
