@@ -75,37 +75,37 @@ input:focus {
 
 @-webkit-keyframes barraV {
   0% {
-    background-color: green;
+    background-color: #383838;
   }
   25% {
     background-color: grey;
   }
   50% {
-    background-color: green;
+    background-color: #383838;
   }
   75% {
     background-color: grey;
   }
   100% {
-    background-color: green;
+    background-color: #383838;
   }
 }
 
 @keyframes barraV {
   0% {
-    background-color: green;
+    background-color: #383838;
   }
   25% {
     background-color: grey;
   }
   50% {
-    background-color: green;
+    background-color: #383838;
   }
   75% {
     background-color: grey;
   }
   100% {
-    background-color: green;
+    background-color: #383838;
   }
 }
 
@@ -1214,7 +1214,7 @@ input:focus {
 #contenedor #pantalla.jugar #interfaz .sector-juego .sector-personaje .personaje-cartel .personaje-vida .personaje-vida__barra {
   position: absolute;
   width: 100.4%;
-  height: 30px;
+  height: 31px;
   background-color: #229722;
 }
 
@@ -1272,7 +1272,6 @@ input:focus {
   position: absolute;
   width: 100.4%;
   height: 31px;
-  top: -1px;
   background-color: #911a1a;
 }
 

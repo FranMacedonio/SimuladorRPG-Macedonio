@@ -42,19 +42,19 @@ input{
 
 @keyframes barraV {
     0%{
-        background-color: green;
+        background-color: rgb(56, 56, 56);
     }
     25%{
         background-color: grey;
     }
     50%{
-        background-color: green;
+        background-color: rgb(56, 56, 56);
     }
     75%{
         background-color: grey;
     }
     100%{
-        background-color: green;
+        background-color: rgb(56, 56, 56);
     }
 }
 
@@ -1035,7 +1035,7 @@ input{
                                 .personaje-vida__barra{
                                     position: absolute;
                                     width: 100.4%;
-                                    height: 30px;
+                                    height: 31px;
 
                                     background-color: #229722;
                                 }
@@ -1096,7 +1096,6 @@ input{
                                     position: absolute;
                                     width: 100.4%;
                                     height: 31px;
-                                    top: -1px;
 
                                     background-color: rgb(145, 26, 26);
                                 }

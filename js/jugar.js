@@ -481,7 +481,7 @@ function matar (texto, texto2){
             $('.btn-textoUno').remove();
 
             $('.texto-activo').text(texto2);
-            $('.texto').append(`<button class="btn-textoUno">Salir</button>`);
+            $('.texto').append(`<button class="btn-textoDos">Salir</button>`);
 
             $('.btn-textoDos').click(function (e) { 
                 e.preventDefault();
