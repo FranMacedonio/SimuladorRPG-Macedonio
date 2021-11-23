@@ -68,9 +68,6 @@ $(document).ready(function () {
         });
     });
 
-    // $('.personaje-juego img').css({'left': '70px'});
-    // $('.enemigo-juego img').css({'right': '70px'});
-
 });
 
 // VARIABLES --------------------------------------------------------------------------------
@@ -107,29 +104,29 @@ if (claseU == 'guerrero'){
 }else if (claseU == 'arquero'){
     switch (suerte_personaje){
         case 1:
-            suerte_personaje = 3;
-            break;
-
-        case 2:
             suerte_personaje = 5;
             break;
 
+        case 2:
+            suerte_personaje = 7;
+            break;
+
         case 3:
-            suerte_personaje = 8;
+            suerte_personaje = 10;
             break;
     }
 }else if (claseU == 'mago'){
     switch (suerte_personaje){
         case 1:
-            suerte_personaje = 10;;
+            suerte_personaje = 15;;
             break;
 
         case 2:
-            suerte_personaje = 15;
+            suerte_personaje = 20;
             break;
 
         case 3:
-            suerte_personaje = 20;
+            suerte_personaje = 25;
             break;
     }
 }
@@ -295,11 +292,11 @@ function turnoEnemigo(){
     } else if (enemigoPV < 20 && enemigoPV > 0 && vidaCriticaE === false && definitivaE === true){
 
         if ( (usuarioPV - definitiva) <= 0){
-            enemigoInicial(`"Nunca nadie me habia hecho llegar hasta estas alturas en una pelea.. No mequeda otra opcion que usar mi ataque especial.. Nos vemos ${nombreU}.."`);
+            enemigoInicial(`"Nunca nadie me habia hecho llegar hasta estas alturas en una pelea.. No mequeda otra opcion que usar mi ataque especial.. Nos vemos ${nombreU}.. La proxima pensa bien si vas a patear botellas.."`);
             enemigoSiguienteFinal(`Larry te tira un botellazo y te hace ${definitiva} de daño`, definitiva);
 
         } else{
-            enemigoInicial(`"Nunca nadie me habia hecho llegar hasta estas alturas en una pelea.. No mequeda otra opcion que usar mi ataque especial.. Nos vemos ${nombreU}.."`);
+            enemigoInicial(`"Nunca nadie me habia hecho llegar hasta estas alturas en una pelea.. No mequeda otra opcion que usar mi ataque especial.. Nos vemos ${nombreU}.. La proxima pensa bien si vas a patear botellas.."`);
             enemigoSiguiente(`Larry te tira un botellazo y te hace ${definitiva} de daño`, definitiva);
             definitivaE = false;
         }
@@ -342,9 +339,9 @@ $('.especial').hover(function () {
         if (claseU == 'guerrero'){
             $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su furia de ${elementoU} aumenta su daño un 35%, 65% o 100% dependiendo de tu suerte`);
         } else if (claseU == 'arquero'){
-            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su espiritu ${elementoU} hace que su proxima flecha deja sangrando al enemigo por 3, 5 o 8 dependiendo de tu suerte`);
+            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 su espiritu ${elementoU} hace que su proxima flecha deja sangrando al enemigo por 5, 7 o 10 dependiendo de tu suerte`);
         } else if (claseU == 'mago'){
-            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 desata su poder de ${elementoU} y lanza un poderozo ataque que daña al enemigo por 20, 30 o 40 dependiendo de tu suerte`);
+            $('.texto-activo').text(`Cuando su vida esta por debajo de 25 desata su poder de ${elementoU} y lanza un poderozo ataque que daña al enemigo por 15, 20 o 25 dependiendo de tu suerte`);
         }
 
     }, function () {
@@ -470,7 +467,7 @@ function actoFinal (texto, texto2){
         $('.texto').append(`<button class="btn-textoMatar">Dar golpe final</button>
                             <button class="btn-textoPiedad">Dejarlo vivir</button>`);
 
-        matar ('Decidiste no tener piedad con Larry aunque te lo pidio de buena forma..', decisionPersonaje ());
+        matar ('Decidiste no tener piedad con Larry aunque te lo pidio de buena forma.. Aunque le hayas pegado un botellazo.. No sos una gran persona..', decisionPersonaje ());
 
         piedad ('Decidiste tener piedad sobre el borracho como todo un heroe..', '"¡JA JA NUNCA DEBISTE HABER CONFIADO EN MI!"', 'Aparentemente el cagon de Larry esta a punto de hacer algo. Elegi entre uno de los siguientes numeros para determinar tu suerte con el numero que salga en la pantalla a continuacion..');
     });
@@ -490,6 +487,8 @@ function matar (texto, texto2){
         $('.btn-textoUno').click(function (e) { 
             e.preventDefault();
             $('.btn-textoUno').remove();
+
+            muerte('enemigo');
 
             $('.texto-activo').text(texto2);
             $('.texto').append(`<button class="btn-textoDos">Salir</button>`);
@@ -564,6 +563,8 @@ function piedad (texto, texto2, texto3){
 
                             $('.texto').append(`<button class="btn-textoCuatro">Salir</button>`);
 
+                            muerte('enemigo');
+
                             victoria();
 
                             $('.btn-textoCuatro').click(function (e) { 
@@ -586,6 +587,8 @@ function piedad (texto, texto2, texto3){
                             **FINAL TRISTE** Turnos jugados: ${turno}`);
 
                             $('.texto').append(`<button class="btn-textoCuatro">Salir</button>`);
+
+                            muerte('usuario');
 
                             derrota();
 
@@ -621,6 +624,8 @@ function piedad (texto, texto2, texto3){
 
                             $('.texto').append(`<button class="btn-textoCuatro">Salir</button>`);
 
+                            muerte('enemigo');
+
                             victoria();
                             
                             $('.btn-textoCuatro').click(function (e) { 
@@ -642,6 +647,8 @@ function piedad (texto, texto2, texto3){
                             **FINAL TRISTE** Turnos jugados: ${turno}`);
 
                             $('.texto').append(`<button class="btn-textoCuatro">Salir</button>`);
+
+                            muerte('usuario');
 
                             derrota();
 
@@ -697,17 +704,17 @@ function enemigoSiguienteFinal (texto, damage){
         $('.btn-textoCuatro').remove();
         
         if (claseU == 'guerrero'){
-            derrotado(`Jajaja das mucha pena, no me quiero imaginar que se siente ser un ${claseU} y no poder derrotar una botella de birra con una espada..`, `Lamentablemente no fuiste lo suficientemente fuerte como para derrotar a un simple borracho.. En la proxima vida podrias probar con ser carpintero..`, `Larry te remato con un botellazo..
+            derrotado(`Jajaja das mucha pena, no me quiero imaginar que se siente ser un ${claseU} y no poder derrotar una botella de birra con una espada..`, `Lamentablemente no fuiste lo suficientemente fuerte como para derrotar a un simple borracho.. En la proxima deberias pensar con mas seriedad si patear botellas al azar es buena idea..`, `El colmo es que Larry te remato con un botellazo..
             **FINAL TRISTE** Turnos jugados: ${turno}`);
     
         }else if (claseU == 'arquero'){
     
-            derrotado(`Jajaja das mucha pena, no me quiero imaginar que se siente perder contra un tipo con una botella siendo un ${claseU}..`, `Lamentablemente no fuiste lo suficientemente fuerte como para derrotar a un simple borracho.. En la proxima vida podrias probar con ser carpintero..`, `Larry te remato con un botellazo..
+            derrotado(`Jajaja das mucha pena, no me quiero imaginar que se siente perder contra un tipo con una botella siendo un ${claseU}..`, `Lamentablemente no fuiste lo suficientemente fuerte como para derrotar a un simple borracho.. En la proxima deberias pensar con mas seriedad si patear botellas al azar es buena idea..`, `El colmo es que Larry te remato con un botellazo..
             **FINAL TRISTE** Turnos jugados: ${turno}`);
     
         }else if (claseU == 'mago'){
             
-            derrotado(`Jajaja Harry Potter pudo vencer a un Troll de las cavernas y vos no pudiste contra un simple tipo con una botella..`, `Lamentablemente no fuiste lo suficientemente fuerte como para derrotar a un simple borracho.. En la proxima vida podrias probar con ser carpintero..`, `Larry te remato con un botellazo..
+            derrotado(`Jajaja Harry Potter pudo vencer a un Troll de las cavernas y vos no pudiste contra un simple tipo con una botella..`, `Lamentablemente no fuiste lo suficientemente fuerte como para derrotar a un simple borracho.. En la proxima deberias pensar con mas seriedad si patear botellas al azar es buena idea..`, `El colmo es que Larry te remato con un botellazo..
             **FINAL TRISTE** Turnos jugados: ${turno}`);
         }
     });
@@ -732,6 +739,9 @@ function derrotado(texto, texto2, texto3){
             e.preventDefault();
             $('.btn-textoDos').remove();
             $('.texto-activo').text(texto3);
+
+            muerte('usuario');
+
         });
 
         $('.btn-textoTres').click(function (e) { 
@@ -827,4 +837,22 @@ function derrota(){
             localStorage.setItem('personajes', JSON.stringify(personajes));
         }
     }
+}
+
+function muerte(objeto){
+
+    if (objeto == 'usuario'){
+
+        impacto (imgU);
+        $(imgU).fadeOut(4000);
+        $('.personaje-cartel').fadeOut(4000);
+
+    } else if (objeto == 'enemigo'){
+
+        impacto (imgE);
+        $(imgE).fadeOut(4000);
+        $('.enemigo-cartel').fadeOut(4000);
+
+    }
+
 }
