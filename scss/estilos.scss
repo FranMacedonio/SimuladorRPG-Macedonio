@@ -88,6 +88,26 @@ input{
     }
 }
 
+@keyframes volar {
+    to{
+        bottom: 330px;
+        left: 1050px;
+        transform: rotate(0deg);
+    }
+    from{
+        bottom: 150px;
+        left: 350px;
+        transform: rotate(-360deg);
+    }
+}
+
+.volar{
+    animation-name: volar;
+    animation-timing-function: linear;
+    animation-duration: 900ms;
+    animation-iteration-count: 1;
+}
+
 .impacto{
     animation-name: impacto;
     animation-timing-function: ease;
@@ -166,6 +186,8 @@ input{
             background-image: url(../media/inicio.jpg);
             background-size: cover;
             background-repeat: no-repeat;
+
+            overflow: hidden;
 
             .cartel-botones{
                 position: absolute;
@@ -897,6 +919,17 @@ input{
 
         &.jugar{
             position: relative;
+
+            .botella{
+                position: absolute;
+
+                display: none;
+
+                width: 50px;
+                bottom: 150px;
+                left: 350px;
+                z-index: 11;
+            }
 
             #interfaz{
                 position: absolute;

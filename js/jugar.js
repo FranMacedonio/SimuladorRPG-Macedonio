@@ -23,6 +23,17 @@ $(document).ready(function () {
             $('.btn-textoInicio').hide();
 
             setTimeout(() => {
+                
+                $('.botella').fadeIn();
+                $('.botella').addClass('volar');
+
+                setTimeout(() => {
+                   $('.botella').remove(); 
+                }, 900);
+
+            }, 3000);
+
+            setTimeout(() => {
                 $('.texto-activo').text('*Ruido de golpe*');
                 setTimeout(() => {
                     $('.texto-activo').text('"Que te pasa a vos casi me sacas un ojo con esa botella"');

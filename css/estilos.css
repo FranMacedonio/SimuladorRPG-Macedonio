@@ -169,6 +169,47 @@ input:focus {
   }
 }
 
+@-webkit-keyframes volar {
+  to {
+    bottom: 330px;
+    left: 1050px;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  from {
+    bottom: 150px;
+    left: 350px;
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+@keyframes volar {
+  to {
+    bottom: 330px;
+    left: 1050px;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  from {
+    bottom: 150px;
+    left: 350px;
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+.volar {
+  -webkit-animation-name: volar;
+          animation-name: volar;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 900ms;
+          animation-duration: 900ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
 .impacto {
   -webkit-animation-name: impacto;
           animation-name: impacto;
@@ -264,6 +305,7 @@ input:focus {
   background-image: url(../media/inicio.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 #contenedor #pantalla.principal .cartel-botones {
@@ -1045,6 +1087,15 @@ input:focus {
 
 #contenedor #pantalla.jugar {
   position: relative;
+}
+
+#contenedor #pantalla.jugar .botella {
+  position: absolute;
+  display: none;
+  width: 50px;
+  bottom: 150px;
+  left: 350px;
+  z-index: 11;
 }
 
 #contenedor #pantalla.jugar #interfaz {
